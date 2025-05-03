@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Portfolio</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
@@ -13,35 +13,10 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #ffffff;
-      overflow: hidden; /* Prevents scrollbar caused by animations */
-      cursor: url('your-cursor-image.png'), auto; /* Custom Cursor */
-      position: relative;
-    }
-
-    /* Background Animation */
-    .background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(45deg, #ff5f6d, #ffc3a0);
-      background-size: 400% 400%;
-      animation: gradientAnimation 6s ease infinite;
-    }
-
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
+      color: #333;
+      position: relative; /* This allows absolute positioning for the stickers */
+      cursor: url('cursor.png'), auto;
     }
 
     /* Container */
@@ -49,7 +24,6 @@
       max-width: 750px;
       margin: 0 auto;
       padding: 2rem;
-      position: relative;
     }
 
     /* Header Styling */
@@ -81,6 +55,7 @@
       position: relative;
     }
 
+    /* Hover effect for sections */
     section:hover {
       background-color: #e2e8f0;
       transform: translateY(-5px);
@@ -95,6 +70,7 @@
       position: relative;
     }
 
+    /* Moving Line for Hover Effect */
     h2::after {
       content: "";
       position: absolute;
@@ -106,6 +82,7 @@
       transition: width 0.3s ease-in-out;
     }
 
+    /* Hover effect for section titles */
     section:hover h2::after {
       width: 100%;
     }
@@ -122,6 +99,7 @@
       margin-bottom: 1.5rem;
     }
 
+    /* Social Links Styling */
     .social-links a {
       color: #0284c7;
       text-decoration: none;
@@ -138,7 +116,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 3rem 0;
+      margin: 3rem 0; /* Added margin for better spacing */
     }
 
     .btn {
@@ -154,6 +132,7 @@
       cursor: pointer;
     }
 
+    /* Hover Effect for Explore Button */
     .btn:hover {
       background-color: #0284c7;
       transform: scale(1.1);
@@ -174,18 +153,17 @@
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
     }
 
-    /* Interactive Hover Effect for Stickers */
+    /* Unique Sticker Effects */
     .sticker:hover {
-      transform: rotate(20deg) scale(1.3);
+      transform: rotate(20deg) scale(1.2);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    /* Sticker Placement */
+    /* Placing Stickers Around the Page (freely) */
     .sticker-1 {
-      top: 10%;
+      top: 5%;
       left: 5%;
       background-color: #0ea5e9; /* Blue */
     }
@@ -202,15 +180,17 @@
       background-color: #10b981; /* Green */
     }
 
+    /* React Sticker (Top-Right Corner) */
     .sticker-4 {
-      top: 20%;
-      left: 15%;
+      top: 5%;  /* Position it near the top */
+      right: 5%; /* Position it near the right */
       background-color: #ef4444; /* Red */
     }
 
+    /* Node.js Sticker (Right Side) */
     .sticker-5 {
-      bottom: 5%;
-      right: 7%;
+      top: 40%;  /* Adjust as needed to position it vertically */
+      right: 5%;  /* Keep it aligned to the right */
       background-color: #9333ea; /* Purple */
     }
 
@@ -238,9 +218,6 @@
   </style>
 </head>
 <body>
-  <!-- Interactive Background -->
-  <div class="background"></div>
-
   <div class="container">
     <header>
       <h1>Hi, I'm Sarah</h1>
