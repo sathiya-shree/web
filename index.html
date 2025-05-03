@@ -5,55 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f3f4f6;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      background-size: 200% 200%;
+      animation: gradientBG 6s ease infinite;
       color: #333;
-      transition: all 0.3s ease;
-      scroll-behavior: smooth;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
       max-width: 700px;
       margin: 0 auto;
       padding: 2rem;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      text-align: center;
     }
 
     header {
-      text-align: center;
       padding: 1.5rem 0;
-      transition: all 0.3s ease-in-out;
     }
 
     header h1 {
       font-size: 2.5rem;
       color: #0f172a;
-      transition: transform 0.3s ease;
-    }
-
-    header h1:hover {
-      transform: scale(1.05);
+      font-family: 'Montserrat', sans-serif;
+      animation: scaleIn 1.2s ease-in-out;
     }
 
     header p {
       font-size: 1.2rem;
       color: #475569;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     section {
@@ -64,39 +66,23 @@
     h2 {
       color: #1e293b;
       margin-bottom: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    h2:hover {
+      color: #0284c7;
     }
 
     .about p {
-      font-size: 1rem;
       line-height: 1.6;
-      color: #334155;
     }
 
     .contact {
       margin-top: 3rem;
-      background: #e0f2fe;
-      padding: 1.5rem;
-      border-radius: 12px;
-      transition: background 0.3s ease;
-    }
-
-    .contact:hover {
-      background: #bae6fd;
-    }
-
-    .contact h2 {
-      color: #0f172a;
-    }
-
-    .contact-info {
-      margin-top: 1rem;
-      line-height: 1.7;
-      font-size: 1rem;
-      color: #1e293b;
     }
 
     .social-links {
-      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .social-links a {
@@ -118,13 +104,14 @@
       padding: 0.8rem 1.5rem;
       border-radius: 25px;
       text-decoration: none;
-      transition: background 0.3s ease, transform 0.3s ease;
-      margin-top: 1.5rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      transform: scale(1);
     }
 
     .btn:hover {
+      transform: scale(1.05);
       background: #0284c7;
-      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -138,23 +125,20 @@
     <section class="about">
       <h2>About Me</h2>
       <p>
-        I love building websites that are clean, minimal, and functional. I'm currently learning HTML, CSS, and JavaScript. I have a passion for creative writing and an interest in combining design with functionality. I’m pursuing BSc in Computer Technology and exploring ways to enhance digital experiences.
+        I love building websites that are clean, minimal, and functional.
+        I'm currently learning HTML, CSS, and JavaScript. I have a passion for creative writing 
+        and an interest in combining design with functionality. I’m pursuing a BSc in Computer Technology 
+        and exploring ways to enhance digital experiences through my work.
       </p>
     </section>
-     
-<div style="text-align: center;">
-  <a href="details.html" class="btn">Explore My Work</a>
-</div>
+
     <section class="contact">
       <h2>Contact</h2>
-      <div class="contact-info">
-        📍 Coimbatore, Tamil Nadu, India<br>
-        ✉️ sathiyashree03@gmail.com
-      </div>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/sathiya-shree-s" target="_blank">LinkedIn</a> |
         <a href="https://github.com/sathiya-shree-s" target="_blank">GitHub</a>
       </div>
+      <a href="details.html" class="btn">Explore My Work</a>
     </section>
   </div>
 </body>
