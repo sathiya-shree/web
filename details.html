@@ -42,7 +42,7 @@
       100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
 
-    /* Other styles remain the same as before */
+    /* Layout */
     .layout {
       display: flex;
       min-height: 100vh;
@@ -72,10 +72,11 @@
       color: white;  /* Header text in white */
     }
 
+    /* Button hover effect */
     nav button {
       background: none;
       border: none;
-      color:white;
+      color: white;
       padding: 0.7rem 1.5rem;
       width: 100%;
       text-align: left;
@@ -86,6 +87,7 @@
     nav button:hover,
     nav button.active {
       background: #e2e8f0;
+      color: black;  /* Text color changes to black on hover */
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -112,7 +114,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1.6rem;
       margin-bottom: 1rem;
-      color: white;
+      color: black;  /* Section headings now in black */
     }
 
     p {
