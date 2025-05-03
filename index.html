@@ -58,6 +58,12 @@
       border-bottom: 2px solid #0ea5e9;
       padding-bottom: 5px;
       display: inline-block;
+      transition: border-bottom 0.3s ease-in-out;
+    }
+
+    /* Hover effect for sections */
+    section:hover h2 {
+      border-bottom: 2px solid #0284c7;
     }
 
     /* Contact Section */
@@ -94,13 +100,14 @@
       text-decoration: none;
       margin-top: 1.5rem;
       font-size: 1.1rem;
+      transition: background-color 0.3s ease-in-out;
     }
 
     .btn:hover {
       background: #0284c7;
     }
 
-    /* Centering the Explore Button */
+    /* Centered Explore Button */
     .explore-btn {
       text-align: center;
       margin: 2rem 0;
@@ -140,7 +147,7 @@
       </p>
     </section>
 
-    <!-- Centered Explore Button -->
+    <!-- Centered Explore Button without a box -->
     <section class="explore-btn">
       <a href="details.html" class="btn">Explore My Work</a>
     </section>
