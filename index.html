@@ -105,15 +105,32 @@
       padding: 0.9rem 1.6rem;
       border-radius: 30px;
       text-decoration: none;
-      margin-top: 1.5rem;
+      margin-top: 3rem; /* Added spacing above */
       font-size: 1.1rem;
-      transition: all 0.3s ease-in-out;
+      position: relative;
       cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease-in-out;
     }
 
+    /* Unique Hover Effect */
     .btn:hover {
       background: #0284c7;
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(10deg); /* Slight rotation with scaling */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+
+    /* Center the Explore Button */
+    .explore-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     /* Responsive Adjustments */
@@ -136,7 +153,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>Hi, I'm Sathiya shree</h1>
+      <h1>Hi, I'm Sarah</h1>
       <p>Aspiring Web Developer & Student</p>
     </header>
 
@@ -150,8 +167,10 @@
       </p>
     </section>
 
-    <!-- Removed container for Explore button and animations -->
-    <a href="details.html" class="btn">Explore My Work</a>
+    <!-- Centered Explore Button with unique effects -->
+    <div class="explore-btn">
+      <a href="details.html" class="btn">Explore My Work</a>
+    </div>
 
     <section class="contact">
       <h2>Contact</h2>
