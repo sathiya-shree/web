@@ -9,6 +9,11 @@
       background: #f7f9fc;
       color: #333;
       padding: 20px;
+      transition: background 0.3s ease;
+    }
+
+    body:hover {
+      background: #eef2f7;
     }
 
     header {
@@ -60,6 +65,7 @@
       opacity: 0;
       transform: translateY(20px);
       animation: slideUp 1s forwards;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     }
 
     @keyframes slideUp {
@@ -68,6 +74,33 @@
         transform: translateY(0);
       }
     }
+
+    .cert-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cert-button {
+      background-color: #0077cc;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cert-button:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
+
+    .cert-button:active {
+      transform: scale(0.95);
+    }
+
   </style>
 </head>
 <body>
@@ -80,16 +113,19 @@
     <div class="cert-card slide-in">
       <h2>Web Development - Internet Society</h2>
       <p>Completed internship with HTML, CSS, JS, and responsive design.</p>
+      <a href="#" class="cert-button">View Details</a>
     </div>
 
     <div class="cert-card slide-in">
       <h2>Cyber Security Fundamentals</h2>
       <p>Covered essential cybersecurity principles and best practices.</p>
+      <a href="#" class="cert-button">View Details</a>
     </div>
 
     <div class="cert-card slide-in">
       <h2>ISRO Online Training</h2>
       <p>Participated in national-level training on space tech and programming.</p>
+      <a href="#" class="cert-button">View Details</a>
     </div>
 
     <!-- Add more certifications as needed -->
