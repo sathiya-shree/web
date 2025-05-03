@@ -1,24 +1,224 @@
-<section id="internships" class="active">
-  <div class="internship-card">
-    <h3>Frontend Developer Intern</h3>
-    <p><strong>Company:</strong> Internet Society Chennai Chapter</p>
-    <p><strong>Duration:</strong> 4 months</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      background-size: 200% 200%;
+      animation: gradientBG 6s ease infinite;
+      color: #333;
+    }
 
-    <h4>Languages</h4>
-    <p>HTML, CSS, JavaScript, Python</p>
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-    <h4>Framework</h4>
-    <p>Django</p>
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
 
-    <h4>Tools Used</h4>
-    <p>VS Code, GitHub, Django Admin, Chrome DevTools</p>
+    nav {
+      width: 220px;
+      background: #0284c7;
+      color: white;
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
 
-    <h4>Responsibilities</h4>
-    <ul>
-      <li>Created responsive web layouts using HTML & CSS</li>
-      <li>Built interactive UI features with JavaScript</li>
-      <li>Developed Django templates & views for dynamic content</li>
-      <li>Worked in a team environment and met project deadlines</li>
-    </ul>
+    nav h2 {
+      font-size: 1.4rem;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      width: 80%;
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #0ea5e9;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      animation: fadeInMain 1s ease;
+    }
+
+    @keyframes fadeInMain {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #1e293b;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Internship section enhancements */
+    section#internships p {
+      background-color: #f0f9ff;
+      padding: 1.2rem 1.5rem;
+      border-left: 4px solid #0284c7;
+      border-radius: 8px;
+      animation: fadeInIntern 0.8s ease;
+    }
+
+    @keyframes fadeInIntern {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section#internships h3 {
+      color: #0284c7;
+      animation: fadeInTitle 0.8s ease;
+    }
+
+    @keyframes fadeInTitle {
+      from {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav>
+      <h2>Explore</h2>
+      <button class="tab-btn active" data-target="internships">Internships</button>
+      <button class="tab-btn" data-target="projects">Projects</button>
+      <button class="tab-btn" data-target="certifications">Certifications</button>
+      <button class="tab-btn" data-target="skills">Skills</button>
+      <button class="tab-btn" data-target="interests">Interests</button>
+      <button class="tab-btn" data-target="resume">Resume</button>
+    </nav>
+
+    <main>
+      <section id="internships" class="active">
+        <h3>Frontend Developer – Internship</h3>
+        <p>
+          Worked as a <strong>Frontend Developer</strong> at <strong>Internet Society Chennai Chapter</strong> for a duration of <strong>4 months</strong>. 
+          Contributed to building responsive and dynamic web interfaces using <strong>HTML, CSS, JavaScript</strong>, and the <strong>Django framework</strong>. 
+          Collaborated on real-time features, enhanced user experience, and ensured seamless integration of backend components with frontend design.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h3>Projects</h3>
+        <p>
+          - Portfolio Website<br>
+          - To-Do List Application<br>
+          - Weather App (In Progress)<br>
+          Built with HTML, CSS, and JavaScript — focused on clean design and interactive user experience.
+        </p>
+      </section>
+
+      <section id="certifications">
+        <h3>Certifications</h3>
+        <p>
+          - HTML for Programmers<br>
+          - Spark AR by Meta<br>
+          - Cyber Security Fundamentals<br>
+          - Web Development Workshop<br>
+          - ISRO Online Training Program<br>
+        </p>
+      </section>
+
+      <section id="skills">
+        <h3>Skills</h3>
+        <p>
+          - Web Development (HTML, CSS, JavaScript)<br>
+          - Java, C++, MySQL<br>
+          - Creative Writing, Social Media Management<br>
+          - Time Management, Team Collaboration<br>
+        </p>
+      </section>
+
+      <section id="interests">
+        <h3>Interests</h3>
+        <p>
+          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling. I love merging technology with creativity to build meaningful experiences.
+        </p>
+      </section>
+
+      <section id="resume">
+        <h3>Resume</h3>
+        <p>
+          <a href="your-resume-link.pdf" target="_blank">Click here to view or download my resume</a>
+        </p>
+      </section>
+    </main>
   </div>
-</section>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('main section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
