@@ -3,179 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Explore My Work</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <title>My Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f3f4f6;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      background-size: 200% 200%;
+      animation: gradientBG 6s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .layout {
       display: flex;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
     }
 
-    .sidebar {
-      width: 240px;
-      background: #e0f2fe;
-      padding: 1.5rem 1rem;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
+    nav {
+      width: 220px;
+      background: #0284c7;
+      color: white;
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
-    .sidebar h3 {
-      margin-bottom: 1.5rem;
-      font-size: 1.3rem;
-      color: #0284c7;
-      text-align: center;
+    nav h2 {
+      font-size: 1.4rem;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      width: 80%;
     }
 
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 1.2rem;
-      cursor: pointer;
-      font-weight: 500;
-      padding: 0.4rem 0.5rem;
-      border-radius: 8px;
-      color: #1e293b;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .sidebar li:hover {
-      background: #bae6fd;
-      transform: translateX(5px);
-      color: #0ea5e9;
-    }
-
-    .content {
-      flex-grow: 1;
-      padding: 2rem;
-      overflow-y: auto;
-      background: #f8fafc;
-      transition: background 0.4s ease-in-out;
-    }
-
-    .content-section {
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .content-section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      color: #0f172a;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-      border-bottom: 2px solid #94d2ff;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-    }
-
-    p, li {
-      line-height: 1.7;
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      width: 100%;
+      text-align: left;
       font-size: 1rem;
-      color: #334155;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    nav button:hover,
+    nav button.active {
+      background: #0ea5e9;
     }
 
-    a {
-      color: #0284c7;
-      text-decoration: none;
+    main {
+      flex: 1;
+      padding: 2rem;
+      animation: fadeInMain 1s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
+    @keyframes fadeInMain {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #1e293b;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <h3>My Work</h3>
-    <ul>
-      <li onclick="showSection('internships')">Internships</li>
-      <li onclick="showSection('projects')">Projects</li>
-      <li onclick="showSection('certifications')">Certifications</li>
-      <li onclick="showSection('skills')">Skills</li>
-      <li onclick="showSection('interests')">Interests</li>
-      <li onclick="showSection('resume')">Resume</li>
-    </ul>
-  </div>
+  <div class="layout">
+    <nav>
+      <h2>Explore</h2>
+      <button class="tab-btn active" data-target="internships">Internships</button>
+      <button class="tab-btn" data-target="projects">Projects</button>
+      <button class="tab-btn" data-target="certifications">Certifications</button>
+      <button class="tab-btn" data-target="skills">Skills</button>
+      <button class="tab-btn" data-target="interests">Interests</button>
+      <button class="tab-btn" data-target="resume">Resume</button>
+    </nav>
 
-  <div class="content">
-    <div id="internships" class="content-section active">
-      <h2>Auto Event Trigger Web Application</h2>
-      <p>
-        During my internship at Internet Society Chennai Chapter, I contributed to the development of an <strong>Auto Event Trigger Web Application</strong>. The system was designed to monitor key changes and automate notifications using a user-defined schedule. It included a clean front-end built with HTML, CSS, and JavaScript, and the backend featured event-based automation logic.
-      </p>
-      <p>
-        This project sharpened my understanding of DOM manipulation, event-driven programming, and user-centric design. It also helped me learn how to debug and improve UI responsiveness for real-world applications.
-      </p>
-    </div>
+    <main>
+      <section id="internships" class="active">
+        <h3>Auto Event Trigger Web Application</h3>
+        <p>
+          Developed a smart web application that automates event triggers based on specific conditions using JavaScript and backend logic. 
+          This was part of my internship experience, where I worked on real-time scheduling, user interface design, and seamless execution.
+        </p>
+      </section>
 
-    <div id="projects" class="content-section">
-      <h2>Projects</h2>
-      <ul>
-        <li>Portfolio Website</li>
-        <li>To-Do List App</li>
-        <li>Weather App (Coming soon)</li>
-      </ul>
-    </div>
+      <section id="projects">
+        <h3>Projects</h3>
+        <p>
+          - Portfolio Website<br>
+          - To-Do List Application<br>
+          - Weather App (In Progress)<br>
+          Built with HTML, CSS, and JavaScript — focused on clean design and interactive user experience.
+        </p>
+      </section>
 
-    <div id="certifications" class="content-section">
-      <h2>Certifications</h2>
-      <ul>
-        <li>HTML for Programmers</li>
-        <li>Spark AR Certification</li>
-        <li>Cybersecurity Fundamentals</li>
-        <li>ISRO Online Training Program</li>
-      </ul>
-    </div>
+      <section id="certifications">
+        <h3>Certifications</h3>
+        <p>
+          - HTML for Programmers<br>
+          - Spark AR by Meta<br>
+          - Cyber Security Fundamentals<br>
+          - Web Development Workshop<br>
+          - ISRO Online Training Program<br>
+        </p>
+      </section>
 
-    <div id="skills" class="content-section">
-      <h2>Skills</h2>
-      <ul>
-        <li>Programming: Java, C++, HTML, CSS, MySQL</li>
-        <li>Creative Writing & Social Media Management</li>
-        <li>Time Management & Team Collaboration</li>
-      </ul>
-    </div>
+      <section id="skills">
+        <h3>Skills</h3>
+        <p>
+          - Web Development (HTML, CSS, JavaScript)<br>
+          - Java, C++, MySQL<br>
+          - Creative Writing, Social Media Management<br>
+          - Time Management, Team Collaboration<br>
+        </p>
+      </section>
 
-    <div id="interests" class="content-section">
-      <h2>Interests</h2>
-      <p>
-        I'm passionate about writing poems and books, reviewing literature, and exploring visual storytelling. I enjoy experimenting with design tools and enhancing digital content experiences.
-      </p>
-    </div>
+      <section id="interests">
+        <h3>Interests</h3>
+        <p>
+          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling. I love merging technology with creativity to build meaningful experiences.
+        </p>
+      </section>
 
-    <div id="resume" class="content-section">
-      <h2>Resume</h2>
-      <p><a href="your-resume-link.pdf" target="_blank">Click here to view/download my resume</a></p>
-    </div>
+      <section id="resume">
+        <h3>Resume</h3>
+        <p>
+          <a href="your-resume-link.pdf" target="_blank">Click here to view or download my resume</a>
+        </p>
+      </section>
+    </main>
   </div>
 
   <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        section.classList.remove('active');
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('main section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
       });
-      document.getElementById(id).classList.add('active');
-    }
+    });
   </script>
 </body>
 </html>
