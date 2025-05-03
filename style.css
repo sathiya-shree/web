@@ -1,10 +1,10 @@
-/* Import Google Font */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background: #f3f4f6;
   color: #333;
+  transition: all 0.3s ease;
 }
 
 .container {
@@ -16,6 +16,7 @@ body {
 header {
   text-align: center;
   padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
 }
 
 header h1 {
@@ -30,6 +31,7 @@ header p {
 
 section {
   margin: 2rem 0;
+  transition: all 0.3s ease;
 }
 
 h2 {
@@ -37,20 +39,20 @@ h2 {
   margin-bottom: 1rem;
 }
 
-.projects ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.projects li {
-  background: #e2e8f0;
-  margin-bottom: 0.5rem;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-}
-
 .contact {
   text-align: center;
+}
+
+.social-links a {
+  color: #0284c7;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #0ea5e9;
 }
 
 .btn {
@@ -61,6 +63,7 @@ h2 {
   border-radius: 25px;
   text-decoration: none;
   transition: background 0.3s;
+  margin-top: 1rem;
 }
 
 .btn:hover {
