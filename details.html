@@ -26,14 +26,15 @@
       z-index: 0;
     }
 
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background-color: rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      animation: float 10s infinite linear;
-    }
+  .particle {
+  position: absolute;
+  width: 12px;              /* Increased size */
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.15);  /* Slightly darker for contrast */
+  border-radius: 50%;
+  animation: floatUp 12s linear infinite;
+  opacity: 0.6;
+}
 
     @keyframes float {
       0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
@@ -119,7 +120,7 @@
 
     /* Internship Section */
     section#internships h3 {
-      background: #000000;
+      background: #0ea5e9 ;
       color: #ffffff;
       text-align: center;
       margin: 0 auto 1.5rem auto;
@@ -140,7 +141,7 @@
       margin-bottom: 1rem;
       border-left: 4px solid #000;
       border-radius: 6px;
-      color: black;
+      color:  #0ea5e9;
     }
 
     a {
