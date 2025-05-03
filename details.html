@@ -174,16 +174,33 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
+      position: relative;
     }
 
+    /* Hover effects for the "Internship - Web Developer" button */
     .internship-btn:hover {
       background-color: #0ea5e9;
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      animation: shake 0.5s ease-in-out;
     }
 
     .internship-btn:focus {
       outline: none;
+    }
+
+    /* Shake animation for the button on hover */
+    @keyframes shake {
+      0% { transform: translateX(-4px); }
+      25% { transform: translateX(4px); }
+      50% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Hover glow effect for focus */
+    .internship-btn:focus-visible {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
   </style>
