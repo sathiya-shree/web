@@ -15,7 +15,6 @@
       position: relative;
     }
 
-    /* Floating Particles */
     .particles {
       position: fixed;
       top: 0;
@@ -42,7 +41,6 @@
       100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
 
-    /* Layout */
     .layout {
       display: flex;
       min-height: 100vh;
@@ -61,7 +59,6 @@
       gap: 1rem;
     }
 
-    /* Explore Section Header in White */
     nav h2 {
       font-size: 1.4rem;
       margin: 0 auto;
@@ -69,11 +66,10 @@
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(255,255,255,0.2);
       width: 80%;
-      color: white;  /* Header text in white */
+      color: white;
     }
 
-    /* Button hover effect */
-    nav button {
+    nav button, nav a.tab-btn {
       background: none;
       border: none;
       color: white;
@@ -83,17 +79,21 @@
       font-size: 1rem;
       transition: all 0.3s ease;
       position: relative;
+      font-family: inherit;
+      display: inline-block;
     }
 
     nav button:hover,
+    nav a.tab-btn:hover,
     nav button.active {
       background: #e2e8f0;
-      color: black;  /* Text color changes to black on hover */
+      color: black;
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    nav button:after {
+    nav button:after,
+    nav a.tab-btn:after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -105,7 +105,8 @@
       transition: transform 0.3s ease;
     }
 
-    nav button:hover:after {
+    nav button:hover:after,
+    nav a.tab-btn:hover:after {
       transform: scaleX(1);
     }
 
@@ -132,7 +133,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1.6rem;
       margin-bottom: 1rem;
-      color: black;  /* Section headings now in black */
+      color: black;
       text-align: center;
       font-weight: 600;
       padding: 0.8rem;
@@ -152,7 +153,6 @@
       color: black;
     }
 
-    /* Internship Section */
     section#internships h3 {
       background: #0ea5e9;
       color: #ffffff;
@@ -197,7 +197,8 @@
       <h2>Explore</h2>
       <button class="tab-btn active" data-target="internships">Internships</button>
       <button class="tab-btn" data-target="projects">Projects</button>
-      <button class="tab-btn" data-target="certifications">Certifications</button>
+      <!-- Certifications link -->
+      <a href="certifications.html" class="tab-btn" style="text-decoration: none;">Certifications</a>
       <button class="tab-btn" data-target="skills">Skills</button>
       <button class="tab-btn" data-target="interests">Interests</button>
       <button class="tab-btn" data-target="resume">Resume</button>
@@ -221,17 +222,6 @@
           - Portfolio Website<br>
           - To-Do List Application<br>
           - Weather App (In Progress)
-        </p>
-      </section>
-
-      <section id="certifications">
-        <h3>Certifications</h3>
-        <p>
-          - HTML for Programmers<br>
-          - Spark AR by Meta<br>
-          - Cyber Security Fundamentals<br>
-          - Web Development Workshop<br>
-          - ISRO Online Training Program
         </p>
       </section>
 
@@ -271,7 +261,10 @@
         sections.forEach(sec => sec.classList.remove('active'));
 
         btn.classList.add('active');
-        document.getElementById(btn.dataset.target).classList.add('active');
+        const target = btn.dataset.target;
+        if (target) {
+          document.getElementById(target).classList.add('active');
+        }
       });
     });
   </script>
