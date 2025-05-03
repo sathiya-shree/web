@@ -15,6 +15,7 @@
       padding: 0;
       background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
       color: #333;
+      position: relative;
     }
 
     /* Container */
@@ -50,6 +51,7 @@
       background: #ffffffcc;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease, transform 0.3s ease;
+      position: relative;
     }
 
     /* Hover effect for sections */
@@ -116,7 +118,7 @@
       padding: 0.9rem 1.6rem;
       border-radius: 30px;
       text-decoration: none;
-      margin-top: 3rem; /* Added spacing above */
+      margin-top: 3rem;
       font-size: 1.1rem;
       position: relative;
       cursor: pointer;
@@ -125,7 +127,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
 
-    /* Unique Hover Effect for Explore Button */
+    /* Hover Effect for Explore Button */
     .btn:hover {
       background-color: #0284c7;
       transform: scale(1.1);
@@ -144,6 +146,45 @@
       margin-top: 2rem;
     }
 
+    /* Stickers Design */
+    .sticker {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #0ea5e9;
+      color: white;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Unique Sticker Effects */
+    .sticker:hover {
+      transform: rotate(20deg) scale(1.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Placing Stickers in Different Corners */
+    .sticker-1 {
+      top: 15%;
+      left: 10%;
+    }
+
+    .sticker-2 {
+      bottom: 15%;
+      right: 10%;
+    }
+
+    .sticker-3 {
+      top: 30%;
+      right: 25%;
+    }
+
     /* Responsive Adjustments */
     @media screen and (max-width: 600px) {
       header h1 {
@@ -157,6 +198,12 @@
 
       .container {
         padding: 1rem;
+      }
+
+      .sticker {
+        width: 80px;
+        height: 80px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -195,5 +242,11 @@
       </div>
     </section>
   </div>
+
+  <!-- Stickers -->
+  <div class="sticker sticker-1">HTML</div>
+  <div class="sticker sticker-2">CSS</div>
+  <div class="sticker sticker-3">JS</div>
+
 </body>
 </html>
