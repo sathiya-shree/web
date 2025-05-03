@@ -10,13 +10,11 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f3f4f6;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
       background-size: 200% 200%;
       animation: gradientBG 6s ease infinite;
       color: #333;
       cursor: url('cursor.png'), auto;
-      position: relative;
-      overflow: hidden;
     }
 
     @keyframes gradientBG {
@@ -33,7 +31,7 @@
     /* Sidebar Navigation */
     nav {
       width: 220px;
-      background: #2d3748;
+      background: #0284c7;
       color: white;
       padding-top: 2rem;
       display: flex;
@@ -61,20 +59,34 @@
     nav button {
       background: none;
       border: none;
-      color: #f1f5f9;
-      padding: 0.8rem 1.5rem;
+      color: white;
+      padding: 0.7rem 1.5rem;
       width: 100%;
       text-align: left;
       font-size: 1rem;
-      cursor: pointer;
+      cursor: url('cursor.png'), auto;
+      transition: all 0.3s ease;
       position: relative;
-      transition: background 0.3s, transform 0.2s ease;
     }
 
     nav button:hover,
     nav button.active {
-      background: #4a5568;
-      transform: translateX(5px);
+      background: #0ea5e9;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    nav button::before {
+      content: "➤";
+      position: absolute;
+      left: 10px;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    nav button:hover::before {
+      opacity: 1;
+      left: -10px;
     }
 
     /* Main Content */
@@ -148,73 +160,32 @@
       text-decoration: underline;
     }
 
-    .typing {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid #0284c7;
-      animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
-      display: inline-block;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
-    /* Floating Particles */
-    .particle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: #4A90E2;
-      border-radius: 50%;
-      animation: float 5s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateX(0) translateY(0);
-      }
-      50% {
-        transform: translateX(30px) translateY(30px);
-      }
-      100% {
-        transform: translateX(0) translateY(0);
-      }
-    }
-
-    /* Positioning particles randomly */
-    .particle:nth-child(1) { top: 10%; left: 30%; animation-delay: 0s; }
-    .particle:nth-child(2) { top: 20%; left: 50%; animation-delay: 1s; }
-    .particle:nth-child(3) { top: 50%; left: 70%; animation-delay: 2s; }
-    .particle:nth-child(4) { top: 80%; left: 20%; animation-delay: 3s; }
-    .particle:nth-child(5) { top: 40%; left: 10%; animation-delay: 4s; }
-    .particle:nth-child(6) { top: 60%; left: 80%; animation-delay: 5s; }
-
-    /* Centered Button Styling for Internship Section */
-    .internship-button {
+    /* Centering "Internship - Web Developer" and styling it as a button */
+    .internship-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
       background-color: #0284c7;
       color: white;
+      font-size: 1.5rem;
       padding: 1rem 2rem;
-      border: none;
       border-radius: 8px;
-      font-size: 1.2rem;
       cursor: pointer;
-      display: block;
-      width: 200px;
-      margin: 2rem auto;
-      text-align: center;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
     }
 
-    .internship-button:hover {
-      background-color: #0369a1;
-      transform: translateY(-5px);
+    .internship-btn:hover {
+      background-color: #0ea5e9;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
+    .internship-btn:focus {
+      outline: none;
+    }
+
   </style>
 </head>
 <body>
@@ -231,14 +202,15 @@
 
     <main>
       <section id="internships" class="active">
-        <h3>Internship - Web Developer</h3>
-        <button class="internship-button" onclick="window.location.href='#'">View Details</button>
+        <div class="internship-btn">
+          Internship - Web Developer
+        </div>
         <div class="intern-detail"><strong>Role:</strong> Web Developer</div>
         <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
         <div class="intern-detail"><strong>Duration:</strong> 4 months</div>
         <div class="intern-detail"><strong>Technologies:</strong> HTML, CSS, JavaScript, Django</div>
         <div class="intern-detail">
-          Worked on responsive web design, integrated new features, and collaborated with the team on backend/frontend development.
+          Contributed to building responsive and dynamic web interfaces. Enhanced user experience and collaborated on real-time feature development with smooth integration of backend and frontend.
         </div>
       </section>
 
@@ -288,14 +260,6 @@
       </section>
     </main>
   </div>
-
-  <!-- Floating particles -->
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
 
   <script>
     const buttons = document.querySelectorAll('.tab-btn');
