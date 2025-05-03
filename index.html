@@ -62,15 +62,26 @@
       color: #1e293b;
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
-      border-bottom: 2px solid #0ea5e9;
       padding-bottom: 5px;
       display: inline-block;
-      transition: border-bottom 0.3s ease-in-out;
+      position: relative;
+    }
+
+    /* Moving Line for Hover Effect */
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #0ea5e9;
+      transition: width 0.3s ease-in-out;
     }
 
     /* Hover effect for section titles */
-    section:hover h2 {
-      border-bottom: 2px solid #0284c7;
+    section:hover h2::after {
+      width: 100%;
     }
 
     /* Contact Section */
