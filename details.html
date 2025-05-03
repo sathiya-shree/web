@@ -6,6 +6,7 @@
   <title>My Work</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* General Styles */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -13,6 +14,7 @@
       background-size: 200% 200%;
       animation: gradientBG 6s ease infinite;
       color: #333;
+      cursor: url('cursor.png'), auto;
     }
 
     @keyframes gradientBG {
@@ -26,6 +28,7 @@
       min-height: 100vh;
     }
 
+    /* Sidebar Navigation */
     nav {
       width: 220px;
       background: #0284c7;
@@ -35,6 +38,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
+      cursor: url('cursor.png'), auto;
     }
 
     nav h2 {
@@ -60,15 +64,32 @@
       width: 100%;
       text-align: left;
       font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
+      cursor: url('cursor.png'), auto;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     nav button:hover,
     nav button.active {
       background: #0ea5e9;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
+    nav button::before {
+      content: "➤";
+      position: absolute;
+      left: 10px;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    nav button:hover::before {
+      opacity: 1;
+      left: -10px;
+    }
+
+    /* Main Content */
     main {
       flex: 1;
       padding: 2rem;
@@ -78,7 +99,6 @@
       display: none;
       opacity: 0;
       transform: translateY(20px);
-      animation: none;
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
@@ -112,7 +132,7 @@
       font-size: 1rem;
     }
 
-    /* Internship section enhancements */
+    /* Internship Section Styles */
     section#internships .intern-detail {
       background-color: #f0f9ff;
       padding: 1rem 1.5rem;
@@ -130,6 +150,15 @@
     section#internships h3 {
       color: #0284c7;
     }
+
+    a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -146,7 +175,7 @@
 
     <main>
       <section id="internships" class="active">
-        <h3>Frontend Developer – Internship</h3>
+        <h3>Internship - Frontend Developer</h3>
         <div class="intern-detail"><strong>Role:</strong> Frontend Developer</div>
         <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
         <div class="intern-detail"><strong>Duration:</strong> 4 months</div>
@@ -210,9 +239,7 @@
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         buttons.forEach(b => b.classList.remove('active'));
-        sections.forEach(sec => {
-          sec.classList.remove('active');
-        });
+        sections.forEach(sec => sec.classList.remove('active'));
 
         btn.classList.add('active');
         document.getElementById(btn.dataset.target).classList.add('active');
