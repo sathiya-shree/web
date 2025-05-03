@@ -21,7 +21,6 @@
       margin-bottom: 30px;
     }
 
-    /* Style for the title as a button without underline */
     h1 {
       font-size: 2.5rem;
       color: #2c3e50;
@@ -42,17 +41,70 @@
       transform: scale(0.95);
     }
 
-    .nav-link,
-    .back-link {
+    /* Back to Home */
+    .back-to-home {
+      display: block;
+      margin: 20px auto;
       text-decoration: none;
       color: #0077cc;
       font-weight: bold;
+      font-size: 1.2rem;
       transition: color 0.3s ease;
     }
 
-    .nav-link:hover,
-    .back-link:hover {
+    .back-to-home:hover {
       color: #005fa3;
+    }
+
+    .layout {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    nav {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #0077cc;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .tab-btn {
+      background-color: #f0f4f7;
+      color: #333;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px 0;
+      width: 100%;
+      text-align: left;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      background-color: #0077cc;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .tab-btn:active {
+      transform: scale(0.95);
+    }
+
+    .active {
+      background-color: #0077cc;
+      color: white;
     }
 
     .cert-container {
@@ -73,7 +125,6 @@
       opacity: 0;
       transform: translateY(20px);
       animation: slideUp 1s forwards;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     }
 
     @keyframes slideUp {
@@ -81,11 +132,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    .cert-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .cert-button {
@@ -109,75 +155,48 @@
       transform: scale(0.95);
     }
 
-    /* Sections for About, Skills, Contact */
-    .about-section, .skills-section, .contact-section, .explore-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      width: 80%;
-      max-width: 600px;
-      margin-top: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .explore-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .explore-section ul li {
-      margin: 10px 0;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #0077cc;
-      transition: color 0.3s ease;
-    }
-
-    .explore-section ul li:hover {
-      color: #005fa3;
-    }
-
   </style>
 </head>
 <body>
   <header>
     <!-- "My Certifications" as a button without underline -->
     <h1 onclick="window.location.href='#certifications'">My Certifications</h1>
-    <a href="index.html" class="back-link">← Back to Home</a>
+    <!-- Centered "Back to Home" -->
+    <a href="index.html" class="back-to-home">← Back to Home</a>
   </header>
 
-  <main class="cert-container">
-    <!-- Certifications Section -->
-    <div id="certifications" class="cert-card slide-in">
-      <h2>Web Development - Internet Society</h2>
-      <p>Completed internship with HTML, CSS, JS, and responsive design.</p>
-      <a href="#" class="cert-button">View Details</a>
+  <div class="layout">
+    <nav>
+      <h2>Explore</h2>
+      <button class="tab-btn active" data-target="internships">Internships</button>
+      <button class="tab-btn" data-target="projects">Projects</button>
+      <a href="certifications.html" class="tab-btn" style="text-decoration: none;">Certifications</a>
+      <button class="tab-btn" data-target="skills">Skills</button>
+      <button class="tab-btn" data-target="interests">Interests</button>
+      <button class="tab-btn" data-target="resume">Resume</button>
+    </nav>
+
+    <div class="cert-container">
+      <!-- Certifications Section -->
+      <div id="certifications" class="cert-card">
+        <h2>Web Development - Internet Society</h2>
+        <p>Completed internship with HTML, CSS, JS, and responsive design.</p>
+        <a href="#" class="cert-button">View Details</a>
+      </div>
+
+      <div class="cert-card">
+        <h2>Cyber Security Fundamentals</h2>
+        <p>Covered essential cybersecurity principles and best practices.</p>
+        <a href="#" class="cert-button">View Details</a>
+      </div>
+
+      <div class="cert-card">
+        <h2>ISRO Online Training</h2>
+        <p>Participated in national-level training on space tech and programming.</p>
+        <a href="#" class="cert-button">View Details</a>
+      </div>
     </div>
+  </div>
 
-    <div class="cert-card slide-in">
-      <h2>Cyber Security Fundamentals</h2>
-      <p>Covered essential cybersecurity principles and best practices.</p>
-      <a href="#" class="cert-button">View Details</a>
-    </div>
-
-    <div class="cert-card slide-in">
-      <h2>ISRO Online Training</h2>
-      <p>Participated in national-level training on space tech and programming.</p>
-      <a href="#" class="cert-button">View Details</a>
-    </div>
-
-  
-
-  </main>
 </body>
 </html>
