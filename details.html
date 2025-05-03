@@ -10,11 +10,13 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      background: #f3f4f6;
       background-size: 200% 200%;
       animation: gradientBG 6s ease infinite;
       color: #333;
       cursor: url('cursor.png'), auto;
+      position: relative;
+      overflow: hidden;
     }
 
     @keyframes gradientBG {
@@ -31,7 +33,7 @@
     /* Sidebar Navigation */
     nav {
       width: 220px;
-      background: #0284c7;
+      background: #2d3748;
       color: white;
       padding-top: 2rem;
       display: flex;
@@ -67,28 +69,12 @@
       cursor: pointer;
       position: relative;
       transition: background 0.3s, transform 0.2s ease;
-      padding-left: 25px; /* Add extra padding to make space for the arrow */
     }
 
     nav button:hover,
     nav button.active {
-      background: #1e293b;
+      background: #4a5568;
       transform: translateX(5px);
-    }
-
-    nav button::before {
-      content: "➤";
-      position: absolute;
-      left: 10px;
-      opacity: 0;
-      z-index: -1; /* Ensure it stays behind the text */
-      transition: opacity 0.3s ease, left 0.3s ease;
-    }
-
-    nav button:hover::before,
-    nav button.active::before {
-      opacity: 1;
-      left: 15px; /* Move the arrow to the right when active or hovered */
     }
 
     /* Main Content */
@@ -178,6 +164,36 @@
     @keyframes blink {
       50% { border-color: transparent }
     }
+
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #4A90E2;
+      border-radius: 50%;
+      animation: float 5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(0) translateY(0);
+      }
+      50% {
+        transform: translateX(30px) translateY(30px);
+      }
+      100% {
+        transform: translateX(0) translateY(0);
+      }
+    }
+
+    /* Positioning particles randomly */
+    .particle:nth-child(1) { top: 10%; left: 30%; animation-delay: 0s; }
+    .particle:nth-child(2) { top: 20%; left: 50%; animation-delay: 1s; }
+    .particle:nth-child(3) { top: 50%; left: 70%; animation-delay: 2s; }
+    .particle:nth-child(4) { top: 80%; left: 20%; animation-delay: 3s; }
+    .particle:nth-child(5) { top: 40%; left: 10%; animation-delay: 4s; }
+    .particle:nth-child(6) { top: 60%; left: 80%; animation-delay: 5s; }
   </style>
 </head>
 <body>
@@ -250,6 +266,14 @@
       </section>
     </main>
   </div>
+
+  <!-- Floating particles -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
 
   <script>
     const buttons = document.querySelectorAll('.tab-btn');
