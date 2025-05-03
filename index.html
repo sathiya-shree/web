@@ -44,14 +44,9 @@
       padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
     }
 
-    section:hover {
-      transform: rotateY(180deg);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
 
     h2 {
       color: #1e293b;
@@ -60,120 +55,11 @@
       margin-bottom: 1rem;
     }
 
-    /* Animated Line Separator */
-    section::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: #0ea5e9;
-      bottom: -10px;
-      left: 0;
-      animation: animateLine 1.5s infinite ease-in-out;
-    }
-
-    @keyframes animateLine {
-      0% {
-        width: 0%;
-      }
-      50% {
-        width: 100%;
-      }
-      100% {
-        width: 0%;
-      }
-    }
-
+  
     .about p {
       font-size: 1.05rem;
       line-height: 1.6;
     }
-
-    /* Restored Contact Section Styling */
-    .contact {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .social-links {
-      margin-bottom: 1rem;
-    }
-
-    .social-links a {
-      color: #0284c7;
-      text-decoration: none;
-      margin: 0 0.7rem;
-      font-weight: 600;
-      position: relative;
-    }
-
-    .social-links a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: #0284c7;
-      left: 0;
-      bottom: -3px;
-      transition: width 0.3s ease;
-    }
-
-    .social-links a:hover::after {
-      width: 100%;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #0ea5e9;
-      color: white;
-      padding: 0.9rem 1.8rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
-      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-    }
-
-    .btn:hover {
-      background: #0284c7;
-      transform: scale(1.05);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn:active {
-      animation: glowPulse 1s ease-in-out infinite;
-    }
-
-    /* Soft Glow Pulse */
-    @keyframes glowPulse {
-      0% {
-        box-shadow: 0 0 10px rgba(14, 165, 233, 0.5), 0 0 20px rgba(14, 165, 233, 0.5);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(14, 165, 233, 1), 0 0 40px rgba(14, 165, 233, 1);
-      }
-      100% {
-        box-shadow: 0 0 10px rgba(14, 165, 233, 0.5), 0 0 20px rgba(14, 165, 233, 0.5);
-      }
-    }
-
-    .explore-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="container">
