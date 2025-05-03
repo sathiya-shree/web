@@ -4,56 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Base styling */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
-      background-size: cover;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f4f8, #dbeafe);
       color: #333;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 750px;
       margin: 0 auto;
       padding: 2rem;
-      text-align: center;
     }
 
     header {
-      margin-bottom: 2rem;
+      text-align: center;
+      padding: 2rem 0;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #0f172a;
-      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px #e2e8f0;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #475569;
     }
 
     section {
-      margin: 2rem 0;
+      margin: 2.5rem 0;
+      background: #ffffffcc;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
     }
 
     h2 {
       color: #1e293b;
-      font-size: 1.5rem;
+      border-bottom: 2px solid #0ea5e9;
+      display: inline-block;
       margin-bottom: 1rem;
     }
 
-    p {
-      font-size: 1rem;
+    .about p {
+      font-size: 1.05rem;
       line-height: 1.6;
+    }
+
+    .contact {
+      text-align: center;
     }
 
     .social-links {
@@ -63,33 +74,58 @@
     .social-links a {
       color: #0284c7;
       text-decoration: none;
-      margin: 0 0.6rem;
+      margin: 0 0.7rem;
       font-weight: 600;
+      position: relative;
     }
 
-    .social-links a:hover {
-      color: #0ea5e9;
+    .social-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #0284c7;
+      left: 0;
+      bottom: -3px;
+      transition: width 0.3s ease;
+    }
+
+    .social-links a:hover::after {
+      width: 100%;
     }
 
     .btn {
       display: inline-block;
       background: #0ea5e9;
       color: white;
-      padding: 0.9rem 2rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 1.5rem;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+      transition: background 0.3s, transform 0.2s;
     }
 
     .btn:hover {
       background: #0284c7;
+      transform: scale(1.05);
     }
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #64748b;
+    .explore-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -104,23 +140,21 @@
       <h2>About Me</h2>
       <p>
         I love building websites that are clean, minimal, and functional. I'm currently learning HTML, CSS, and JavaScript.
-        I have a passion for creative writing and an interest in combining design with functionality.
-        I’m pursuing a BSc in Computer Technology and exploring ways to enhance digital experiences.
+        I have a passion for creative writing and an interest in combining design with functionality. I’m pursuing BSc in
+        Computer Technology and exploring ways to enhance digital experiences.
       </p>
     </section>
 
     <section class="contact">
-      <h2>Connect With Me</h2>
+      <h2>Contact</h2>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/sathiya-shree-s" target="_blank">LinkedIn</a> |
+        <a href="https://www.linkedin.com/in/sathiya-shree-s" target="_blank">LinkedIn</a>
         <a href="https://github.com/sathiya-shree-s" target="_blank">GitHub</a>
       </div>
-      <a href="details.html" class="btn">Explore My Work</a>
+      <div class="explore-container">
+        <a href="details.html" class="btn">Explore My Work</a>
+      </div>
     </section>
-
-    <footer>
-      &copy; 2025 Sarah's Portfolio
-    </footer>
   </div>
 </body>
 </html>
