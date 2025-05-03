@@ -110,21 +110,25 @@
       color: #0ea5e9;
     }
 
-    /* Button Styling */
+    /* Explore Button Styling */
+    .explore-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem 0; /* Added margin for better spacing */
+    }
+
     .btn {
-      display: inline-block;
       background: #0ea5e9;
       color: white;
-      padding: 0.9rem 1.6rem;
+      padding: 1rem 2rem;
       border-radius: 30px;
       text-decoration: none;
-      margin-top: 3rem;
-      font-size: 1.1rem;
-      position: relative;
-      cursor: pointer;
+      font-size: 1.2rem;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
     }
 
     /* Hover Effect for Explore Button */
@@ -132,18 +136,6 @@
       background-color: #0284c7;
       transform: scale(1.1);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn:focus {
-      outline: none;
-    }
-
-    /* Center the Explore Button with space from Contact */
-    .explore-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5rem; /* Increased space between Explore button and Contact */
     }
 
     /* Stickers Design */
@@ -239,7 +231,7 @@
       </p>
     </section>
 
-    <!-- Centered Explore Button with unique effects and increased space -->
+    <!-- Centered Explore Button with more balanced space -->
     <div class="explore-btn">
       <a href="details.html" class="btn">Explore My Work</a>
     </div>
