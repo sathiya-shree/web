@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
+      background-color: #ffffff;
       color: black;
       overflow: hidden;
       position: relative;
@@ -26,15 +26,15 @@
       z-index: 0;
     }
 
-  .particle {
-  position: absolute;
-  width: 12px;              /* Increased size */
-  height: 12px;
-  background-color: rgba(0, 0, 0, 0.15);  /* Slightly darker for contrast */
-  border-radius: 50%;
-  animation: floatUp 12s linear infinite;
-  opacity: 0.6;
-}
+    .particle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 50%;
+      animation: float 12s linear infinite;
+      opacity: 0.6;
+    }
 
     @keyframes float {
       0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
@@ -52,7 +52,7 @@
     nav {
       width: 220px;
       background: #000;
-      color: white;
+      color: black;
       padding-top: 2rem;
       display: flex;
       flex-direction: column;
@@ -67,12 +67,13 @@
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(255,255,255,0.2);
       width: 80%;
+      color: black;
     }
 
     nav button {
       background: none;
       border: none;
-      color: white;
+      color: black;
       padding: 0.7rem 1.5rem;
       width: 100%;
       text-align: left;
@@ -82,9 +83,9 @@
 
     nav button:hover,
     nav button.active {
-      background: #333;
+      background: #e2e8f0;
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     main {
@@ -120,12 +121,12 @@
 
     /* Internship Section */
     section#internships h3 {
-      background: #0ea5e9 ;
+      background: #0ea5e9;
       color: #ffffff;
       text-align: center;
       margin: 0 auto 1.5rem auto;
       padding: 0.6rem 1.5rem;
-      border-radius: 8px; /* rectangular now */
+      border-radius: 4px;
       width: fit-content;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
