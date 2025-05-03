@@ -6,6 +6,7 @@
   <title>My Work</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
+    /* Custom Cursor */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -13,19 +14,24 @@
       background-size: 200% 200%;
       animation: gradientBG 6s ease infinite;
       color: #333;
+      cursor: url('your-cursor-image.png'), auto; /* Your custom cursor here */
     }
 
+    /* Animation for Background Gradient */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    /* Main Layout */
     .layout {
       display: flex;
       min-height: 100vh;
+      flex-wrap: wrap;
     }
 
+    /* Sidebar Navigation */
     nav {
       width: 220px;
       background: #0284c7;
@@ -35,6 +41,8 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
     nav h2 {
@@ -44,6 +52,7 @@
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(255,255,255,0.2);
       width: 80%;
+      transition: color 0.3s ease;
     }
 
     nav button {
@@ -55,18 +64,21 @@
       text-align: left;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
     nav button:hover,
     nav button.active {
       background: #0ea5e9;
+      transform: translateX(10px);
     }
 
+    /* Main Content */
     main {
       flex: 1;
-      padding: 2rem;
+      padding: 3rem;
       animation: fadeInMain 1s ease;
+      width: 100%;
     }
 
     @keyframes fadeInMain {
@@ -74,12 +86,21 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Section Styling */
     section {
       display: none;
+      padding: 2rem;
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     section.active {
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h3 {
@@ -87,11 +108,42 @@
       color: #1e293b;
       font-size: 1.6rem;
       margin-bottom: 1rem;
+      animation: fadeIn 0.5s ease;
     }
 
     p {
       line-height: 1.6;
       font-size: 1rem;
+      color: #475569;
+    }
+
+    /* Animation for Section Titles */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button Styling */
+    .tab-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    /* Hover Effect for Tabs */
+    .tab-btn:hover {
+      background: #0ea5e9;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .tab-btn.active {
+      background: #0ea5e9;
+      color: white;
     }
   </style>
 </head>
