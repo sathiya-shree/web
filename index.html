@@ -122,15 +122,14 @@
       cursor: pointer;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s ease-in-out;
+      transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Unique Hover Effect */
+    /* Unique Hover Effect for Explore Button */
     .btn:hover {
-      background: #0284c7;
-      transform: scale(1.1) rotate(10deg); /* Slight rotation with scaling */
+      transform: translateY(-5px);
+      color: #0284c7;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      letter-spacing: 2px;
     }
 
     .btn:focus {
