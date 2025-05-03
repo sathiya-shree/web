@@ -5,7 +5,6 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
   color: #333;
-  transition: all 0.3s ease;
 }
 
 /* Container */
@@ -19,7 +18,6 @@ body {
 header {
   text-align: center;
   padding: 2rem 0;
-  transition: all 0.3s ease-in-out;
 }
 
 header h1 {
@@ -34,22 +32,15 @@ header p {
   color: #475569;
 }
 
-/* Section Styling with Hover Effect */
+/* Section Styling */
 section {
   margin: 2rem 0;
   padding: 2rem;
   border-radius: 15px;
   background: #ffffffcc;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease, transform 0.3s;
 }
 
-section:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Section Headings */
 h2 {
   color: #1e293b;
   font-size: 1.8rem;
@@ -71,28 +62,10 @@ h2 {
   text-decoration: none;
   margin: 0 0.7rem;
   font-weight: 600;
-  position: relative;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.social-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #0ea5e9;
-  bottom: -5px;
-  left: 0;
-  transition: width 0.3s ease;
 }
 
 .social-links a:hover {
   color: #0ea5e9;
-  transform: scale(1.05);
-}
-
-.social-links a:hover::after {
-  width: 100%;
 }
 
 /* Button Styling */
@@ -103,31 +76,12 @@ h2 {
   padding: 0.9rem 1.6rem;
   border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
   margin-top: 1.5rem;
   font-size: 1.1rem;
 }
 
 .btn:hover {
   background: #0284c7;
-  transform: scale(1.1);
-}
-
-/* Button Bounce Effect */
-.btn:active {
-  animation: bounce 0.5s ease-out;
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1.1);
-  }
 }
 
 /* Responsive Adjustments */
