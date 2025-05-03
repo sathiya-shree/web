@@ -18,15 +18,14 @@
       position: relative; /* This allows absolute positioning for the stickers */
       cursor: url('cursor.png'), auto;
     }
-       a, .btn {
+    a, .btn {
       cursor: url('cursor.png'), auto; /* Custom cursor for links */
     }
-  .btn:hover {
+    .btn:hover {
       background-color: #0284c7;
       transform: scale(1.1);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
-    <div id="particles-js"></div>
     /* Container */
     .container {
       max-width: 750px;
@@ -222,13 +221,6 @@
         height: 80px;
         font-size: 0.9rem;
       }
-      {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: transparent;
-}
     }
   </style>
 </head>
@@ -274,5 +266,55 @@
   <div class="sticker sticker-4">React</div>
   <div class="sticker sticker-5">Node.js</div>
 
+  <!-- Particles JS -->
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#0284c7"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": true
+        },
+        "size": {
+          "value": 4,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#0284c7",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>
