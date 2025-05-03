@@ -6,12 +6,11 @@
   <title>My Work</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* General Styles */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-      color: #333;
+      background: #0f0f0f;
+      color: white;
       overflow: hidden;
       position: relative;
     }
@@ -37,17 +36,9 @@
     }
 
     @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
 
     .layout {
@@ -57,7 +48,6 @@
       z-index: 1;
     }
 
-    /* Sidebar Navigation */
     nav {
       width: 220px;
       background: #0284c7;
@@ -76,12 +66,6 @@
       padding-bottom: 1rem;
       border-bottom: 2px solid rgba(255,255,255,0.2);
       width: 80%;
-      animation: slideIn 1s ease;
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
     }
 
     nav button {
@@ -93,7 +77,6 @@
       text-align: left;
       font-size: 1rem;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     nav button:hover,
@@ -103,11 +86,9 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
     }
 
-    /* Main Content */
     main {
       flex: 1;
       padding: 2rem;
-      color: #1e293b;
     }
 
     section {
@@ -121,65 +102,49 @@
       display: block;
       opacity: 1;
       transform: translateY(0);
-      animation: fadeInContent 0.8s ease-in-out;
-    }
-
-    @keyframes fadeInContent {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h3 {
       font-family: 'Montserrat', sans-serif;
-      color: #1e293b;
       font-size: 1.6rem;
       margin-bottom: 1rem;
+      color: white;
     }
 
     p {
       line-height: 1.6;
       font-size: 1rem;
+      color: white;
+    }
+
+    /* Internship Section */
+    section#internships h3 {
+      background: #ffffff;
+      color: #0284c7;
+      text-align: center;
+      margin: 0 auto 1.5rem auto;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      width: fit-content;
+      box-shadow: 0 4px 12px rgba(0, 132, 199, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    section#internships h3:hover {
+      transform: scale(1.05);
     }
 
     section#internships .intern-detail {
-      background-color: #f0f9ff;
+      background-color: #1f2937;
       padding: 1rem 1.5rem;
       margin-bottom: 1rem;
       border-left: 4px solid #0284c7;
       border-radius: 6px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    section#internships .intern-detail:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    section#internships h3 {
-      color: #0284c7;
-      text-align: center;
-      background: #ffffff;
-      display: inline-block;
-      padding: 0.6rem 1.5rem;
-      border-radius: 30px;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 12px rgba(0, 132, 199, 0.3);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    section#internships h3:hover {
-      background: #e0f7fa;
-      transform: scale(1.05);
+      color: white;
     }
 
     a {
-      color: #0284c7;
+      color: #38bdf8;
       text-decoration: none;
     }
 
@@ -190,7 +155,6 @@
 </head>
 <body>
   <div class="particles">
-    <!-- Generate floating particles -->
     <script>
       for (let i = 0; i < 40; i++) {
         const particle = document.createElement('div');
@@ -231,8 +195,7 @@
         <p>
           - Portfolio Website<br>
           - To-Do List Application<br>
-          - Weather App (In Progress)<br>
-          Built with HTML, CSS, and JavaScript — focused on clean design and interactive user experience.
+          - Weather App (In Progress)
         </p>
       </section>
 
@@ -243,7 +206,7 @@
           - Spark AR by Meta<br>
           - Cyber Security Fundamentals<br>
           - Web Development Workshop<br>
-          - ISRO Online Training Program<br>
+          - ISRO Online Training Program
         </p>
       </section>
 
@@ -253,14 +216,14 @@
           - Web Development (HTML, CSS, JavaScript)<br>
           - Java, C++, MySQL<br>
           - Creative Writing, Social Media Management<br>
-          - Time Management, Team Collaboration<br>
+          - Time Management, Team Collaboration
         </p>
       </section>
 
       <section id="interests">
         <h3>Interests</h3>
         <p>
-          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling. I love merging technology with creativity to build meaningful experiences.
+          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling.
         </p>
       </section>
 
