@@ -13,6 +13,7 @@
       color: black;
       overflow: hidden;
       position: relative;
+      scroll-behavior: smooth; /* Smooth scrolling */
     }
 
     /* Floating Particles */
@@ -82,7 +83,6 @@
       text-align: left;
       font-size: 1rem;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     nav button:hover,
@@ -93,26 +93,11 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    nav button:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #0ea5e9;
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    nav button:hover:after {
-      transform: scaleX(1);
-    }
-
     main {
       flex: 1;
       padding: 2rem;
-      overflow-y: auto;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
 
     section {
@@ -133,17 +118,6 @@
       font-size: 1.6rem;
       margin-bottom: 1rem;
       color: black;  /* Section headings now in black */
-      text-align: center;
-      font-weight: 600;
-      padding: 0.8rem;
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    h3:hover {
-      transform: scale(1.05);
     }
 
     p {
@@ -156,7 +130,17 @@
     section#internships h3 {
       background: #0ea5e9;
       color: #ffffff;
+      text-align: center;
       margin: 0 auto 1.5rem auto;
+      padding: 0.6rem 1.5rem;
+      border-radius: 4px;
+      width: fit-content;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    section#internships h3:hover {
+      transform: scale(1.05);
     }
 
     section#internships .intern-detail {
@@ -176,6 +160,16 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -189,6 +183,17 @@
         particle.style.animationDuration = (6 + Math.random() * 10) + 's';
         document.querySelector('.particles').appendChild(particle);
       }
+
+      // Fade-in effect for sections when scrolled into view
+      const fadeInSections = document.querySelectorAll('section');
+      window.addEventListener('scroll', () => {
+        fadeInSections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+            section.classList.add('visible');
+          }
+        });
+      });
     </script>
   </div>
 
@@ -204,7 +209,7 @@
     </nav>
 
     <main>
-      <section id="internships" class="active">
+      <section id="internships" class="fade-in active">
         <h3>Internship - Web Developer</h3>
         <div class="intern-detail"><strong>Role:</strong> Frontend Developer</div>
         <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
@@ -215,7 +220,7 @@
         </div>
       </section>
 
-      <section id="projects">
+      <section id="projects" class="fade-in">
         <h3>Projects</h3>
         <p>
           - Portfolio Website<br>
@@ -224,7 +229,7 @@
         </p>
       </section>
 
-      <section id="certifications">
+      <section id="certifications" class="fade-in">
         <h3>Certifications</h3>
         <p>
           - HTML for Programmers<br>
@@ -235,7 +240,7 @@
         </p>
       </section>
 
-      <section id="skills">
+      <section id="skills" class="fade-in">
         <h3>Skills</h3>
         <p>
           - Web Development (HTML, CSS, JavaScript)<br>
@@ -245,14 +250,14 @@
         </p>
       </section>
 
-      <section id="interests">
+      <section id="interests" class="fade-in">
         <h3>Interests</h3>
         <p>
           Passionate about poetry, book reviewing, minimal design, and using tech for storytelling.
         </p>
       </section>
 
-      <section id="resume">
+      <section id="resume" class="fade-in">
         <h3>Resume</h3>
         <p>
           <a href="your-resume-link.pdf" target="_blank">Click here to view or download my resume</a>
