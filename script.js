@@ -84,5 +84,3 @@ document.querySelector('header').addEventListener('click', () => {
     "retina_detect": true
   });
 </script>
-
-</script>
