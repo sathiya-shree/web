@@ -6,7 +6,6 @@
   <title>My Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Font */
     * {
       margin: 0;
       padding: 0;
@@ -16,16 +15,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
-      background-size: 200% 200%;
-      animation: gradientBG 6s ease infinite;
+      background-size: cover;
       color: #333;
-      transition: all 0.3s ease;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .container {
@@ -33,12 +24,6 @@
       margin: 0 auto;
       padding: 2rem;
       text-align: center;
-      animation: fadeInContainer 1.2s ease;
-    }
-
-    @keyframes fadeInContainer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     header {
@@ -80,7 +65,6 @@
       text-decoration: none;
       margin: 0 0.6rem;
       font-weight: 600;
-      transition: color 0.3s ease;
     }
 
     .social-links a:hover {
@@ -96,12 +80,10 @@
       text-decoration: none;
       font-weight: 600;
       margin-top: 1.5rem;
-      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .btn:hover {
       background: #0284c7;
-      transform: scale(1.05);
     }
 
     footer {
