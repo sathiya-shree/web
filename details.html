@@ -49,13 +49,28 @@
       text-align: left;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      position: relative;
+      transition: background 0.3s, transform 0.2s ease;
+    }
+
+    nav button::before {
+      content: "➤";
+      position: absolute;
+      left: 10px;
+      opacity: 0;
+      transition: 0.3s ease;
     }
 
     nav button:hover,
     nav button.active {
       background: #1e293b;
       transform: translateX(5px);
+    }
+
+    nav button:hover::before,
+    nav button.active::before {
+      opacity: 1;
+      left: 15px;
     }
 
     main {
