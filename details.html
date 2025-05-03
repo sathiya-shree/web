@@ -6,7 +6,6 @@
   <title>My Work</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* General Styles */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -15,6 +14,8 @@
       animation: gradientBG 6s ease infinite;
       color: #333;
       cursor: url('cursor.png'), auto;
+      position: relative;
+      overflow-x: hidden;
     }
 
     @keyframes gradientBG {
@@ -28,7 +29,6 @@
       min-height: 100vh;
     }
 
-    /* Sidebar Navigation */
     nav {
       width: 220px;
       background: #0284c7;
@@ -39,6 +39,8 @@
       align-items: flex-start;
       gap: 1rem;
       cursor: url('cursor.png'), auto;
+      position: sticky;
+      top: 0;
     }
 
     nav h2 {
@@ -64,9 +66,10 @@
       width: 100%;
       text-align: left;
       font-size: 1rem;
-      cursor: url('cursor.png'), auto;
+      cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
+      overflow: hidden;
     }
 
     nav button:hover,
@@ -89,42 +92,36 @@
       left: -10px;
     }
 
-    /* Main Content */
     main {
       flex: 1;
       padding: 2rem;
+      position: relative;
     }
 
     section {
       display: none;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: all 0.6s ease;
     }
 
     section.active {
       display: block;
       opacity: 1;
       transform: translateY(0);
-      animation: fadeInContent 0.8s ease-in-out;
-    }
-
-    @keyframes fadeInContent {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h3 {
       font-family: 'Montserrat', sans-serif;
       color: #1e293b;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
+      position: relative;
+    }
+
+    h3::before {
+      content: "✨";
+      margin-right: 10px;
     }
 
     p {
@@ -132,8 +129,7 @@
       font-size: 1rem;
     }
 
-    /* Internship Section Styles */
-    section#internships .intern-detail {
+    .intern-detail {
       background-color: #f0f9ff;
       padding: 1rem 1.5rem;
       margin-bottom: 1rem;
@@ -142,13 +138,9 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    section#internships .intern-detail:hover {
+    .intern-detail:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    section#internships h3 {
-      color: #0284c7;
     }
 
     a {
@@ -159,22 +151,40 @@
     a:hover {
       text-decoration: underline;
     }
+
     .typing {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid #0284c7;
-  animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
-  display: inline-block;
-}
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #0284c7;
+      animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+      display: inline-block;
+    }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
 
-@keyframes blink {
-  50% { border-color: transparent }
-}
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* Floating Stickers */
+    .sticker {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.2;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    .sticker:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; }
+    .sticker:nth-child(2) { top: 30%; left: 90%; animation-delay: 2s; }
+    .sticker:nth-child(3) { top: 50%; left: 85%; animation-delay: 4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
   </style>
 </head>
 <body>
@@ -190,29 +200,33 @@
     </nav>
 
     <main>
+      <span class="sticker">🌟</span>
+      <span class="sticker">💻</span>
+      <span class="sticker">📚</span>
+
       <section id="internships" class="active">
-        <h3>Internship - Frontend Developer</h3>
+        <h3>💼 Internship - Frontend Developer</h3>
         <div class="intern-detail"><strong>Role:</strong> Frontend Developer</div>
         <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
         <div class="intern-detail"><strong>Duration:</strong> 4 months</div>
-        <div class="intern-detail"><strong>Frameworks/Technologies:</strong> HTML, CSS, JavaScript, Django</div>
+        <div class="intern-detail"><strong>Technologies:</strong> HTML, CSS, JavaScript, Django</div>
         <div class="intern-detail">
-          Contributed to building responsive and dynamic web interfaces. Enhanced user experience and collaborated on real-time feature development with smooth integration of backend and frontend.
+          Built responsive and dynamic web interfaces. Enhanced UX and integrated real-time features.
         </div>
       </section>
 
       <section id="projects">
-        <h3>Projects</h3>
+        <h3>🧠 Projects</h3>
         <p>
           - Portfolio Website<br>
           - To-Do List Application<br>
           - Weather App (In Progress)<br>
-          Built with HTML, CSS, and JavaScript — focused on clean design and interactive user experience.
+          Built with HTML, CSS, and JS — focused on clean design and interactivity.
         </p>
       </section>
 
       <section id="certifications">
-        <h3>Certifications</h3>
+        <h3>📜 Certifications</h3>
         <p>
           - HTML for Programmers<br>
           - Spark AR by Meta<br>
@@ -223,7 +237,7 @@
       </section>
 
       <section id="skills">
-        <h3>Skills</h3>
+        <h3>🛠️ Skills</h3>
         <p>
           - Web Development (HTML, CSS, JavaScript)<br>
           - Java, C++, MySQL<br>
@@ -233,14 +247,14 @@
       </section>
 
       <section id="interests">
-        <h3>Interests</h3>
+        <h3>🎨 Interests</h3>
         <p>
-          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling. I love merging technology with creativity to build meaningful experiences.
+          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling.
         </p>
       </section>
 
       <section id="resume">
-        <h3>Resume</h3>
+        <h3>📄 Resume</h3>
         <p>
           <a href="your-resume-link.pdf" target="_blank">Click here to view or download my resume</a>
         </p>
@@ -260,6 +274,19 @@
         btn.classList.add('active');
         document.getElementById(btn.dataset.target).classList.add('active');
       });
+    });
+
+    // Scroll Reveal Animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(sec => {
+      observer.observe(sec);
     });
   </script>
 </body>
