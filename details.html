@@ -1,44 +1,223 @@
-nav {
-  width: 220px;
-  background: #0284c7;
-  color: white;
-  padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  animation: slideInLeft 0.8s ease-out;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #e0f7fa);
+      background-size: 200% 200%;
+      animation: gradientBG 6s ease infinite;
+      color: #333;
+    }
 
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-nav button {
-  background: none;
-  border: none;
-  color: white;
-  padding: 0.7rem 1.5rem;
-  width: 100%;
-  text-align: left;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.4s ease, transform 0.3s ease;
-}
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
 
-nav button:hover {
-  background: #0ea5e9;
-  transform: translateX(4px);
-}
+    nav {
+      width: 220px;
+      background: #0284c7;
+      color: white;
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
 
-nav button.active {
-  background: #0ea5e9;
-  font-weight: bold;
-}
+    nav h2 {
+      font-size: 1.4rem;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      width: 80%;
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #0ea5e9;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeInContent 0.8s ease-in-out;
+    }
+
+    @keyframes fadeInContent {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #1e293b;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Internship section enhancements */
+    section#internships .intern-detail {
+      background-color: #f0f9ff;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #0284c7;
+      border-radius: 6px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section#internships .intern-detail:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    section#internships h3 {
+      color: #0284c7;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav>
+      <h2>Explore</h2>
+      <button class="tab-btn active" data-target="internships">Internships</button>
+      <button class="tab-btn" data-target="projects">Projects</button>
+      <button class="tab-btn" data-target="certifications">Certifications</button>
+      <button class="tab-btn" data-target="skills">Skills</button>
+      <button class="tab-btn" data-target="interests">Interests</button>
+      <button class="tab-btn" data-target="resume">Resume</button>
+    </nav>
+
+    <main>
+      <section id="internships" class="active">
+        <h3>Frontend Developer – Internship</h3>
+        <div class="intern-detail"><strong>Role:</strong> Frontend Developer</div>
+        <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
+        <div class="intern-detail"><strong>Duration:</strong> 4 months</div>
+        <div class="intern-detail"><strong>Frameworks/Technologies:</strong> HTML, CSS, JavaScript, Django</div>
+        <div class="intern-detail">
+          Contributed to building responsive and dynamic web interfaces. Enhanced user experience and collaborated on real-time feature development with smooth integration of backend and frontend.
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3>Projects</h3>
+        <p>
+          - Portfolio Website<br>
+          - To-Do List Application<br>
+          - Weather App (In Progress)<br>
+          Built with HTML, CSS, and JavaScript — focused on clean design and interactive user experience.
+        </p>
+      </section>
+
+      <section id="certifications">
+        <h3>Certifications</h3>
+        <p>
+          - HTML for Programmers<br>
+          - Spark AR by Meta<br>
+          - Cyber Security Fundamentals<br>
+          - Web Development Workshop<br>
+          - ISRO Online Training Program<br>
+        </p>
+      </section>
+
+      <section id="skills">
+        <h3>Skills</h3>
+        <p>
+          - Web Development (HTML, CSS, JavaScript)<br>
+          - Java, C++, MySQL<br>
+          - Creative Writing, Social Media Management<br>
+          - Time Management, Team Collaboration<br>
+        </p>
+      </section>
+
+      <section id="interests">
+        <h3>Interests</h3>
+        <p>
+          Passionate about poetry, book reviewing, minimal design, and using tech for storytelling. I love merging technology with creativity to build meaningful experiences.
+        </p>
+      </section>
+
+      <section id="resume">
+        <h3>Resume</h3>
+        <p>
+          <a href="your-resume-link.pdf" target="_blank">Click here to view or download my resume</a>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('main section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        sections.forEach(sec => {
+          sec.classList.remove('active');
+        });
+
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
