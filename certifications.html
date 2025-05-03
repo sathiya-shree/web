@@ -21,12 +21,11 @@
       margin-bottom: 30px;
     }
 
-    /* Style for the title as a button */
+    /* Style for the title as a button without underline */
     h1 {
       font-size: 2.5rem;
       color: #2c3e50;
       cursor: pointer;
-      text-decoration: underline;
       display: inline-block;
       padding: 10px 20px;
       border-radius: 6px;
@@ -110,7 +109,8 @@
       transform: scale(0.95);
     }
 
-    .about-section, .skills-section, .contact-section {
+    /* Sections for About, Skills, Contact */
+    .about-section, .skills-section, .contact-section, .explore-section {
       background: #fff;
       border-radius: 12px;
       padding: 20px;
@@ -130,11 +130,28 @@
       }
     }
 
+    .explore-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .explore-section ul li {
+      margin: 10px 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #0077cc;
+      transition: color 0.3s ease;
+    }
+
+    .explore-section ul li:hover {
+      color: #005fa3;
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <!-- "My Certifications" as a button -->
+    <!-- "My Certifications" as a button without underline -->
     <h1 onclick="window.location.href='#certifications'">My Certifications</h1>
     <a href="index.html" class="back-link">← Back to Home</a>
   </header>
@@ -159,29 +176,7 @@
       <a href="#" class="cert-button">View Details</a>
     </div>
 
-    <!-- About Section -->
-    <div class="about-section">
-      <h2>About Me</h2>
-      <p>I am passionate about technology, learning new things, and enhancing my skills in web development, cybersecurity, and space technology. I always aim to be a part of impactful projects and collaborate with others to create innovative solutions.</p>
-    </div>
-
-    <!-- Skills Section -->
-    <div class="skills-section">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Cybersecurity Fundamentals</li>
-        <li>Space Technology and Programming</li>
-        <li>Problem Solving & Critical Thinking</li>
-      </ul>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="contact-section">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch or learn more about my work, feel free to reach out via email or connect with me on LinkedIn.</p>
-      <a href="mailto:your-email@example.com" class="cert-button">Email Me</a>
-    </div>
+  
 
   </main>
 </body>
