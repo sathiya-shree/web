@@ -49,17 +49,23 @@
       z-index: 1;
       position: relative;
       padding: 2rem;
+      flex-wrap: wrap;
     }
 
     section#internships {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .internship-box {
       background: #3892c6; /* Box color */
       border-radius: 10px;
       padding: 2rem 2.5rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       max-width: 600px;
       width: 100%;
-      opacity: 1;
-      z-index: 1;
     }
 
     h3 {
@@ -78,7 +84,6 @@
       transform: scale(1.03);
     }
 
-    /* Internship details section */
     .intern-detail {
       background-color: #d7e9f5; /* Match page bg color */
       padding: 1rem 1.5rem;
@@ -107,7 +112,6 @@
       text-decoration: underline;
     }
 
-    /* Scroll progress indicator */
     .scroll-progress-bar {
       position: fixed;
       top: 0;
@@ -118,7 +122,6 @@
       z-index: 10;
     }
 
-    /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
@@ -139,32 +142,51 @@
     </script>
   </div>
 
-  <!-- Scroll progress bar -->
   <div class="scroll-progress-bar"></div>
 
   <main>
     <section id="internships">
-      <h3>Internship - Web Developer</h3>
-      <div class="intern-detail">
-        <strong>Role:</strong> <span>Frontend Developer</span>
+      <div class="internship-box">
+        <h3>Internship - Web Developer</h3>
+        <div class="intern-detail">
+          <strong>Role:</strong> <span>Frontend Developer</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Company:</strong> <span>Internet Society Chennai Chapter</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Duration:</strong> <span>4 months</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Technologies:</strong> <span>HTML, CSS, JavaScript, Django</span>
+        </div>
+        <div class="intern-detail">
+          <span>Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</span>
+        </div>
       </div>
-      <div class="intern-detail">
-        <strong>Company:</strong> <span>Internet Society Chennai Chapter</span>
-      </div>
-      <div class="intern-detail">
-        <strong>Duration:</strong> <span>4 months</span>
-      </div>
-      <div class="intern-detail">
-        <strong>Technologies:</strong> <span>HTML, CSS, JavaScript, Django</span>
-      </div>
-      <div class="intern-detail">
-        <span>Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</span>
+
+      <div class="internship-box">
+        <h3>Internship - Backend Developer</h3>
+        <div class="intern-detail">
+          <strong>Role:</strong> <span>Backend Developer</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Company:</strong> <span>Tech Innovations Pvt Ltd</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Duration:</strong> <span>6 months</span>
+        </div>
+        <div class="intern-detail">
+          <strong>Technologies:</strong> <span>Node.js, Express.js, MongoDB</span>
+        </div>
+        <div class="intern-detail">
+          <span>Worked on API development, database management, and integrating services to support frontend features.</span>
+        </div>
       </div>
     </section>
   </main>
 
   <script>
-    // Scroll progress indicator
     document.addEventListener('scroll', function () {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
