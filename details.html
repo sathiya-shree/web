@@ -81,22 +81,6 @@
       opacity: 0.8;
     }
 
-    .drop1 {
-      left: -100px;
-      top: -50px;
-    }
-
-    .drop2 {
-      right: -100px;
-      bottom: -50px;
-      z-index: -1;
-      border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
-    }
-
-    .drop2::before {
-      border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
-    }
-
     .bubble {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
@@ -110,6 +94,7 @@
       animation: float 10s ease-in-out infinite, moveRandom 12s linear infinite;
       position: absolute;
       border: 2px solid rgba(255, 255, 255, 0.3);
+      opacity: 0.9;
     }
 
     @keyframes float {
@@ -156,7 +141,7 @@
 <body>
 
   <div class="c">
-    <!-- Floating Water Bubbles with Titles -->
+    <!-- Floating Bubbles with Titles -->
     <div class="bubble" style="top: 10%; left: 5%;">Certifications</div>
     <div class="bubble" style="top: 25%; left: 45%;">Skills</div>
     <div class="bubble" style="top: 50%; left: 75%;">Internships</div>
