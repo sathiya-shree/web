@@ -29,10 +29,10 @@
       position: absolute;
       width: 12px;
       height: 12px;
-      background-color: rgba(0, 0, 0, 0.15);
+      background-color: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       animation: float 12s linear infinite;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     @keyframes float {
@@ -42,23 +42,48 @@
     }
 
     main {
-      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      position: relative;
       z-index: 1;
+      position: relative;
+      padding: 2rem;
     }
 
-    section#internships h3 {
+    section#internships {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeSlideIn 1.2s ease forwards;
+      max-width: 600px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-      text-align: center;
-      font-weight: 600;
-      padding: 0.8rem;
-      background-color: #0ea5e9;
+      font-size: 1.8rem;
+      color: white;
+      background: #0ea5e9;
+      padding: 1rem;
       border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      transition: transform 0.4s ease;
+    }
+
+    h3:hover {
+      transform: scale(1.03);
     }
 
     .intern-detail {
@@ -68,10 +93,27 @@
       border-left: 4px solid #0ea5e9;
       border-radius: 6px;
       color: black;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .intern-detail:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <div class="particles">
     <script>
       for (let i = 0; i < 40; i++) {
@@ -97,5 +139,6 @@
       </div>
     </section>
   </main>
+
 </body>
 </html>
