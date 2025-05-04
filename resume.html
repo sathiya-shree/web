@@ -51,6 +51,7 @@
       z-index: -2; /* Ensure it's behind everything else */
     }
 
+    /* Reveal Card Animation */
     .link-container {
       text-align: center;
       padding: 2rem;
@@ -59,6 +60,14 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       z-index: 1;
       position: relative;
+      transform: scale(0); /* Start as scaled down */
+      opacity: 0; /* Initially invisible */
+      transition: all 0.6s ease-in-out; /* Smooth transition for reveal effect */
+    }
+
+    .link-container.show {
+      transform: scale(1); /* Scale back to normal */
+      opacity: 1; /* Fully visible */
     }
 
     .resume-link {
@@ -119,7 +128,7 @@
   <div class="background"></div>
 
   <!-- Main Content -->
-  <div class="link-container">
+  <div class="link-container" id="link-container">
     <p>Click below to view my resume:</p>
     <a href="resume.html" class="resume-link">
       <i class="fas fa-file-alt icon"></i> <!-- Font Awesome Icon -->
@@ -127,6 +136,16 @@
       <span class="underline"></span> <!-- Underline Animation -->
     </a>
   </div>
+
+  <script>
+    // Delay the reveal animation by adding the "show" class after a small timeout
+    window.addEventListener("load", function() {
+      const linkContainer = document.getElementById("link-container");
+      setTimeout(function() {
+        linkContainer.classList.add("show");
+      }, 300); // Delay for 0.3s to trigger the reveal
+    });
+  </script>
 
 </body>
 </html>
