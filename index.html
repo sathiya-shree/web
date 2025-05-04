@@ -1,94 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title Bubbles</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
   <style>
+    /* Body Styling */
     body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      overflow: hidden;
       background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-      font-family: Arial, sans-serif;
+      color: #333;
+      position: relative; /* This allows absolute positioning for the stickers */
+      cursor: url('cursor.png'), auto;
+    }
+    a, .btn {
+      cursor: url('cursor.png'), auto; /* Custom cursor for links */
+    }
+    .btn:hover {
+      background-color: #0284c7;
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    /* Container */
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      background: radial-gradient(circle at 30% 30%, #cde8ff, #4a90e2);
-      border-radius: 50%;
-      opacity: 0.8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
+    /* Header Styling */
+    header {
       text-align: center;
-      animation: floatBubbles 15s infinite linear;
+      padding: 2rem 0;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: #0f172a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: #475569;
+    }
+
+    /* Section Styling */
+    section {
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 15px;
+      background: #ffffffcc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+
+    /* Hover effect for sections */
+    section:hover {
+      background-color: #e2e8f0;
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      color: #1e293b;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 5px;
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Moving Line for Hover Effect */
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #0ea5e9;
+      transition: width 0.3s ease-in-out;
+    }
+
+    /* Hover effect for section titles */
+    section:hover h2::after {
+      width: 100%;
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Social Links Styling */
+    .social-links a {
+      color: #0284c7;
+      text-decoration: none;
+      margin: 0 0.7rem;
+      font-weight: 600;
+    }
+
+    .social-links a:hover {
+      color: #0ea5e9;
+    }
+
+    /* Explore Button Styling */
+    .explore-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3rem 0; /* Added margin for better spacing */
+    }
+
+    .btn {
+      background: #0ea5e9;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
       cursor: pointer;
     }
 
-    .bubble span {
-      z-index: 1;
-      opacity: 1 !important;
-      transition: transform 0.3s ease, color 0.3s ease;
+    /* Hover Effect for Explore Button */
+    .btn:hover {
+      background-color: #0284c7;
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .bubble:hover span {
-      transform: scale(1.2);
-      color: #ffe600;
+    /* Stickers Design (placed directly on the page) */
+    .sticker {
+      position: absolute;
+      border-radius: 50%;
+      color: white;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Bubble Sizes and Positions */
-    .bubble:nth-child(1) {
-      left: 15%;
-      width: 120px;
-      height: 120px;
-      animation-duration: 16s;
+    /* Unique Sticker Effects */
+    .sticker:hover {
+      transform: rotate(20deg) scale(1.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .bubble:nth-child(2) {
-      left: 35%;
-      width: 140px;
-      height: 140px;
-      animation-duration: 18s;
+    /* Placing Stickers Around the Page (freely) */
+    .sticker-1 {
+      top: 5%;
+      left: 5%;
+      background-color: #0ea5e9; /* Blue */
     }
 
-    .bubble:nth-child(3) {
-      left: 55%;
-      width: 130px;
-      height: 130px;
-      animation-duration: 14s;
+    .sticker-2 {
+      bottom: 10%;
+      right: 10%;
+      background-color: #f59e0b; /* Yellow */
     }
 
-    .bubble:nth-child(4) {
-      left: 75%;
-      width: 120px;
-      height: 120px;
-      animation-duration: 17s;
+    .sticker-3 {
+      top: 20%;
+      left: 10%;
+      background-color: #10b981; /* Green */
     }
 
-    @keyframes floatBubbles {
-      0% {
-        transform: translateY(0);
-        opacity: 0.9;
+    /* React Sticker (Top-Right Corner) */
+    .sticker-4 {
+      top: 5%;  /* Position it near the top */
+      right: 5%; /* Position it near the right */
+      background-color: #ef4444; /* Red */
+    }
+
+    /* Node.js Sticker (Right Side) */
+    .sticker-5 {
+      top: 60%;  /* Adjust as needed to position it vertically */
+      right: 15%;  /* Keep it aligned to the right */
+      background-color: #9333ea; /* Purple */
+    }
+
+    /* Particles JS */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure it's behind the content */
+    }
+
+    /* Responsive Adjustments */
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
       }
-      80% {
-        opacity: 0.8;
+
+      .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
       }
-      100% {
-        transform: translateY(-110vh);
-        opacity: 0;
+
+      .container {
+        padding: 1rem;
+      }
+
+      .sticker {
+        width: 80px;
+        height: 80px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Hi, I'm Sathiya shree</h1>
+      <p>Aspiring Web Developer & Student</p>
+    </header>
 
-  <div class="bubble"><span>Certifications</span></div>
-  <div class="bubble"><span>Skills</span></div>
-  <div class="bubble"><span>Internships</span></div>
-  <div class="bubble"><span>Contact</span></div>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        I love building websites that are clean, minimal, and functional.
+        I'm currently learning HTML, CSS, and JavaScript. I have a passion for creative writing 
+        and an interest in combining design with functionality. I’m pursuing a Master's degree in Information Technology 
+        and exploring ways to enhance digital experiences through my work.
+      </p>
+    </section>
 
+    <!-- Centered Explore Button -->
+    <div class="explore-btn">
+      <a href="details.html" class="btn">Explore My Work</a>
+    </div>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        📍 Coimbatore, Tamil Nadu, India<br>
+        ✉️ sathiyashree03@gmail.com
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/sathiya-shree-s-/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/sathiya-shree" target="_blank">GitHub</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Stickers placed freely around the page -->
+  <div class="sticker sticker-1">HTML</div>
+  <div class="sticker sticker-2">CSS</div>
+  <div class="sticker sticker-3">JS</div>
+  <div class="sticker sticker-4">React</div>
+  <div class="sticker sticker-5">Node.js</div>
+
+  <!-- Particles JS -->
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#0284c7"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": true
+        },
+        "size": {
+          "value": 4,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#0284c7",
+          "opacity": 0.2,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2
+        }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>
