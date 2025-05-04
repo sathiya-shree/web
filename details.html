@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ocean Bubbles</title>
+  <title>Water Droplets</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -49,31 +49,30 @@
       opacity: 0.9;
     }
 
-    /* Floating animation */
+    /* Floating animation: makes the bubble move upwards */
     @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+      0% { transform: translateY(100vh); }  /* Starts from the bottom */
+      100% { transform: translateY(-100px); } /* Ends above the screen */
     }
 
-    /* Random movement animation */
+    /* Random horizontal movement animation */
     @keyframes moveRandom {
-      0% { top: 5%; left: 5%; }
-      25% { top: 30%; left: 35%; }
-      50% { top: 50%; left: 65%; }
-      75% { top: 70%; left: 25%; }
-      100% { top: 85%; left: 55%; }
+      0% { left: 5%; }
+      25% { left: 35%; }
+      50% { left: 65%; }
+      75% { left: 25%; }
+      100% { left: 55%; }
     }
 
     /* Growing and shrinking animation */
     @keyframes bubbleGrowShrink {
-      0% { transform: scale(1); }
+      0% { transform: scale(0.8); }
       50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+      100% { transform: scale(0.8); }
     }
 
     .bubble:hover {
-      transform: scale(1.2);
+      transform: scale(1.3);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
     }
 
@@ -102,11 +101,11 @@
 <body>
 
   <div class="c">
-    <!-- Floating Ocean-like Bubbles with Titles -->
-    <div class="bubble" style="top: 10%; left: 5%;">Certifications</div>
-    <div class="bubble" style="top: 25%; left: 35%;">Skills</div>
-    <div class="bubble" style="top: 50%; left: 65%;">Internships</div>
-    <div class="bubble" style="top: 70%; left: 25%;">Contact</div>
+    <!-- Floating Water-like Bubbles with Titles -->
+    <div class="bubble" style="top: 90%; left: 10%;">Certifications</div>
+    <div class="bubble" style="top: 90%; left: 25%;">Skills</div>
+    <div class="bubble" style="top: 90%; left: 50%;">Internships</div>
+    <div class="bubble" style="top: 90%; left: 70%;">Contact</div>
   </div>
 
 </body>
