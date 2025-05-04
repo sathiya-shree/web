@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Floating Water Bubbles</title>
+  <title>Floating Water Bubbles with Glassmorphism</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,75 +15,71 @@
     }
 
     body {
-      background-color: #e0f2fe;
+      background: linear-gradient(45deg, #e0f7fa, #80deea);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       overflow: hidden;
       position: relative;
+      color: white;
     }
 
     .bubble {
-      background-color: #00bcd4; /* Water blue color */
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 20px 30px;
       color: white;
       font-size: 1.2rem;
-      font-weight: bold;
+      font-weight: 700;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      animation: float 5s ease-in-out infinite, moveRandom 10s linear infinite;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: float 10s ease-in-out infinite, moveRandom 12s linear infinite;
       position: absolute;
-    }
-
-    .bubble:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
+      50% { transform: translateY(-15px); }
       100% { transform: translateY(0); }
     }
 
     @keyframes moveRandom {
-      0% {
-        top: 5%;
-        left: 10%;
-      }
-      25% {
-        top: 15%;
-        left: 40%;
-      }
-      50% {
-        top: 30%;
-        left: 70%;
-      }
-      75% {
-        top: 60%;
-        left: 40%;
-      }
-      100% {
-        top: 80%;
-        left: 60%;
-      }
+      0% { top: 10%; left: 5%; }
+      25% { top: 30%; left: 45%; }
+      50% { top: 50%; left: 75%; }
+      75% { top: 80%; left: 20%; }
+      100% { top: 90%; left: 55%; }
     }
 
+    .bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .bubble::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: -1;
+      filter: blur(8px);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Floating Water Bubbles -->
-  <div class="bubble" style="top: 20%; left: 15%;">Certifications</div>
-  <div class="bubble" style="top: 30%; left: 50%;">Skills</div>
-  <div class="bubble" style="top: 50%; left: 70%;">Internships</div>
-  <div class="bubble" style="top: 70%; left: 30%;">Contact</div>
+  <!-- Floating Water Bubbles with Titles -->
+  <div class="bubble" style="top: 10%; left: 5%;">Certifications</div>
+  <div class="bubble" style="top: 25%; left: 45%;">Skills</div>
+  <div class="bubble" style="top: 50%; left: 75%;">Internships</div>
+  <div class="bubble" style="top: 70%; left: 20%;">Contact</div>
 
 </body>
 </html>
