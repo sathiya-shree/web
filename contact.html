@@ -10,16 +10,20 @@
       overflow: hidden;
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
 
     .drop {
-      position: relative;
+      position: absolute;
       width: 20px;
       height: 20px;
       background: white;
       border-radius: 50%;
-      margin: 0 auto;
-      top: -30px;
+      top: -50px;
       animation: drip 2s cubic-bezier(1, 0, 0.91, 0.19) forwards;
     }
 
@@ -35,9 +39,9 @@
     }
 
     .wave {
-      position: relative;
+      position: absolute;
       opacity: 0;
-      top: 200px;
+      top: 80%;
       width: 2px;
       height: 1px;
       border: white 7px solid;
@@ -60,7 +64,7 @@
 
     @keyframes drip {
       to {
-        top: 190px;
+        top: 90%;
       }
     }
 
@@ -72,7 +76,7 @@
         width: 600px;
         height: 300px;
         border-width: 1px;
-        top: 100px;
+        top: -100px;
         opacity: 0;
       }
     }
@@ -95,10 +99,13 @@
 
     .contact-details {
       opacity: 0;
-      text-align: center;
-      margin-top: 300px;
-      animation: showDetails 1.5s ease-in 3.5s forwards;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
       color: #333;
+      font-size: 1.5rem;
+      animation: showDetails 2s ease-in 2s forwards;
     }
 
     @keyframes showDetails {
