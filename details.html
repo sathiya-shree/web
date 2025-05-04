@@ -9,12 +9,13 @@
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Nunito', sans-serif;
-      background: linear-gradient(to right, #f8fafc, #e0f2fe);
+      background: linear-gradient(to right, #f0f9ff, #e0f2fe);
       color: #111827;
     }
 
@@ -25,12 +26,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
       font-size: 1.5rem;
-      margin: 0;
     }
 
     nav a {
@@ -45,22 +45,42 @@
       opacity: 0.8;
     }
 
-    section {
-      padding: 4rem 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease-out forwards;
-      text-align: center;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 4rem 1rem;
+      gap: 2rem;
     }
 
-    section:nth-child(odd) {
-      background-color: #f1f5f9;
+    .bubble {
+      background-color: #ffffffcc;
+      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: float 4s ease-in-out infinite;
+      transition: transform 0.3s;
     }
 
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0;
+    .bubble:hover {
+      transform: scale(1.05);
+    }
+
+    .bubble h2 {
+      font-size: 1.2rem;
       color: #0284c7;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
 
     footer {
@@ -68,13 +88,6 @@
       padding: 2rem;
       background-color: #e0f2fe;
       font-size: 0.9rem;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
@@ -91,25 +104,13 @@
     </nav>
   </header>
 
-  <section id="explore">
-    <h2>Explore</h2>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-  </section>
-
-  <section id="internships">
-    <h2>Internships</h2>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-  </section>
+  <div class="container">
+    <a class="bubble" href="#explore"><h2>Explore</h2></a>
+    <a class="bubble" href="#certifications"><h2>Certifications</h2></a>
+    <a class="bubble" href="#skills"><h2>Skills</h2></a>
+    <a class="bubble" href="#internships"><h2>Internships</h2></a>
+    <a class="bubble" href="#contact"><h2>Contact</h2></a>
+  </div>
 
   <footer>
     &copy; 2025 Sathiya Shree. All rights reserved.
