@@ -2,27 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Floating Water Bubbles with Glassmorphism</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floating Bubbles</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Nunito', sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(45deg, #e0f7fa, #80deea);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #318CFE;
+      font-family: 'Montserrat', sans-serif;
       overflow: hidden;
       position: relative;
+    }
+
+    .c {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-c {
+      display: grid;
+      place-items: center;
+      position: relative;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1 {
+      position: relative;
+      font-size: 72px;
       color: white;
+      line-height: 0;
+    }
+
+    .drop {
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background: #54ABFB;
+      border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+      opacity: 0.8;
+      border: 2px solid #3d93ff;
+      animation: float 10s ease-in-out infinite, moveRandom 12s linear infinite;
+    }
+
+    .drop::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #318CFE;
+      border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+      box-shadow: -20px 30px 16px #1B6CFB, -40px 60px 32px #1b6cfb, inset -6px 6px 10px #1B6CFB, inset 2px 6px 10px #1a74e5, inset 20px -20px 22px white, inset 40px -40px 44px #a8ceff;
+    }
+
+    .drop::after {
+      content: "";
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      background: #E6FDFB;
+      border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+      left: 130px;
+      top: 40px;
+      box-shadow: 16px 40px 0 -10px white;
+      opacity: 0.8;
+    }
+
+    .drop1 {
+      left: -100px;
+      top: -50px;
+    }
+
+    .drop2 {
+      right: -100px;
+      bottom: -50px;
+      z-index: -1;
+      border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+    }
+
+    .drop2::before {
+      border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
     }
 
     .bubble {
@@ -58,7 +130,7 @@
       transform: scale(1.1);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
     }
-    
+
     .bubble::before {
       content: '';
       position: absolute;
@@ -71,15 +143,30 @@
       z-index: -1;
       filter: blur(8px);
     }
+
+    p {
+      line-height: 0;
+      color: white;
+      font-size: 20px;
+      font-family: "Montserrat"
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Floating Water Bubbles with Titles -->
-  <div class="bubble" style="top: 10%; left: 5%;">Certifications</div>
-  <div class="bubble" style="top: 25%; left: 45%;">Skills</div>
-  <div class="bubble" style="top: 50%; left: 75%;">Internships</div>
-  <div class="bubble" style="top: 70%; left: 20%;">Contact</div>
+  <div class="c">
+    <!-- Floating Water Bubbles with Titles -->
+    <div class="bubble" style="top: 10%; left: 5%;">Certifications</div>
+    <div class="bubble" style="top: 25%; left: 45%;">Skills</div>
+    <div class="bubble" style="top: 50%; left: 75%;">Internships</div>
+    <div class="bubble" style="top: 70%; left: 20%;">Contact</div>
+
+    <div class="text-c">
+      <h1>Code. Content. Community</h1>
+      <p>Both the drops and bubbles are created using CSS.</p>
+    </div>
+  </div>
 
 </body>
 </html>
