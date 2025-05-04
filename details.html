@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Floating Bubbles</title>
+  <title>Floating Glowing Bubbles</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background: #d7e9f5; /* Updated background color */
+      background: #d7e9f5; /* Background color */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
@@ -17,16 +17,19 @@
       bottom: -150px;
       background: #3892c6; /* Bubble color */
       border-radius: 50%;
-      color: white;
-      font-weight: 600;
+      width: 150px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
+      font-weight: 600;
       text-align: center;
       animation: floatBubbles 16s infinite linear;
       cursor: pointer;
-      box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.6), 0 0 30px rgba(56, 146, 198, 0.8); /* Inner and outer glow */
+      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.4), 0 0 50px rgba(56, 146, 198, 0.8); /* Inner and outer glow */
       transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, filter 0.3s ease;
+      background: radial-gradient(circle, #3892c6, #267b99); /* Gradient to mimic bubble shine */
     }
 
     .bubble span {
@@ -37,9 +40,9 @@
 
     .bubble:hover {
       transform: scale(1.15);
-      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(56, 146, 198, 1); /* Stronger glow on hover */
-      background: #267b99; /* Darker blue for hover effect */
-      filter: brightness(1.2); /* Slightly brighten the bubble */
+      box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.7), 0 0 100px rgba(56, 146, 198, 1); /* Stronger inner and outer glow */
+      background: radial-gradient(circle, #267b99, #3892c6); /* Reverse gradient on hover */
+      filter: brightness(1.3); /* Slightly brighten the bubble */
     }
 
     .bubble:hover span {
@@ -49,29 +52,21 @@
 
     .bubble:nth-child(1) {
       left: 18%;
-      width: 130px;
-      height: 130px;
       animation-duration: 17s;
     }
 
     .bubble:nth-child(2) {
       left: 38%;
-      width: 150px;
-      height: 150px;
       animation-duration: 19s;
     }
 
     .bubble:nth-child(3) {
       left: 58%;
-      width: 140px;
-      height: 140px;
       animation-duration: 18s;
     }
 
     .bubble:nth-child(4) {
       left: 78%;
-      width: 130px;
-      height: 130px;
       animation-duration: 20s;
     }
 
