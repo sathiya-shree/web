@@ -10,6 +10,7 @@
       overflow: hidden;
       background: #d7e9f5; /* Background color */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: url('cursor.png'), auto; /* Custom cursor */
     }
 
     .bubble {
@@ -39,14 +40,14 @@
     }
 
     .bubble:hover {
-      transform: scale(1.15);
-      box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.7), 0 0 100px rgba(56, 146, 198, 1); /* Stronger inner and outer glow */
+      transform: scale(1.08); /* Reduced scale on hover */
+      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.5), 0 0 80px rgba(56, 146, 198, 1); /* Less intense glow */
       background: radial-gradient(circle, #267b99, #3892c6); /* Reverse gradient on hover */
-      filter: brightness(1.3); /* Slightly brighten the bubble */
+      filter: brightness(1.2); /* Slightly brighten the bubble */
     }
 
     .bubble:hover span {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Subtle text glow */
       letter-spacing: 1px;
     }
 
@@ -87,7 +88,9 @@
 </head>
 <body>
 
-  <div class="bubble"><span>Certifications</span></div>
+  <a href="certifications.html">
+    <div class="bubble"><span>Certifications</span></div>
+  </a>
   <div class="bubble"><span>Skills</span></div>
   <div class="bubble"><span>Internships</span></div>
   <div class="bubble"><span>Contact</span></div>
