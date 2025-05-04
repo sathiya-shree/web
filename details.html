@@ -3,169 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Work</title>
+  <title>Floating Bubbles</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Nunito', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Nunito', sans-serif;
       background-color: #e0f2fe;
-      color: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
       position: relative;
     }
 
-    header {
-      background-color: #0ea5e9;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: opacity 0.3s;
-    }
-
-    nav a:hover {
-      opacity: 0.8;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 4rem 1rem;
-      gap: 2rem;
-    }
-
     .bubble {
-      background-color: rgba(0, 164, 255, 0.6); /* Ocean Blue */
+      background-color: #0ea5e9;
       border-radius: 50%;
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      animation: float 8s ease-in-out infinite, drift 12s linear infinite;
-      transition: transform 0.3s;
+      animation: float 5s ease-in-out infinite, moveRandom 10s linear infinite;
+      position: absolute;
     }
 
     .bubble:hover {
-      transform: scale(1.05);
-    }
-
-    .bubble h2 {
-      font-size: 1.2rem;
-      color: white;
-      text-align: center;
-      padding: 1rem;
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-20px); }
       100% { transform: translateY(0); }
     }
 
-    @keyframes drift {
-      0% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(100vw) translateY(50vh); }
-      100% { transform: translateX(-100vw) translateY(-50vh); }
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #e0f2fe;
-      font-size: 0.9rem;
-    }
-
-    /* Floating Bubbles in Background */
-    .floating-bubbles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .floating-bubble {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      background-color: rgba(0, 164, 255, 0.6); /* Ocean Blue */
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: bubble-animation 10s infinite;
-    }
-
-    @keyframes bubble-animation {
+    @keyframes moveRandom {
       0% {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-      50% {
-        opacity: 0.6;
+        top: 10%;
+        left: 10%;
       }
       100% {
-        transform: translateY(-100vh);
-        opacity: 0;
+        top: 90%;
+        left: 90%;
       }
     }
+
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#explore">Explore</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#skills">Skills</a>
-      <a href="#internships">Internships</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <a class="bubble" href="#explore"><h2>Explore</h2></a>
-    <a class="bubble" href="#certifications"><h2>Certifications</h2></a>
-    <a class="bubble" href="#skills"><h2>Skills</h2></a>
-    <a class="bubble" href="#internships"><h2>Internships</h2></a>
-    <a class="bubble" href="#contact"><h2>Contact</h2></a>
-  </div>
-
   <!-- Floating Bubbles -->
-  <div class="floating-bubbles">
-    <div class="floating-bubble" style="top: 10%; left: 30%; animation-duration: 12s;"></div>
-    <div class="floating-bubble" style="top: 20%; left: 60%; animation-duration: 9s;"></div>
-    <div class="floating-bubble" style="top: 40%; left: 80%; animation-duration: 10s;"></div>
-    <div class="floating-bubble" style="top: 70%; left: 50%; animation-duration: 15s;"></div>
-    <div class="floating-bubble" style="top: 30%; left: 90%; animation-duration: 8s;"></div>
-  </div>
-
-  <footer>
-    &copy; 2025 Sathiya Shree. All rights reserved.
-  </footer>
+  <div class="bubble" style="top: 20%; left: 30%;">Certifications</div>
+  <div class="bubble" style="top: 40%; left: 50%;">Skills</div>
+  <div class="bubble" style="top: 60%; left: 70%;">Internships</div>
+  <div class="bubble" style="top: 80%; left: 90%;">Contact</div>
 
 </body>
 </html>
