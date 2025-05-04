@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Floating Title Bubbles</title>
+  <title>Title Bubbles</title>
   <style>
     body {
       margin: 0;
@@ -27,7 +27,12 @@
       animation: floatBubbles 15s infinite linear;
     }
 
-    /* Bubble Sizes and Animations */
+    .bubble span {
+      z-index: 1;
+      opacity: 1 !important;
+    }
+
+    /* Bubble Sizes and Positions */
     .bubble:nth-child(1) {
       left: 15%;
       width: 120px;
@@ -58,14 +63,14 @@
 
     @keyframes floatBubbles {
       0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+      80% {
         opacity: 0.8;
       }
-      50% {
-        opacity: 0.5;
-      }
       100% {
-        transform: translateY(-110vh) scale(1.2);
+        transform: translateY(-110vh);
         opacity: 0;
       }
     }
@@ -73,10 +78,10 @@
 </head>
 <body>
 
-  <div class="bubble">Certifications</div>
-  <div class="bubble">Skills</div>
-  <div class="bubble">Internships</div>
-  <div class="bubble">Contact</div>
+  <div class="bubble"><span>Certifications</span></div>
+  <div class="bubble"><span>Skills</span></div>
+  <div class="bubble"><span>Internships</span></div>
+  <div class="bubble"><span>Contact</span></div>
 
 </body>
 </html>
