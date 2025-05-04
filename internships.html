@@ -56,19 +56,10 @@
       border-radius: 10px;
       padding: 2rem 2.5rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      animation: fadeSlideIn 1.2s ease forwards;
       max-width: 600px;
       width: 100%;
-      opacity: 0;
-      transform: translateY(40px);
+      opacity: 1;
       z-index: 1;
-    }
-
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h3 {
@@ -87,20 +78,24 @@
       transform: scale(1.03);
     }
 
+    /* Internship details section */
     .intern-detail {
-      background-color: #d7e9f5; /* Same as page bg color */
+      background-color: #d7e9f5; /* Match page bg color */
       padding: 1rem 1.5rem;
       margin-bottom: 1rem;
       border-left: 4px solid #0ea5e9; /* Blue border */
       border-radius: 6px;
       color: transparent; /* Hide text to blend with the background */
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .intern-detail:hover {
       transform: scale(1.02);
       box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .intern-detail span {
+      color: #333; /* Text color for content */
     }
 
     a {
@@ -110,16 +105,6 @@
 
     a:hover {
       text-decoration: underline;
-    }
-
-    /* Scroll animations */
-    .fade-in {
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
     }
 
     /* Scroll progress indicator */
@@ -159,32 +144,28 @@
 
   <main>
     <section id="internships">
-      <h3 class="fade-in">Internship - Web Developer</h3>
-      <div class="intern-detail fade-in"> <strong>Role:</strong> Frontend Developer</div>
-      <div class="intern-detail fade-in"><strong>Company:</strong> Internet Society Chennai Chapter</div>
-      <div class="intern-detail fade-in"><strong>Duration:</strong> 4 months</div>
-      <div class="intern-detail fade-in"><strong>Frameworks/Technologies:</strong> HTML, CSS, JavaScript, Django</div>
-      <div class="intern-detail fade-in">
-        Contributed to building responsive and dynamic web interfaces. Enhanced user experience and collaborated on real-time feature development with smooth integration of backend and frontend.
+      <h3>Internship - Web Developer</h3>
+      <div class="intern-detail">
+        <strong>Role:</strong> <span>Frontend Developer</span>
+      </div>
+      <div class="intern-detail">
+        <strong>Company:</strong> <span>Internet Society Chennai Chapter</span>
+      </div>
+      <div class="intern-detail">
+        <strong>Duration:</strong> <span>4 months</span>
+      </div>
+      <div class="intern-detail">
+        <strong>Technologies:</strong> <span>HTML, CSS, JavaScript, Django</span>
+      </div>
+      <div class="intern-detail">
+        <span>Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</span>
       </div>
     </section>
   </main>
 
   <script>
-    // Scroll-triggered animation for fade-in effect
+    // Scroll progress indicator
     document.addEventListener('scroll', function () {
-      const elements = document.querySelectorAll('.fade-in');
-
-      elements.forEach(function (element) {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (elementTop < windowHeight - 50) {
-          element.classList.add('visible');
-        }
-      });
-
-      // Update scroll progress bar
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
