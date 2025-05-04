@@ -9,9 +9,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #d7e9f5; /* Page background color */
+      background-color: #d7e9f5; /* Background color */
       color: black;
-      overflow-x: hidden;
+      overflow: hidden;
       position: relative;
     }
 
@@ -31,14 +31,19 @@
       height: 12px;
       background-color: #3892c6; /* Bubble color */
       border-radius: 50%;
-      animation: float 12s linear infinite;
-      opacity: 0.5;
+      animation: float 12s linear infinite, fadeInOut 5s linear infinite;
+      opacity: 0.3; /* Reduced initial opacity for a more faded effect */
     }
 
     @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.3; }
       50% { opacity: 0.8; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0.3; }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
     }
 
     main {
@@ -49,30 +54,33 @@
       z-index: 1;
       position: relative;
       padding: 2rem;
-      flex-wrap: wrap;
     }
 
     section#internships {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeSlideIn 1.2s ease forwards;
+      max-width: 1000px;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(40px);
+      overflow-x: auto;
     }
 
-    .internship-box {
-      background: #3892c6; /* Box color */
-      border-radius: 10px;
-      padding: 2rem 2.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      width: 100%;
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h3 {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.8rem;
-      color: white;
-      background: #0ea5e9; /* Heading box color */
+      color: white; /* Heading text color */
+      background: #3892c6; /* Box color */
       padding: 1rem;
       border-radius: 6px;
       margin-bottom: 1.5rem;
@@ -84,23 +92,40 @@
       transform: scale(1.03);
     }
 
-    .intern-detail {
-      background-color: #d7e9f5; /* Match page bg color */
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #0ea5e9; /* Blue border */
-      border-radius: 6px;
-      color: transparent; /* Hide text to blend with the background */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .internship-container {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
     }
 
-    .intern-detail:hover {
-      transform: scale(1.02);
+    .intern-card {
+      background-color: #3892c6; /* Box color set to blue */
+      color: white; /* Text color set to white */
+      padding: 1.5rem;
+      min-width: 300px;
+      border-left: 4px solid #0ea5e9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .intern-card:hover {
+      transform: scale(1.03);
       box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
 
-    .intern-detail span {
-      color: #333; /* Text color for content */
+    .intern-card strong {
+      color: white; /* Make sure the strong text is white */
+    }
+
+    .intern-details {
+      color: #d7e9f5; /* Same as background color */
+      background-color: #d7e9f5; /* Internship details box color same as page bg */
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     }
 
     a {
@@ -110,20 +135,6 @@
 
     a:hover {
       text-decoration: underline;
-    }
-
-    .scroll-progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 5px;
-      background-color: #3892c6;
-      z-index: 10;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -142,58 +153,41 @@
     </script>
   </div>
 
-  <div class="scroll-progress-bar"></div>
-
   <main>
     <section id="internships">
-      <div class="internship-box">
-        <h3>Internship - Web Developer</h3>
-        <div class="intern-detail">
-          <strong>Role:</strong> <span>Frontend Developer</span>
-        </div>
-        <div class="intern-detail">
-          <strong>Company:</strong> <span>Internet Society Chennai Chapter</span>
-        </div>
-        <div class="intern-detail">
-          <strong>Duration:</strong> <span>4 months</span>
-        </div>
-        <div class="intern-detail">
-          <strong>Technologies:</strong> <span>HTML, CSS, JavaScript, Django</span>
-        </div>
-        <div class="intern-detail">
-          <span>Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</span>
-        </div>
-      </div>
+      <h3>Internships</h3>
+      <div class="internship-container">
 
-      <div class="internship-box">
-        <h3>Internship - Backend Developer</h3>
-        <div class="intern-detail">
-          <strong>Role:</strong> <span>Backend Developer</span>
+        <!-- Internship 1 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Frontend Developer</p>
+          <p><strong>Company:</strong> Internet Society Chennai Chapter</p>
+          <p><strong>Duration:</strong> 4 months</p>
+          <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Django</p>
+          <p class="intern-details">Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</p>
         </div>
-        <div class="intern-detail">
-          <strong>Company:</strong> <span>Tech Innovations Pvt Ltd</span>
+
+        <!-- Internship 2 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Backend Intern</p>
+          <p><strong>Company:</strong> XYZ Technologies</p>
+          <p><strong>Duration:</strong> 3 months</p>
+          <p><strong>Technologies:</strong> Python, Flask, MySQL</p>
+          <p class="intern-details">Developed REST APIs, optimized backend performance, and supported deployment tasks.</p>
         </div>
-        <div class="intern-detail">
-          <strong>Duration:</strong> <span>6 months</span>
+
+        <!-- Internship 3 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Web Design Intern</p>
+          <p><strong>Company:</strong> ABC Creatives</p>
+          <p><strong>Duration:</strong> 2 months</p>
+          <p><strong>Technologies:</strong> Figma, HTML, CSS</p>
+          <p class="intern-details">Designed UI mockups and collaborated with dev teams for frontend handoff.</p>
         </div>
-        <div class="intern-detail">
-          <strong>Technologies:</strong> <span>Node.js, Express.js, MongoDB</span>
-        </div>
-        <div class="intern-detail">
-          <span>Worked on API development, database management, and integrating services to support frontend features.</span>
-        </div>
+
       </div>
     </section>
   </main>
 
-  <script>
-    document.addEventListener('scroll', function () {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      document.querySelector('.scroll-progress-bar').style.width = scrollPercent + '%';
-    });
-  </script>
-  
 </body>
 </html>
