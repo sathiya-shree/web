@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -55,6 +56,26 @@
     strong {
       color: #222;
     }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #0077b5; /* LinkedIn Blue */
+    }
+
+    .social-links a.github:hover {
+      color: #000;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +87,10 @@
       <li><strong>Date of Birth:</strong> DD-MM-YYYY</li>
       <li><strong>Place:</strong> Your City, State</li>
     </ul>
+    <div class="social-links">
+      <a href="https://github.com/yourusername" target="_blank" class="github" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
   </div>
 </body>
 </html>
