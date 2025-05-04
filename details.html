@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right, #f8fafc, #e0f2fe);
+      color: #111827;
+    }
+
+    header {
+      background-color: #0ea5e9;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    section:nth-child(odd) {
+      background-color: #f1f5f9;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0284c7;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e0f2fe;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#explore">Explore</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#internships">Internships</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="explore">
+    <h2>Explore</h2>
+    <div class="card">
+      <p>Welcome to my portfolio! Here, you'll find a curated collection of my work, skills, and journey as a tech enthusiast and creative writer. Each section reflects my passion for learning and building.</p>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card"><strong>HTML for Programmers</strong> – Great Learning</div>
+    <div class="card"><strong>Spark AR</strong> – Meta</div>
+    <div class="card"><strong>Cyber Security Fundamentals</strong> – Udemy</div>
+    <div class="card"><strong>Inkscape and Synfig</strong> – NPTEL</div>
+    <div class="card"><strong>Web Development</strong> – Internshala</div>
+    <div class="card"><strong>ISRO Online Training</strong> – Outreach Program</div>
+    <div class="card"><strong>Data Mining</strong> – NPTEL</div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <strong>Programming Languages:</strong> Java, HTML, CSS, C++, MySQL
+    </div>
+    <div class="card">
+      <strong>Core Skills:</strong> Creative Writing, Time Management, Social Media Management
+    </div>
+  </section>
+
+  <section id="internships">
+    <h2>Internships</h2>
+    <div class="card">
+      <strong>Role:</strong> Web Development Intern  
+      <br><strong>Company:</strong> Internet Society Chennai Chapter  
+      <br><strong>Duration:</strong> 4 Months  
+      <br><strong>Tech Used:</strong> HTML, CSS, JavaScript, Django
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <strong>Email:</strong> yourmail@example.com<br>
+      <strong>Phone:</strong> +91-XXXXXXXXXX<br>
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sathiya-shree-s" target="_blank">sathiya-shree-s</a><br>
+      <strong>Place:</strong> Tamil Nadu, India
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Sathiya Shree. All rights reserved.
+  </footer>
+
+</body>
+</html>
