@@ -4,136 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #d7e9f5;
+      overflow: hidden;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      animation: fadeIn 1.5s ease-in;
+      font-family: 'Poppins', sans-serif;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .drop {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      margin: 0 auto;
+      top: -30px;
+      animation: drip 2s cubic-bezier(1, 0, 0.91, 0.19) forwards;
     }
 
-    .contact-card {
-      background-color: white;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    .drop::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid white;
+      top: -22px;
+    }
+
+    .wave {
+      position: relative;
+      opacity: 0;
+      top: 200px;
+      width: 2px;
+      height: 1px;
+      border: white 7px solid;
+      border-radius: 300px / 150px;
+      animation: ripple 2s ease-in 2s forwards;
+    }
+
+    .wave::after {
+      content: "";
+      position: absolute;
+      opacity: 0;
+      top: -5px;
+      left: -5px;
+      width: 2px;
+      height: 1px;
+      border: white 5px solid;
+      border-radius: 300px / 150px;
+      animation: ripple-2 2s ease-in 2s forwards;
+    }
+
+    @keyframes drip {
+      to {
+        top: 190px;
+      }
+    }
+
+    @keyframes ripple {
+      from {
+        opacity: 1;
+      }
+      to {
+        width: 600px;
+        height: 300px;
+        border-width: 1px;
+        top: 100px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes ripple-2 {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        width: 200px;
+        height: 100px;
+        border-width: 1px;
+        top: 100px;
+        left: 200px;
+      }
+    }
+
+    .contact-details {
+      opacity: 0;
       text-align: center;
-      width: 90%;
-      max-width: 500px;
-      transition: transform 0.3s ease;
+      margin-top: 300px;
+      animation: showDetails 1.5s ease-in 3.5s forwards;
+      color: #333;
     }
 
-    .contact-card:hover {
-      transform: scale(1.02);
+    @keyframes showDetails {
+      to {
+        opacity: 1;
+      }
     }
 
     h2 {
-      margin-bottom: 20px;
-      color: #333;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: #555;
-    }
-
-    li {
-      margin: 12px 0;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    li i {
-      color: #0077b5;
-    }
-
-    .social-links {
-      margin-top: 25px;
-    }
-
-    .social-links a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #333;
-      font-size: 26px;
-      transition: transform 0.3s, color 0.3s;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.2);
-    }
-
-    .social-links a.github:hover {
-      color: #000;
-    }
-
-    .social-links a.linkedin:hover {
-      color: #0077b5;
-    }
-
-    .resume-button {
-      margin-top: 25px;
-    }
-
-    .resume-button a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #0077b5;
-      color: white;
-      border-radius: 8px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .resume-button a:hover {
-      background-color: #005f91;
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 500px) {
-      li {
-        font-size: 16px;
-      }
+    p {
+      margin: 0.2rem 0;
     }
   </style>
 </head>
 <body>
-  <div class="contact-card">
-    <h2>Contact Information</h2>
-    <ul>
-      <li><i class="fas fa-envelope"></i><strong>Email:</strong> sathiyashree03@gmail.com</li>
-      <li><i class="fas fa-phone"></i><strong>Phone:</strong> +91-XXXXXXXXXX</li>
-      <li><i class="fas fa-calendar"></i><strong>DOB:</strong> 03-02-2004</li>
-      <li><i class="fas fa-map-marker-alt"></i><strong>Place:</strong> Coimbatore</li>
-    </ul>
-    
-    <div class="social-links">
-      <a href="https://github.com/yourusername" target="_blank" class="github" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div>
 
+  <div class="drop"></div>
+  <div class="wave"></div>
 
-    </div>
+  <div class="contact-details">
+    <h2>Contact Me</h2>
+    <p>Email: your.email@example.com</p>
+    <p>Phone: +91-1234567890</p>
+    <p>Location: Coimbatore, Tamil Nadu</p>
   </div>
+
 </body>
 </html>
