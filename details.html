@@ -8,16 +8,16 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-      font-family: Arial, sans-serif;
+      background-color: #cceeff; /* Light blue background */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .bubble {
       position: absolute;
-      bottom: -100px;
-      background: radial-gradient(circle at 30% 30%, #cde8ff, #4a90e2);
+      bottom: -120px;
+      background: radial-gradient(circle at 30% 30%, #e6f7ff, #66b3ff);
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -26,17 +26,24 @@
       text-align: center;
       animation: floatBubbles 15s infinite linear;
       cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .bubble span {
       z-index: 1;
       opacity: 1 !important;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: all 0.4s ease;
+    }
+
+    .bubble:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
     }
 
     .bubble:hover span {
-      transform: scale(1.2);
-      color: #ffe600;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      letter-spacing: 1px;
     }
 
     /* Bubble Sizes and Positions */
@@ -44,40 +51,40 @@
       left: 15%;
       width: 120px;
       height: 120px;
-      animation-duration: 16s;
+      animation-duration: 17s;
     }
 
     .bubble:nth-child(2) {
       left: 35%;
       width: 140px;
       height: 140px;
-      animation-duration: 18s;
+      animation-duration: 19s;
     }
 
     .bubble:nth-child(3) {
       left: 55%;
       width: 130px;
       height: 130px;
-      animation-duration: 14s;
+      animation-duration: 16s;
     }
 
     .bubble:nth-child(4) {
       left: 75%;
       width: 120px;
       height: 120px;
-      animation-duration: 17s;
+      animation-duration: 18s;
     }
 
     @keyframes floatBubbles {
       0% {
         transform: translateY(0);
-        opacity: 0.9;
+        opacity: 1;
       }
-      80% {
-        opacity: 0.8;
+      90% {
+        opacity: 1;
       }
       100% {
-        transform: translateY(-110vh);
+        transform: translateY(-120vh);
         opacity: 0;
       }
     }
