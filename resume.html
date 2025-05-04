@@ -25,7 +25,27 @@
       position: relative;
     }
 
-    /* Background Animation */
+    /* Cloud Animation */
+    @keyframes cloudMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Cloud Effect */
+    .cloud {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 50%;
+      opacity: 0.8;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: cloudMove 30s linear infinite;
+    }
+
+    .cloud1 { width: 200px; height: 100px; top: 20%; left: -150px; animation-duration: 45s; }
+    .cloud2 { width: 250px; height: 120px; top: 60%; left: -200px; animation-duration: 50s; }
+    .cloud3 { width: 220px; height: 110px; top: 50%; left: -250px; animation-duration: 55s; }
+
+    /* Background Gradient Animation */
     @keyframes gradientAnimation {
       0% {
         background-position: 0% 50%;
@@ -38,7 +58,7 @@
       }
     }
 
-    /* Lighter Blue Gradient Background */
+    /* Lighter Blue Gradient */
     .background {
       position: absolute;
       top: 0;
@@ -113,6 +133,11 @@
   </style>
 </head>
 <body>
+
+  <!-- Cloud Effect -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
 
   <!-- Background animation -->
   <div class="background"></div>
