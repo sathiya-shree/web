@@ -8,7 +8,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: #0c1f4c;
+      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
       font-family: Arial, sans-serif;
     }
 
@@ -25,11 +25,18 @@
       font-weight: bold;
       text-align: center;
       animation: floatBubbles 15s infinite linear;
+      cursor: pointer;
     }
 
     .bubble span {
       z-index: 1;
       opacity: 1 !important;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .bubble:hover span {
+      transform: scale(1.2);
+      color: #ffe600;
     }
 
     /* Bubble Sizes and Positions */
