@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Your Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -13,11 +12,11 @@
     }
 
     body {
-      min-height: 300vh;
+      min-height: 100vh;
       background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+      font-family: 'Montserrat', sans-serif;
     }
 
-    /* HEADER */
     header {
       position: fixed;
       width: 100%;
@@ -71,7 +70,6 @@
       border-radius: 10px;
       cursor: pointer;
       background: #fff;
-      font-family: 'Montserrat', sans-serif;
       font-size: 1em;
       color: #09203f;
       z-index: 10;
@@ -83,7 +81,7 @@
       color: white;
     }
 
-    /* Modal Styles for Resume */
+    /* Resume Modal */
     .modal {
       display: none;
       position: fixed;
@@ -120,28 +118,6 @@
     .close-btn:hover {
       color: black;
     }
-
-    nav {
-      display: none;
-    }
-
-    content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    section {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1em;
-      letter-spacing: 2pt;
-      color: #fff;
-    }
   </style>
 </head>
 <body>
@@ -152,7 +128,7 @@
     <button id="view-resume-btn">Click to View My Resume</button>
   </header>
 
-  <!-- PDF Viewer Modal -->
+  <!-- Resume Modal -->
   <div id="resume-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="close-resume-btn">&times;</span>
@@ -160,24 +136,18 @@
     </div>
   </div>
 
-  <content>
-    <!-- Section 1 removed -->
-    <section>Section 2</section>
-    <section>Section 3</section>
-  </content>
-
   <script>
-    // Resume modal open
+    // Show modal
     document.getElementById("view-resume-btn").addEventListener("click", function () {
       document.getElementById("resume-modal").style.display = "flex";
     });
 
-    // Resume modal close
+    // Hide modal
     document.getElementById("close-resume-btn").addEventListener("click", function () {
       document.getElementById("resume-modal").style.display = "none";
     });
 
-    // Close if click outside modal content
+    // Click outside to close
     window.addEventListener("click", function (event) {
       if (event.target === document.getElementById("resume-modal")) {
         document.getElementById("resume-modal").style.display = "none";
