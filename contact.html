@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -15,7 +18,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       animation: fadeIn 1.5s ease-in;
     }
 
@@ -28,8 +31,10 @@
       background-color: white;
       padding: 30px 40px;
       border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       text-align: center;
+      width: 90%;
+      max-width: 500px;
       transition: transform 0.3s ease;
     }
 
@@ -43,38 +48,72 @@
     }
 
     ul {
-      list-style-type: none;
+      list-style: none;
       padding: 0;
+      margin: 0;
       color: #555;
     }
 
     li {
-      margin: 10px 0;
+      margin: 12px 0;
       font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
-    strong {
-      color: #222;
+    li i {
+      color: #0077b5;
     }
 
     .social-links {
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .social-links a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       color: #333;
-      font-size: 24px;
-      transition: color 0.3s;
+      font-size: 26px;
+      transition: transform 0.3s, color 0.3s;
     }
 
     .social-links a:hover {
-      color: #0077b5; /* LinkedIn Blue */
+      transform: scale(1.2);
     }
 
     .social-links a.github:hover {
       color: #000;
+    }
+
+    .social-links a.linkedin:hover {
+      color: #0077b5;
+    }
+
+    .resume-button {
+      margin-top: 25px;
+    }
+
+    .resume-button a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #0077b5;
+      color: white;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .resume-button a:hover {
+      background-color: #005f91;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 500px) {
+      li {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -82,14 +121,19 @@
   <div class="contact-card">
     <h2>Contact Information</h2>
     <ul>
-      <li><strong>Email:</strong> youremail@example.com</li>
-      <li><strong>Phone:</strong> +91-XXXXXXXXXX</li>
-      <li><strong>Date of Birth:</strong> DD-MM-YYYY</li>
-      <li><strong>Place:</strong> Your City, State</li>
+      <li><i class="fas fa-envelope"></i><strong>Email:</strong> sathiyashree03@gmail.com</li>
+      <li><i class="fas fa-phone"></i><strong>Phone:</strong> +91-XXXXXXXXXX</li>
+      <li><i class="fas fa-calendar"></i><strong>DOB:</strong> 03-02-2004</li>
+      <li><i class="fas fa-map-marker-alt"></i><strong>Place:</strong> Coimbatore</li>
     </ul>
+    
     <div class="social-links">
       <a href="https://github.com/yourusername" target="_blank" class="github" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <div class="resume-button">
+      <a href="resume.pdf" download>Download Resume</a>
     </div>
   </div>
 </body>
