@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Link</title>
+  <title>Interactive Header</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     /* Basic Reset */
@@ -14,138 +14,294 @@
     }
 
     body {
+      min-height: 300vh;
+      background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-      font-family: 'Arial', sans-serif;
-      overflow: hidden;
+      z-index: 10;
+    }
+
+    header h1, header button {
       position: relative;
+      z-index: 10;
     }
 
-    /* Background Gradient Animation */
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    header h1 {
+      text-transform: uppercase;
+      letter-spacing: 1pt;
+      font-size: 3em;
+      color: #fff;
     }
 
-    /* Lighter Blue Gradient */
-    .background {
+    header button {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
       position: absolute;
+      bottom: 100px;
+      left: calc(50% - 60px);
+      width: 120px;
+      height: 50px;
+      border: 0;
+      box-shadow: 2px 1px 20px 0 rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      cursor: pointer;
+      background: #fff;
+      font-size: 1em;
+      color: #09203f;
+      transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+        transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+        box-shadow 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      overflow: hidden;
+    }
+
+    header button:hover {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+    }
+
+    header button:focus {
+      outline: 0;
+    }
+
+    header button:before,
+    header button:after {
+      font-family: "Font Awesome 5 Free";
+      transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      top: 17px;
+      position: absolute;
+    }
+
+    header button:before {
+      content: "\f067"; /* Plus sign */
+      opacity: 1;
+      left: 53px;
+    }
+
+    header button:after {
+      content: "\f0c9"; /* Hamburger menu icon */
+      opacity: 0;
+      left: 0;
+    }
+
+    .triangle {
+      position: absolute;
+      z-index: 1;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, #A7C7E7, #88B9D4, #66A1C3);
-      background-size: 300% 300%;
-      animation: gradientAnimation 6s ease infinite;
-      z-index: -2; /* Ensure it's behind everything else */
-    }
-
-    /* Reveal Card Animation */
-    .link-container {
-      text-align: center;
-      padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      position: relative;
-      transform: scale(0); /* Start as scaled down */
-      opacity: 0; /* Initially invisible */
-      transition: all 0.6s ease-in-out; /* Smooth transition for reveal effect */
-    }
-
-    .link-container.show {
-      transform: scale(1); /* Scale back to normal */
-      opacity: 1; /* Fully visible */
-    }
-
-    .resume-link {
-      font-size: 24px;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-      padding: 12px 24px;
-      border: 2px solid #007bff;
-      border-radius: 30px;
-      background-color: #ffffff;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      display: inline-flex;
+      background: linear-gradient(to top, #09203f 0%, #537895 100%);
+      transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      display: flex;
+      justify-content: center;
       align-items: center;
+      pointer-events: none;
     }
 
-    .resume-link:hover {
-      color: #ffffff;
-      background-color: #007bff;
-      border-color: #0056b3;
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+    .triangle.left {
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
     }
 
-    .resume-link:hover .underline {
+    .triangle.right {
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    header.open {
+      .triangle.left {
+        clip-path: polygon(0 0, 0 100%, 0 100%);
+      }
+
+      .triangle.right {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%);
+      }
+
+      header button {
+        left: 40px;
+        bottom: 40px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+      header button:before {
+        opacity: 0;
+        left: 100%;
+      }
+
+      header button:after {
+        opacity: 1;
+        left: 18px;
+      }
+
+      header button.menu {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        border-radius: 0;
+      }
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
       width: 100%;
-      opacity: 1;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
     }
 
-    /* Underline Animation */
-    .underline {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0%;
-      height: 3px;
-      background-color: #ffffff;
-      transition: width 0.3s ease, opacity 0.3s ease;
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 2;
+      letter-spacing: 1pt;
+      font-size: 2em;
+      color: #09203f;
+      animation: fadeDown 0.5s forwards;
       opacity: 0;
-      transform: translateX(-50%);
+      cursor: pointer;
+      transform: translateY(-20px);
+      transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     }
 
-    .resume-link .icon {
-      margin-right: 10px;
+    nav ul li:hover {
+      text-shadow: 2px 1px 40px rgba(0, 0, 0, 0.5);
+      opacity: .8;
     }
-    
-    /* Glowing Effect on Hover */
-    .resume-link:hover {
-      box-shadow: 0 0 15px 3px rgba(0, 123, 255, 0.5);
+
+    nav ul li:nth-child(1) {
+      animation-delay: 0.8s;
+    }
+
+    nav ul li:nth-child(2) {
+      animation-delay: 0.9s;
+    }
+
+    nav ul li:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    #nav-close {
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      font-size: 1.5em;
+      cursor: pointer;
+      animation: fadeDown 0.5s forwards;
+      animation-delay: 1.1s;
+      opacity: 0;
+      color: #09203f;
+      transform: translateY(-20px);
+    }
+
+    @keyframes fadeDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CONTENT */
+    content {
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1em;
+        letter-spacing: 2pt;
+        color: #fff;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Background animation -->
-  <div class="background"></div>
+<header>
+  <div class="triangle left"></div>
+  <div class="triangle right"></div>
+  <h1>This is a title</h1>
+  <button></button>
+</header>
 
-  <!-- Main Content -->
-  <div class="link-container" id="link-container">
-    <p>Click below to view my resume:</p>
-    <a href="resume.html" class="resume-link">
-      <i class="fas fa-file-alt icon"></i> <!-- Font Awesome Icon -->
-      View My Resume
-      <span class="underline"></span> <!-- Underline Animation -->
-    </a>
-  </div>
+<nav>
+  <ul>
+    <li>Section 1</li>
+    <li>Section 2</li>
+    <li>Section 3</li>
+  </ul>
+  <div id="nav-close"><i class="fas fa-times"></i></div>
+</nav>
 
-  <script>
-    // Delay the reveal animation by adding the "show" class after a small timeout
-    window.addEventListener("load", function() {
-      const linkContainer = document.getElementById("link-container");
-      setTimeout(function() {
-        linkContainer.classList.add("show");
-      }, 300); // Delay for 0.3s to trigger the reveal
-    });
-  </script>
+<content>
+  <section>Section 1</section>
+  <section>Section 2</section>
+  <section>Section 3</section>
+</content>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function toggleNav() {
+    // if nav is open, close it
+    if ($("nav").is(":visible")) {
+      $("nav").fadeOut();
+      $("button").removeClass("menu");
+    }
+    // if nav is closed, open it
+    else {
+      $("button").addClass("menu");
+      $("nav").fadeIn().css('display', 'flex');
+    }
+  }
+
+  $("button").click(function () {
+    if ($("header").hasClass("open")) {
+      toggleNav();
+    } else {
+      $("header").addClass("open");
+    }
+  });
+
+  $("#nav-close").click(function () {
+    toggleNav();
+  });
+
+  $("nav li").click(function () {
+    var index = $(this).index();
+    var target = $("content section").eq(index);
+    toggleNav();
+    $('html,body').delay(300).animate({
+      scrollTop: target.offset().top
+    }, 500);
+  });
+</script>
 </body>
 </html>
