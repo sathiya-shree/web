@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Floating Bubbles</title>
+  <title>Floating Water Bubbles</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -25,10 +25,10 @@
     }
 
     .bubble {
-      background-color: #0ea5e9;
+      background-color: #00bcd4; /* Water blue color */
       border-radius: 50%;
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,12 +54,24 @@
 
     @keyframes moveRandom {
       0% {
-        top: 10%;
+        top: 5%;
         left: 10%;
       }
+      25% {
+        top: 15%;
+        left: 40%;
+      }
+      50% {
+        top: 30%;
+        left: 70%;
+      }
+      75% {
+        top: 60%;
+        left: 40%;
+      }
       100% {
-        top: 90%;
-        left: 90%;
+        top: 80%;
+        left: 60%;
       }
     }
 
@@ -67,11 +79,11 @@
 </head>
 <body>
 
-  <!-- Floating Bubbles -->
-  <div class="bubble" style="top: 20%; left: 30%;">Certifications</div>
-  <div class="bubble" style="top: 40%; left: 50%;">Skills</div>
-  <div class="bubble" style="top: 60%; left: 70%;">Internships</div>
-  <div class="bubble" style="top: 80%; left: 90%;">Contact</div>
+  <!-- Floating Water Bubbles -->
+  <div class="bubble" style="top: 20%; left: 15%;">Certifications</div>
+  <div class="bubble" style="top: 30%; left: 50%;">Skills</div>
+  <div class="bubble" style="top: 50%; left: 70%;">Internships</div>
+  <div class="bubble" style="top: 70%; left: 30%;">Contact</div>
 
 </body>
 </html>
