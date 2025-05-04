@@ -29,7 +29,7 @@
       position: absolute;
       width: 12px;
       height: 12px;
-      background-color: rgba(0, 0, 0, 0.2); /* slightly darker */
+      background-color: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
       animation: float 12s linear infinite;
       opacity: 0.5;
@@ -54,26 +54,14 @@
     section#internships {
       background: #f9fafb;
       border-radius: 10px;
-      padding: 2rem 2.5rem;
+      padding: 2rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       animation: fadeSlideIn 1.2s ease forwards;
-      max-width: 600px;
+      max-width: 1000px;
       width: 100%;
       opacity: 0;
       transform: translateY(40px);
-
-      max-height: 500px;
-      overflow-y: auto;
-      scrollbar-width: thin; /* Firefox */
-    }
-
-    section#internships::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    section#internships::-webkit-scrollbar-thumb {
-      background-color: #0ea5e9;
-      border-radius: 3px;
+      overflow-x: auto;
     }
 
     @keyframes fadeSlideIn {
@@ -86,8 +74,8 @@
     h3 {
       font-family: 'Montserrat', sans-serif;
       font-size: 1.8rem;
-      color: #f1f5f9; /* light heading */
-      background: #0ea5e9;
+      color: #0f172a;
+      background: #e0f2fe;
       padding: 1rem;
       border-radius: 6px;
       margin-bottom: 1.5rem;
@@ -99,20 +87,31 @@
       transform: scale(1.03);
     }
 
-    .intern-detail {
-      background-color: #f3f4f6;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #0ea5e9;
-      border-radius: 6px;
-      color: black;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .internship-container {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
     }
 
-    .intern-detail:hover {
-      transform: scale(1.02);
+    .intern-card {
+      background-color: #f3f4f6;
+      padding: 1.5rem;
+      min-width: 300px;
+      border-left: 4px solid #0ea5e9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .intern-card:hover {
+      transform: scale(1.03);
       box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .intern-card strong {
+      color: #0f172a;
     }
 
     a {
@@ -143,20 +142,36 @@
   <main>
     <section id="internships">
       <h3>Internships</h3>
+      <div class="internship-container">
 
-      <div class="intern-detail"><strong>Role:</strong> Frontend Developer</div>
-      <div class="intern-detail"><strong>Company:</strong> Internet Society Chennai Chapter</div>
-      <div class="intern-detail"><strong>Duration:</strong> 4 months</div>
-      <div class="intern-detail"><strong>Technologies:</strong> HTML, CSS, JavaScript, Django</div>
-      <div class="intern-detail">Contributed to building responsive and dynamic web interfaces. Enhanced user experience and collaborated on real-time feature development with smooth integration of backend and frontend.</div>
+        <!-- Internship 1 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Frontend Developer</p>
+          <p><strong>Company:</strong> Internet Society Chennai Chapter</p>
+          <p><strong>Duration:</strong> 4 months</p>
+          <p><strong>Technologies:</strong> HTML, CSS, JavaScript, Django</p>
+          <p>Built responsive interfaces, improved user experience, and contributed to real-time feature rollouts.</p>
+        </div>
 
-      <!-- Add more internships below -->
-      <div class="intern-detail"><strong>Role:</strong> Web Design Intern</div>
-      <div class="intern-detail"><strong>Company:</strong> ABC Web Solutions</div>
-      <div class="intern-detail"><strong>Duration:</strong> 2 months</div>
-      <div class="intern-detail"><strong>Technologies:</strong> HTML, CSS, Bootstrap</div>
-      <div class="intern-detail">Worked on designing landing pages and optimizing page performance using clean and responsive design principles.</div>
+        <!-- Internship 2 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Backend Intern</p>
+          <p><strong>Company:</strong> XYZ Technologies</p>
+          <p><strong>Duration:</strong> 3 months</p>
+          <p><strong>Technologies:</strong> Python, Flask, MySQL</p>
+          <p>Developed REST APIs, optimized backend performance, and supported deployment tasks.</p>
+        </div>
 
+        <!-- Internship 3 -->
+        <div class="intern-card">
+          <p><strong>Role:</strong> Web Design Intern</p>
+          <p><strong>Company:</strong> ABC Creatives</p>
+          <p><strong>Duration:</strong> 2 months</p>
+          <p><strong>Technologies:</strong> Figma, HTML, CSS</p>
+          <p>Designed UI mockups and collaborated with dev teams for frontend handoff.</p>
+        </div>
+
+      </div>
     </section>
   </main>
 
