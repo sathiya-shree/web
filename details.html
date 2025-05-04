@@ -8,14 +8,14 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color:#AFDBF5; /* Soft light blue background */
+      background: #d7e9f5; /* Updated background color */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .bubble {
       position: absolute;
       bottom: -150px;
-      background: radial-gradient(circle at 30% 30%, #5eead4, #0ea5e9); /* Vibrant aqua to sky blue */
+      background: #3892c6; /* Bubble color */
       border-radius: 50%;
       color: white;
       font-weight: 600;
@@ -26,7 +26,7 @@
       animation: floatBubbles 16s infinite linear;
       cursor: pointer;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
     }
 
     .bubble span {
@@ -38,6 +38,7 @@
     .bubble:hover {
       transform: scale(1.15);
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+      background: #267b99; /* Darker blue for hover effect */
     }
 
     .bubble:hover span {
