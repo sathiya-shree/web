@@ -14,59 +14,93 @@
 
     body {
       font-family: 'Nunito', sans-serif;
-      height: 100vh;
       overflow: hidden;
-      background: url('https://media.tenor.com/6tB7cI0aVq4AAAAC/ocean-underwater.gif') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(to bottom, #0077be 0%, #003d5c 100%);
+      height: 100vh;
+      position: relative;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
+    /* Wave animation using pseudo elements */
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200px;
+      background: url('https://i.imgur.com/ax0NCsK.png') repeat-x;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    body::before {
+      animation: wave 10s linear infinite;
+    }
+
+    body::after {
+      animation: wave 15s linear infinite reverse;
+      bottom: -20px;
+      opacity: 0.25;
+    }
+
+    @keyframes wave {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     .bubble-container {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
-      max-width: 900px;
-      padding: 2rem;
+      z-index: 2;
     }
 
     .bubble {
-      width: 160px;
-      height: 160px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #0284c7;
-      font-size: 1.1rem;
-      text-align: center;
+      color: #034078;
+      font-size: 1rem;
       font-weight: 600;
-      animation: floatBubble 6s ease-in-out infinite;
-      transition: transform 0.3s;
       text-decoration: none;
+      animation: float 6s ease-in-out infinite, drift 10s ease-in-out infinite;
+      position: relative;
+      transition: transform 0.3s;
     }
 
     .bubble:hover {
       transform: scale(1.1);
     }
 
-    @keyframes floatBubble {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes drift {
+      0% { left: 0px; }
+      50% { left: 10px; }
+      100% { left: 0px; }
     }
 
     footer {
       position: absolute;
       bottom: 10px;
       font-size: 0.8rem;
-      color: #f0fdf4;
+      color: #e0f7fa;
+      z-index: 2;
     }
   </style>
 </head>
