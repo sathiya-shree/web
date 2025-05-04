@@ -28,7 +28,7 @@
       top: -30px; /* Start above the screen */
       left: 50%;
       transform: translateX(-50%);
-      animation: drip 2s cubic-bezier(1, 0, 0.91, 0.19) forwards, ripple 2s cubic-bezier(0, 0, 0.2, 1.4) forwards;
+      animation: drip 2s cubic-bezier(1, 0, 0.91, 0.19) forwards, ripple 2s ease-out forwards;
     }
 
     /* Triangle at the bottom of the drop */
@@ -49,35 +49,35 @@
     .contact-details {
       opacity: 0;
       position: absolute;
-      top: 70%; /* Adjust the top position to match where the drop lands */
+      top: 70%; /* Position of the contact details after the drop */
       transform: translateY(-50%);
       color: #333;
       font-size: 1.5rem;
-      animation: showDetails 2s ease-in 2s forwards; /* Delayed fade-in */
+      animation: showDetails 2s ease-in forwards 2s; /* Show after the drop and ripple */
     }
 
     /* Keyframes for the drop animation (falling) */
     @keyframes drip {
       to {
-        top: 80%; /* Where the drop reaches the bottom */
+        top: 80%; /* The drop reaches the bottom */
       }
     }
 
     /* Keyframes for the ripple effect */
     @keyframes ripple {
-      from {
+      0% {
         width: 20px;
         height: 20px;
         opacity: 1;
       }
-      to {
-        width: 150px; /* Grow the drop to form a circle */
+      100% {
+        width: 150px; /* Grow to form a circle */
         height: 150px;
         opacity: 0; /* Fade out */
       }
     }
 
-    /* Keyframes to show the contact details */
+    /* Keyframes to show the contact details suddenly */
     @keyframes showDetails {
       to {
         opacity: 1;
