@@ -27,17 +27,25 @@
       color: #007bff;
       font-weight: bold;
       transition: all 0.3s ease;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 5px;
+      border: 2px solid #007bff;
+      background-color: #ffffff;
     }
     .resume-link:hover {
       color: #ffffff;
       background-color: #007bff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-      transform: scale(1.1);
+      border: 2px solid transparent;
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
     }
     .resume-link:focus {
       outline: none;
+    }
+    .resume-link:active {
+      transform: scale(1) rotate(0deg);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     }
   </style>
 </head>
