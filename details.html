@@ -34,7 +34,7 @@
     }
 
     .bubble {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       padding: 25px 40px;
       color: white;
@@ -43,26 +43,33 @@
       text-align: center;
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      animation: float 8s ease-in-out infinite, moveRandom 12s linear infinite;
+      animation: float 8s ease-in-out infinite, moveRandom 12s linear infinite, bubbleGrowShrink 4s ease-in-out infinite;
       position: absolute;
       border: 2px solid rgba(255, 255, 255, 0.3);
       opacity: 0.9;
-      transform: translateY(0);
     }
 
-    /* Floating and random movement animations */
+    /* Floating animation */
     @keyframes float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
       100% { transform: translateY(0); }
     }
 
+    /* Random movement animation */
     @keyframes moveRandom {
       0% { top: 5%; left: 5%; }
       25% { top: 30%; left: 35%; }
       50% { top: 50%; left: 65%; }
       75% { top: 70%; left: 25%; }
       100% { top: 85%; left: 55%; }
+    }
+
+    /* Growing and shrinking animation */
+    @keyframes bubbleGrowShrink {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
 
     .bubble:hover {
