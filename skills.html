@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Skills</title>
   <style>
-    /* Reset and background */
     html, body {
       height: 100%;
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: radial-gradient(ellipse at center, #ffffee 0%, #ffffee 35%, #b7e8eb 100%);
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Fade-in body animation */
-    .fade-in {
+    body.fade-in {
       animation: fadeIn 2s ease-in;
     }
 
@@ -24,12 +25,11 @@
       to { opacity: 1; }
     }
 
-    /* Content box */
     .content {
+      width: 90%;
       max-width: 600px;
-      margin: 100px auto;
       padding: 30px;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9);
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
       animation: slideFade 2s ease-out;
@@ -72,7 +72,6 @@
       color: #007799;
     }
 
-    /* Ocean Waves */
     .ocean { 
       height: 5%;
       width: 100%;
@@ -113,7 +112,7 @@
 </head>
 <body class="fade-in">
 
-  <!-- Content -->
+  <!-- Centered Content -->
   <div class="content">
     <h2>PROGRAMMING SKILLS</h2>
     <ul>
@@ -132,7 +131,7 @@
     </ul>
   </div>
 
-  <!-- Ocean Waves -->
+  <!-- Waves -->
   <div class="ocean">
     <div class="wave"></div>
     <div class="wave"></div>
