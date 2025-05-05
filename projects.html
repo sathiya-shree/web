@@ -10,7 +10,9 @@
 
     body {
       font-family: 'Oswald', sans-serif;
-      background-color: #212121;
+      background-color: #a3c7e3; /* Light blue background */
+      margin: 0;
+      padding: 0;
     }
 
     section {
@@ -33,6 +35,8 @@
       margin: 10px 0;
       transition: ease all $transition-time;
       perspective: 1200px;
+      background-color: #b1d4e6; /* Different shade of light blue for card */
+      border-radius: 10px; /* Optional: added rounded corners */
     }
 
     .card:hover {
@@ -140,22 +144,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      a {
-        transform-style: preserve-3d;
-        transition: ease transform $transition-time, ease background .5s;
-        transform: translateZ(-1px) rotatey(-180deg);
-        background: transparent;
-        border: 1px solid white;
-        font-weight: 200;
-        font-size: 1.3em;
-        color: white;
-        padding: 14px 32px;
-        outline: none;
-        text-decoration: none;
-        &:hover {
-          background-color: white;
-          color: #0b0f08;
-        }
+      padding: 20px;
+      color: white;
+      font-size: 1.2em;
+      line-height: 1.6;
+
+      /* Description styles */
+      p {
+        margin: 0;
       }
     }
   </style>
@@ -169,7 +165,7 @@
           <h1>Portfolio Website</h1>
           <span class="price">2025</span>
           <div class="card-back">
-            <a href="#">View Details</a>
+            <p>This project involves the development of a personal portfolio website that showcases skills, experience, and projects.</p>
           </div>
         </div>
       </div>
@@ -180,7 +176,7 @@
           <h1>Logistics Automation</h1>
           <span class="price">2024</span>
           <div class="card-back">
-            <a href="#">View Details</a>
+            <p>This project automates logistics processes, pairing goods with transporters, calculating costs, and generating shipment details.</p>
           </div>
         </div>
       </div>
@@ -191,7 +187,7 @@
           <h1>Book Review Blog</h1>
           <span class="price">2023</span>
           <div class="card-back">
-            <a href="#">View Details</a>
+            <p>This project features a blog where I write and share reviews of the books I read, with a special focus on literary fiction.</p>
           </div>
         </div>
       </div>
