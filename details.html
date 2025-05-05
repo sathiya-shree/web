@@ -2,94 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Floating Glowing Bubbles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: #d7e9f5;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      height: 100vh;
-      width: 100vw;
-      position: relative;
-    }
-
-    .bubble {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #3892c6, #267b99);
-      box-shadow: 0 0 20px rgba(56, 146, 198, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+      background-color: #f4f8fb;
+      color: #333;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: bold;
+      height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      width: 90%;
+      padding: 40px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+    }
+
+    .card {
+      background: #e3f1fa;
+      border-radius: 15px;
+      padding: 30px;
       text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #267b99;
       text-decoration: none;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      box-shadow: 0 4px 12px rgba(56, 146, 198, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .bubble:hover {
-      transform: scale(1.1);
-      filter: brightness(1.2);
-      box-shadow: 0 0 40px rgba(56, 146, 198, 1), inset 0 0 15px rgba(255, 255, 255, 0.5);
-    }
-
-    /* Bubble positioning and animations */
-    .bubble:nth-child(1) { left: 5%;  top: 20%; animation-name: float1; }
-    .bubble:nth-child(2) { left: 20%; top: 50%; animation-name: float2; }
-    .bubble:nth-child(3) { left: 35%; top: 15%; animation-name: float3; }
-    .bubble:nth-child(4) { left: 50%; top: 60%; animation-name: float4; }
-    .bubble:nth-child(5) { left: 65%; top: 30%; animation-name: float5; }
-    .bubble:nth-child(6) { left: 80%; top: 70%; animation-name: float6; }
-    .bubble:nth-child(7) { left: 25%; top: 80%; animation-name: float1; }
-
-    @keyframes float1 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(20px, -30px); }
-    }
-
-    @keyframes float2 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(-25px, 20px); }
-    }
-
-    @keyframes float3 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -25px); }
-    }
-
-    @keyframes float4 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(-20px, 30px); }
-    }
-
-    @keyframes float5 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(25px, -25px); }
-    }
-
-    @keyframes float6 {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(-30px, 25px); }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(56, 146, 198, 0.25);
     }
   </style>
 </head>
 <body>
-
-  <a href="certifications.html" class="bubble">Certifications</a>
-  <a href="internships.html" class="bubble">Internships</a>
-  <a href="skills.html" class="bubble">Skills</a>
-  <a href="projects.html" class="bubble">Projects</a>
-  <a href="resume.html" class="bubble">Resume</a>
-  <a href="contact.html" class="bubble">Contact</a>
-  <a href="interests.html" class="bubble">Interests</a>
-
+  <div class="container">
+    <a class="card" href="certifications.html">Certifications</a>
+    <a class="card" href="internships.html">Internships</a>
+    <a class="card" href="skills.html">Skills</a>
+    <a class="card" href="projects.html">Projects</a>
+    <a class="card" href="resume.html">Resume</a>
+    <a class="card" href="contact.html">Contact</a>
+    <a class="card" href="interests.html">Interests</a>
+  </div>
 </body>
 </html>
