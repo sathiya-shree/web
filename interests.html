@@ -1,122 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Resume Viewer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      background: #222;
-      color: #eee;
-      font-family: "Dosis", sans-serif;
-      margin: 0;
-      position: relative;
-    }
-
-    .circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin: 10px;
-      background: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: 0.3s;
-      color: #fff;
-      font-size: 1.2em;
-    }
-
-    .circle:hover {
-      background-color: aqua;
-    }
-
-    .content {
-      position: absolute;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      display: none;
-      width: 90%;
-      color: #fff;
-      font-size: 1.2em;
-      z-index: 1000;
-    }
-
-    #interests {
-      display: block;
-    }
-
-    .circle.active {
-      background-color: aqua;
-    }
-
-    .circle span {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .circle.active span {
-      opacity: 1;
-    }
-
-  </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Interests Box</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
+
 <body>
-
-  <div class="circle" id="interestsBtn">
-    Interests
-    <span>🔲</span>
-  </div>
-  
-  <div class="circle" id="languagesBtn">
-    Languages
-    <span>🔲</span>
-  </div>
-
-  <div class="content" id="interestsContent">
-    <h2>INTERESTS</h2>
-    <ul>
-      <li>Writing Poems and Books</li>
-      <li>Reading and Reviewing Books</li>
-      <li>Social Media Management</li>
-    </ul>
-  </div>
-
-  <div class="content" id="languagesContent">
-    <h2>LANGUAGES KNOWN</h2>
-    <ul>
-      <li>English</li>
-      <li>Tamil</li>
-    </ul>
-  </div>
-
-  <script>
-    const interestsBtn = document.getElementById("interestsBtn");
-    const languagesBtn = document.getElementById("languagesBtn");
-    const interestsContent = document.getElementById("interestsContent");
-    const languagesContent = document.getElementById("languagesContent");
-
-    interestsBtn.addEventListener("click", () => {
-      interestsContent.style.display = "block";
-      languagesContent.style.display = "none";
-      interestsBtn.classList.toggle("active");
-      languagesBtn.classList.remove("active");
-    });
-
-    languagesBtn.addEventListener("click", () => {
-      languagesContent.style.display = "block";
-      interestsContent.style.display = "none";
-      languagesBtn.classList.toggle("active");
-      interestsBtn.classList.remove("active");
-    });
-  </script>
-
+    <div class="square interests">
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="content">
+            <h2>My Interests</h2>
+            <p>I am passionate about:</p>
+            <ul>
+                <li>Writing Poems and Books</li>
+                <li>Reading and Reviewing Books</li>
+                <li>Social Media Management</li>
+            </ul>
+        </div>
+    </div>
 </body>
+
 </html>
