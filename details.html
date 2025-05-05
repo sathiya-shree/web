@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Portfolio Links</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #eef3f8, #dbe7f2);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f8fb;
-      color: #333;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 30px;
-      max-width: 1000px;
       width: 90%;
-      padding: 40px;
-      background: white;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
+      max-width: 1000px;
+      padding: 40px 20px;
     }
 
     .card {
-      background: #e3f1fa;
-      border-radius: 15px;
-      padding: 30px;
+      background-color: #ffffff;
+      color: #2c3e50;
+      padding: 40px 20px;
+      border-radius: 20px;
       text-align: center;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #267b99;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(56, 146, 198, 0.15);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-weight: 600;
+      text-decoration: none;
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(56, 146, 198, 0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card span {
+      display: block;
+      font-size: 18px;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <a class="card" href="certifications.html">Certifications</a>
-    <a class="card" href="internships.html">Internships</a>
-    <a class="card" href="skills.html">Skills</a>
-    <a class="card" href="projects.html">Projects</a>
-    <a class="card" href="resume.html">Resume</a>
-    <a class="card" href="contact.html">Contact</a>
-    <a class="card" href="interests.html">Interests</a>
+    <a href="certifications.html" class="card"><span>Certifications</span></a>
+    <a href="internships.html" class="card"><span>Internships</span></a>
+    <a href="skills.html" class="card"><span>Skills</span></a>
+    <a href="projects.html" class="card"><span>Projects</span></a>
+    <a href="resume.html" class="card"><span>Resume</span></a>
+    <a href="contact.html" class="card"><span>Contact</span></a>
+    <a href="interests.html" class="card"><span>Interests</span></a>
   </div>
+
 </body>
 </html>
