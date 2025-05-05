@@ -6,7 +6,7 @@
   <title>Contact</title>
   <style>
     body {
-      background-color: #d7e9f5; /* Light blue */
+      background-color: #d7e9f5;
       margin: 0;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
@@ -18,14 +18,13 @@
     }
 
     .drop {
-      position: relative;
+      position: absolute;
+      top: -100px;
       width: 20px;
       height: 20px;
       background: #007BFF;
       border-radius: 50%;
       animation: drip 1.2s cubic-bezier(1, 0, .91, .19) forwards;
-      top: -150px;
-      margin-top: 80px;
     }
 
     .drop::before {
@@ -40,53 +39,31 @@
     }
 
     .wave {
-      position: relative;
+      position: absolute;
+      top: 500px;
       opacity: 0;
       width: 2px;
       height: 1px;
       border: #007BFF 7px solid;
       border-radius: 300px / 150px;
-      animation: ripple 2s ease 1.2s forwards;
-    }
-
-    .wave::after {
-      content: "";
-      position: absolute;
-      opacity: 0;
-      top: -5px;
-      left: -5px;
-      width: 2px;
-      height: 1px;
-      border: #007BFF 5px solid;
-      border-radius: 300px / 150px;
-      animation: ripple-2 2s ease 1.2s forwards;
+      animation: ripple 1s ease 1.2s forwards;
     }
 
     @keyframes drip {
-      from { top: -150px; }
-      to { top: 190px; }
+      to { top: 480px; }
     }
 
     @keyframes ripple {
-      0% { opacity: 1; }
-      100% {
-        width: 600px;
-        height: 300px;
-        border-width: 1px;
-        top: -100px;
-        opacity: 0;
+      0% {
+        opacity: 1;
+        width: 2px;
+        height: 1px;
       }
-    }
-
-    @keyframes ripple-2 {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
       100% {
-        width: 200px;
-        height: 100px;
-        border-width: 1px;
-        top: 100px;
-        left: 200px;
+        opacity: 1;
+        width: 120px;
+        height: 60px;
+        border-width: 3px;
       }
     }
 
@@ -95,7 +72,7 @@
       animation: fadeIn 1s ease 2.4s forwards;
       background-color: white;
       padding: 2rem;
-      margin-top: 40px;
+      margin-top: 580px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
@@ -114,7 +91,6 @@
       margin: 0.3rem 0;
       color: #333;
     }
-
   </style>
 </head>
 <body>
