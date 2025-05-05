@@ -37,16 +37,16 @@
 
     .pdf-container {
       display: none;
-      position: absolute;
-      top: 120%;
+      position: fixed;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       width: 80vw;
       height: 80vh;
       background-color: white;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
-      z-index: 1;
+      z-index: 10;
     }
 
     .pdf-container.show {
@@ -84,7 +84,7 @@
       }
     });
 
-    // Hide PDF when no longer hovering over button or container
+    // Hide PDF when leaving both button and popup
     button.addEventListener("mouseleave", () => {
       setTimeout(() => {
         if (!pdfContainer.matches(":hover")) {
