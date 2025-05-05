@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>View My Resume</title>
+  <title>Hover to View Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -16,7 +16,7 @@
     body {
       height: 100vh;
       width: 100vw;
-      background-color: #e0f0ff; /* Light blue background */
+      background-color: #e0f0ff;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -32,14 +32,9 @@
       border: none;
       border-radius: 10px;
       box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
+      cursor: default;
       transition: all 0.3s ease;
       text-align: center;
-    }
-
-    .resume-link:hover {
-      background-color: #005288;
-      color: #ffffff;
     }
 
     .modal {
@@ -54,7 +49,7 @@
       justify-content: center;
       align-items: center;
       opacity: 0;
-      transition: opacity 0.8s ease;
+      transition: opacity 0.5s ease;
     }
 
     .modal.show {
@@ -94,7 +89,7 @@
 </head>
 <body>
 
-  <div class="resume-link" id="resume-btn">Click to View My Resume</div>
+  <div class="resume-link" id="resume-btn">Hover to View My Resume</div>
 
   <div id="resume-modal" class="modal">
     <div class="modal-content">
@@ -108,7 +103,7 @@
     const modal = document.getElementById("resume-modal");
     const closeBtn = document.getElementById("close-resume-btn");
 
-    resumeBtn.addEventListener("click", () => {
+    resumeBtn.addEventListener("mouseenter", () => {
       modal.classList.add("show");
     });
 
@@ -116,10 +111,8 @@
       modal.classList.remove("show");
     });
 
-    window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.classList.remove("show");
-      }
+    modal.addEventListener("mouseleave", () => {
+      modal.classList.remove("show");
     });
   </script>
 
