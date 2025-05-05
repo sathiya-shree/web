@@ -1,145 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Interests Box</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Open Sans', sans-serif;
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #e0f0f8;
-    }
-
-    .square {
+      background-color: #eaf4fc;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
       position: relative;
-      margin: 0 10px;
-      width: 400px;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow-x: hidden;
     }
 
-    .square span:nth-child(1),
-    .square span:nth-child(2),
-    .square span:nth-child(3) {
+    .drop {
       position: absolute;
-      top: 0;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: #3B82F6;
+      border-radius: 50%;
+      animation: drip 1.2s cubic-bezier(1, 0, .91, .19) forwards;
+    }
+
+    .drop::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 30px solid #3B82F6;
+      top: -22px;
       left: 0;
-      width: 100%;
-      height: 100%;
-      border: 2px solid #999;
-      transition: 0.5s;
     }
 
-    .square span:nth-child(1) {
-      border-radius: 32% 58% 69% 43% / 48% 32% 59% 55%;
-      animation: animate 6s linear infinite;
+    @keyframes drip {
+      to {
+        top: 60%;
+        opacity: 0;
+      }
     }
 
-    .square span:nth-child(2) {
-      border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-      animation: animate 4s linear infinite;
+    .wave {
+      position: absolute;
+      top: 62%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 1px;
+      border: 7px solid #3B82F6;
+      border-radius: 300px / 150px;
+      opacity: 0;
+      animation: ripple 1.2s ease 1.2s forwards;
     }
 
-    .square span:nth-child(3) {
-      border-radius: 31% 45% 74% 35% / 38% 56% 51% 87%;
-      animation: animate2 10s linear infinite;
+    @keyframes ripple {
+      0% {
+        opacity: 0;
+        width: 2px;
+        height: 1px;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        width: 120px;
+        height: 60px;
+        opacity: 0;
+        border-width: 3px;
+      }
     }
 
-    .interests:hover span:nth-child(1),
-    .interests:hover span:nth-child(2),
-    .interests:hover span:nth-child(3) {
-      border: none;
-      background: rgba(173, 216, 230, 0.3); /* Soft light blue hover */
-    }
-
-    .content {
-      position: relative;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      color: #333;
+    .contact-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 2.5rem 3rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       text-align: center;
-      transition: 0.5s;
-      z-index: 1000;
-      max-width: 300px;
+      opacity: 0;
+      animation: fadeIn 0.6s ease 1.4s forwards;
+      max-width: 90%;
+      width: 400px;
     }
 
-    .content h2 {
-      font-size: 24px;
-      color: #004d66;
-      margin-bottom: 12px;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
-    .content p {
-      font-size: 16px;
-      margin-bottom: 16px;
-      color: #555;
+    h2 {
+      color: #3B82F6;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
     }
 
-    .content ul {
-      list-style-type: disc;
-      text-align: left;
-      padding-left: 20px;
-      color: #005b75;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 10px;
+      margin: 0.7rem 0;
+      font-size: 1rem;
+      color: #333;
     }
 
-    .content ul li {
-      margin-bottom: 8px;
-      font-size: 15px;
+    .contact-item i {
+      color: #3B82F6;
+      min-width: 24px;
+      font-size: 1.1rem;
     }
 
-    @keyframes animate {
-      0% {
-        transform: rotate(0deg);
+    @media (max-width: 500px) {
+      .contact-info {
+        padding: 2rem;
       }
 
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes animate2 {
-      0% {
-        transform: rotate(360deg);
+      h2 {
+        font-size: 1.5rem;
       }
 
-      100% {
-        transform: rotate(0deg);
+      .contact-item {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="square interests">
-    <span></span>
-    <span></span>
-    <span></span>
-    <div class="content">
-      <h2>My Interests</h2>
-      <p>I am passionate about:</p>
-      <ul>
-        <li>Writing Poems and Books</li>
-        <li>Reading and Reviewing Books</li>
-        <li>Social Media Management</li>
-      </ul>
+
+  <div class="drop"></div>
+  <div class="wave"></div>
+
+  <div class="contact-info">
+    <h2>Contact Me</h2>
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <span>sathiyashree@email.com</span>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-phone"></i>
+      <span>+91 98765 43210</span>
+    </div>
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Coimbatore, Tamil Nadu</span>
     </div>
   </div>
+
 </body>
 </html>
