@@ -2,69 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Projects</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      animation: fadeIn 1s ease-out forwards;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="bg-blue-100 text-gray-900 font-sans">
-  <header class="text-center py-10 fade-in">
-    <h1 class="text-4xl font-bold">My Projects</h1>
-    <p class="text-lg text-gray-700 mt-2">A showcase of what I’ve built and explored</p>
-  </header>
+<body>
+  <section>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-a">
+            <div class="card-front">
+              <h1>Weather App</h1>
+            </div>
+            <div class="card-back">
+              <div class="content">
+                <p>This real-time weather application uses the OpenWeatherMap API to fetch live weather details for any city. Built with HTML, CSS, and JavaScript.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <main class="max-w-6xl mx-auto px-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    
-    <!-- Project Card -->
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">Personal Portfolio Website</h2>
-      <p class="text-gray-700 mb-4">A responsive personal portfolio site built with HTML, Tailwind CSS, and JavaScript to showcase my resume, skills, and projects.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-b">
+            <div class="card-front">
+              <h1>Portfolio Website</h1>
+            </div>
+            <div class="card-back">
+              <div class="content">
+                <p>A responsive portfolio site displaying resume, project links, and contact form. Designed using HTML5, CSS3, and subtle animations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-c">
+            <div class="card-front">
+              <h1>To-Do List App</h1>
+            </div>
+            <div class="card-back">
+              <div class="content">
+                <p>A productivity tool to manage tasks with deadlines and status tracking. Developed using JavaScript and styled with CSS transitions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">Book Review Blog (With Love, Sarah)</h2>
-      <p class="text-gray-700 mb-4">A blog-style web page designed for sharing book reviews, poems, and reflections. Integrated with Substack for weekly posts.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">E-Library Web App</h2>
-      <p class="text-gray-700 mb-4">Developed a mini library management system using HTML, CSS, PHP, and MySQL. Allows users to browse, borrow, and return books.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">Interactive Quiz Game</h2>
-      <p class="text-gray-700 mb-4">A timed quiz web app built with JavaScript to help students test knowledge in computer science basics. Features score tracking and UI effects.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">UiPath Logistics Automation</h2>
-      <p class="text-gray-700 mb-4">Automated pairing of warehouse goods and transporters using UiPath. Features include daily order configuration and cost calculation.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-md p-6 transform hover:scale-105 hover:shadow-2xl transition duration-300 fade-in">
-      <h2 class="text-2xl font-semibold mb-2">Social Media Post Scheduler</h2>
-      <p class="text-gray-700 mb-4">A concept design for scheduling Instagram poetry posts using a content calendar and theme automation with pastel palettes and long poems.</p>
-      <a href="#" class="text-blue-600 hover:text-blue-800 transition">View Project</a>
-    </div>
-    
-  </main>
-
-  <footer class="text-center mt-12 mb-6 text-gray-600 text-sm">
-    &copy; 2025 Sathiya Shree. All rights reserved.
-  </footer>
+  </section>
 </body>
 </html>
