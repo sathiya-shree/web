@@ -6,15 +6,15 @@
   <title>Contact</title>
   <style>
     body {
-      background-color: #d7e9f5; /* Light blue background */
+      background-color: #d7e9f5; /* Light blue */
       margin: 0;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
     }
 
     .drop {
@@ -23,8 +23,9 @@
       height: 20px;
       background: #007BFF;
       border-radius: 50%;
-      animation: drip 2s cubic-bezier(1,0,.91,.19) infinite;
+      animation: drip 1.2s cubic-bezier(1, 0, .91, .19) forwards;
       top: -150px;
+      margin-top: 80px;
     }
 
     .drop::before {
@@ -45,7 +46,7 @@
       height: 1px;
       border: #007BFF 7px solid;
       border-radius: 300px / 150px;
-      animation: ripple 2s ease 2s infinite;
+      animation: ripple 2s ease 1.2s forwards;
     }
 
     .wave::after {
@@ -58,7 +59,12 @@
       height: 1px;
       border: #007BFF 5px solid;
       border-radius: 300px / 150px;
-      animation: ripple-2 2s ease 2s infinite;
+      animation: ripple-2 2s ease 1.2s forwards;
+    }
+
+    @keyframes drip {
+      from { top: -150px; }
+      to { top: 190px; }
     }
 
     @keyframes ripple {
@@ -84,26 +90,19 @@
       }
     }
 
-    @keyframes drip {
-      0% { top: -150px; }
-      100% { top: 190px; }
-    }
-
     .contact-info {
       opacity: 0;
-      animation: fadeIn 1s ease 2s forwards;
+      animation: fadeIn 1s ease 2.4s forwards;
       background-color: white;
       padding: 2rem;
-      margin-top: 30px;
+      margin-top: 40px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
 
     h2 {
