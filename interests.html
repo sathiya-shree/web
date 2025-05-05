@@ -18,104 +18,103 @@
       position: relative;
     }
 
-    .brk-btn {
-      position: relative;
-      background: none;
-      color: aqua;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 0.2em solid aqua;
-      padding: 0.5em 1em;
-      font-size: 1.2em;
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 10px;
+      background: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
-
-    .brk-btn::before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 10%;
-      background: #222;
-      height: 0.3em;
-      right: 20%;
-      top: -0.21em;
-      transform: skewX(-45deg);
-      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-    }
-
-    .brk-btn::after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 10%;
-      background: #222;
-      height: 0.3em;
-      left: 20%;
-      bottom: -0.25em;
-      transform: skewX(45deg);
-      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-    }
-
-    .brk-btn:hover::before {
-      right: 80%;
-    }
-
-    .brk-btn:hover::after {
-      left: 80%;
-    }
-
-    #pdf-viewer {
-      display: none;
-      position: absolute;
-      top: 100px;
-      width: 90%;
-      height: 90%;
-      border: none;
-      z-index: 1;
-    }
-
-    /* Make content always visible */
-    .content {
-      position: relative;
-      background: #5ad1cd;
+      transition: 0.3s;
       color: #fff;
-      padding: 40px 30px;
-      z-index: 1;
-      border-radius: 20px;
-      display: none; /* Hidden by default */
+      font-size: 1.2em;
     }
 
-    .content.active {
-      display: block; /* Display when active */
+    .circle:hover {
+      background-color: aqua;
+    }
+
+    .content {
+      position: absolute;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      display: none;
+      width: 90%;
+      color: #fff;
+      font-size: 1.2em;
+      z-index: 1000;
+    }
+
+    #interests {
+      display: block;
+    }
+
+    .circle.active {
+      background-color: aqua;
+    }
+
+    .circle span {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .circle.active span {
+      opacity: 1;
     }
 
   </style>
 </head>
 <body>
 
-  <button class="brk-btn" id="resumeBtn">Click to View My Resume</button>
-  <div class="content" id="content">
-    <h2>Resume</h2>
-    <iframe id="pdf-viewer" src="resume.shree.pdf" type="application/pdf"></iframe>
+  <div class="circle" id="interestsBtn">
+    Interests
+    <span>🔲</span>
+  </div>
+  
+  <div class="circle" id="languagesBtn">
+    Languages
+    <span>🔲</span>
+  </div>
+
+  <div class="content" id="interestsContent">
+    <h2>INTERESTS</h2>
+    <ul>
+      <li>Writing Poems and Books</li>
+      <li>Reading and Reviewing Books</li>
+      <li>Social Media Management</li>
+    </ul>
+  </div>
+
+  <div class="content" id="languagesContent">
+    <h2>LANGUAGES KNOWN</h2>
+    <ul>
+      <li>English</li>
+      <li>Tamil</li>
+    </ul>
   </div>
 
   <script>
-    const btn = document.getElementById("resumeBtn");
-    const viewer = document.getElementById("pdf-viewer");
-    const content = document.getElementById("content");
+    const interestsBtn = document.getElementById("interestsBtn");
+    const languagesBtn = document.getElementById("languagesBtn");
+    const interestsContent = document.getElementById("interestsContent");
+    const languagesContent = document.getElementById("languagesContent");
 
-    // When clicking on the button, toggle the content visibility
-    btn.addEventListener("click", (e) => {
-      content.classList.toggle("active"); // Toggle the active class
+    interestsBtn.addEventListener("click", () => {
+      interestsContent.style.display = "block";
+      languagesContent.style.display = "none";
+      interestsBtn.classList.toggle("active");
+      languagesBtn.classList.remove("active");
     });
 
-    // Close the content if clicked outside
-    document.addEventListener("click", (e) => {
-      if (!btn.contains(e.target) && !content.contains(e.target)) {
-        content.classList.remove("active");
-      }
+    languagesBtn.addEventListener("click", () => {
+      languagesContent.style.display = "block";
+      interestsContent.style.display = "none";
+      languagesBtn.classList.toggle("active");
+      interestsBtn.classList.remove("active");
     });
   </script>
 
