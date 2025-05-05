@@ -8,7 +8,9 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #ADD8E6;
+      background-color: #ADD8E6; /* Light Blue Background */
+      margin: 0;
+      padding: 0;
     }
 
     section {
@@ -30,149 +32,102 @@
       height: 400px;
       width: 300px;
       margin: 20px;
-      perspective: 1200px;
-      transition: transform 2.3s ease;
-      background-color: #4a90e2; /* Blue Shade */
+      perspective: 1000px; /* Set perspective for 3D flip */
+      background-color: #7EC8E3; /* Light Blue Card Color */
       border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 1.5s ease;
     }
 
-    .card:hover .cover {
-      transform: rotateY(180deg);
+    .card:hover {
+      transform: rotateY(180deg); /* Flip effect */
+    }
+
+    .cover,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      color: white;
+      border-radius: 12px;
     }
 
     .cover {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      transform-style: preserve-3d;
-      transition: all 2.3s ease;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      transform: rotateY(0deg);
-      border-radius: 12px;
-    }
-
-    .cover:before {
-      content: '';
-      position: absolute;
-      border: 5px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2;
-      transition: all 2.3s ease;
-      transform-style: preserve-3d;
-    }
-
-    .cover:after {
-      content: '';
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
-      z-index: 2;
-      transition: all 1.3s ease;
-      background: rgba(0, 0, 0, 0.4);
+      background-color: #4a90e2; /* Card Front Blue Shade */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .cover h1 {
       font-weight: 600;
-      position: absolute;
-      bottom: 55px;
-      left: 30px;
       color: white;
       font-size: 2em;
-      z-index: 3;
+      margin-bottom: 20px;
     }
 
     .cover .price {
       font-weight: 200;
-      position: absolute;
-      top: 55px;
-      right: 30px;
       color: white;
       font-size: 1.5em;
-      z-index: 4;
-    }
-
-    .cover.item-a {
-      background-image: url('https://via.placeholder.com/300x200/4a90e2/ffffff?text=Portfolio+Website');
-    }
-
-    .cover.item-b {
-      background-image: url('https://via.placeholder.com/300x200/4a90e2/ffffff?text=Logistics+Automation');
-    }
-
-    .cover.item-c {
-      background-image: url('https://via.placeholder.com/300x200/4a90e2/ffffff?text=Book+Review+Blog');
+      margin-top: 10px;
     }
 
     .card-back {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      background: #0b0f08;
-      transform-style: preserve-3d;
-      transition: all 2.3s ease;
-      transform: rotateY(180deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
+      background-color: #2a3d66; /* Dark Blue Background for Back */
       color: white;
-      text-align: center;
       font-size: 1em;
-      line-height: 1.5;
-      border-radius: 12px;
-    }
-
-    .card-back p {
-      font-size: 1.1em;
+      font-weight: 300;
+      padding: 20px;
+      text-align: justify;
     }
 
     .project-details {
-      margin-top: 20px;
       font-size: 1.2em;
       color: #333;
-      text-align: center;
     }
   </style>
 </head>
 <body>
   <section>
     <div class="row">
+      <!-- Card 1: Portfolio Website -->
       <div class="card">
-        <div class="cover item-a">
+        <div class="cover">
           <h1>Portfolio Website</h1>
           <span class="price">2025</span>
-          <div class="card-back">
-            <p>A personal portfolio website built using HTML, CSS, and JavaScript showcasing my skills, resume, and projects with responsive design.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>A personal portfolio website built using HTML, CSS, and JavaScript showcasing my skills, resume, and projects with responsive design.</p>
         </div>
       </div>
 
+      <!-- Card 2: Logistics Automation -->
       <div class="card">
-        <div class="cover item-b">
+        <div class="cover">
           <h1>Logistics Automation</h1>
           <span class="price">2024</span>
-          <div class="card-back">
-            <p>Automated a logistics system using UiPath to assign transporters to warehouses, generate shipments, and calculate costs dynamically.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>Automated a logistics system using UiPath to assign transporters to warehouses, generate shipments, and calculate costs dynamically.</p>
         </div>
       </div>
 
+      <!-- Card 3: Book Review Blog -->
       <div class="card">
-        <div class="cover item-c">
+        <div class="cover">
           <h1>Book Review Blog</h1>
           <span class="price">2023</span>
-          <div class="card-back">
-            <p>A blog page created to post weekly book reviews with a pastel aesthetic. It integrates user interactions and clean navigation.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>A blog page created to post weekly book reviews with a pastel aesthetic. It integrates user interactions and clean navigation.</p>
         </div>
       </div>
     </div>
