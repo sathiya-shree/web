@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Oswald', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #ADD8E6;
     }
 
@@ -30,32 +30,14 @@
       height: 400px;
       width: 300px;
       margin: 20px;
-      transition: all 2.3s ease;
       perspective: 1200px;
+      transition: transform 2.3s ease;
+      background-color: #4a90e2; /* Blue Shade */
+      border-radius: 12px;
     }
 
     .card:hover .cover {
-      transform: rotateX(0deg) rotateY(-180deg);
-    }
-
-    .card:hover .cover:before {
-      transform: translateZ(30px);
-    }
-
-    .card:hover .cover:after {
-      background-color: black;
-    }
-
-    .card:hover .cover h1 {
-      transform: translateZ(100px);
-    }
-
-    .card:hover .cover .price {
-      transform: translateZ(60px);
-    }
-
-    .card:hover .card-back {
-      transform: translateZ(-1px) rotateY(-180deg);
+      transform: rotateY(180deg);
     }
 
     .cover {
@@ -67,6 +49,8 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+      transform: rotateY(0deg);
+      border-radius: 12px;
     }
 
     .cover:before {
@@ -81,7 +65,6 @@
       z-index: 2;
       transition: all 2.3s ease;
       transform-style: preserve-3d;
-      transform: translateZ(0px);
     }
 
     .cover:after {
@@ -102,11 +85,8 @@
       bottom: 55px;
       left: 30px;
       color: white;
-      transform-style: preserve-3d;
-      transition: all 2.3s ease;
-      z-index: 3;
       font-size: 2em;
-      transform: translateZ(0px);
+      z-index: 3;
     }
 
     .cover .price {
@@ -115,11 +95,8 @@
       top: 55px;
       right: 30px;
       color: white;
-      transform-style: preserve-3d;
-      transition: all 2.3s ease;
-      z-index: 4;
       font-size: 1.5em;
-      transform: translateZ(0px);
+      z-index: 4;
     }
 
     .cover.item-a {
@@ -127,11 +104,11 @@
     }
 
     .cover.item-b {
-      background-image: url('https://via.placeholder.com/300x200/ef4a55/ffffff?text=Logistics+Automation');
+      background-image: url('https://via.placeholder.com/300x200/4a90e2/ffffff?text=Logistics+Automation');
     }
 
     .cover.item-c {
-      background-image: url('https://via.placeholder.com/300x200/83a01d/ffffff?text=Book+Review+Blog');
+      background-image: url('https://via.placeholder.com/300x200/4a90e2/ffffff?text=Book+Review+Blog');
     }
 
     .card-back {
@@ -141,7 +118,7 @@
       background: #0b0f08;
       transform-style: preserve-3d;
       transition: all 2.3s ease;
-      transform: translateZ(-1px);
+      transform: rotateY(180deg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,6 +128,18 @@
       text-align: center;
       font-size: 1em;
       line-height: 1.5;
+      border-radius: 12px;
+    }
+
+    .card-back p {
+      font-size: 1.1em;
+    }
+
+    .project-details {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+      text-align: center;
     }
   </style>
 </head>
