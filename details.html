@@ -10,12 +10,7 @@
       overflow: hidden;
       background: #d7e9f5;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .bubble-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
+      cursor: url('cursor.png'), auto;
     }
 
     .bubble {
@@ -30,45 +25,74 @@
       justify-content: center;
       color: white;
       font-weight: bold;
-      text-decoration: none;
       text-align: center;
-      animation: float 20s ease-in-out infinite;
-      transition: transform 0.3s ease;
+      text-decoration: none;
+      animation: float 15s infinite ease-in-out;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     }
 
     .bubble:hover {
       transform: scale(1.1);
+      filter: brightness(1.2);
       box-shadow: 0 0 40px rgba(56, 146, 198, 1), inset 0 0 15px rgba(255, 255, 255, 0.5);
     }
 
-    @keyframes float {
-      0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-20px); }
-      100% { transform: translateY(0px); }
+    /* Bubble positions and individual float animations */
+    .bubble:nth-child(1) { left: 10%; top: 30%; animation: float1 18s infinite ease-in-out; }
+    .bubble:nth-child(2) { left: 25%; top: 50%; animation: float2 20s infinite ease-in-out; }
+    .bubble:nth-child(3) { left: 40%; top: 10%; animation: float3 22s infinite ease-in-out; }
+    .bubble:nth-child(4) { left: 55%; top: 60%; animation: float4 23s infinite ease-in-out; }
+    .bubble:nth-child(5) { left: 70%; top: 35%; animation: float5 19s infinite ease-in-out; }
+    .bubble:nth-child(6) { left: 85%; top: 75%; animation: float6 21s infinite ease-in-out; }
+    .bubble:nth-child(7) { left: 20%; top: 80%; animation: float3 19s infinite ease-in-out; }
+
+    /* Random direction float animations */
+    @keyframes float1 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(30px, -50px) rotate(10deg); }
+      100% { transform: translate(-30px, -100px) rotate(-10deg); }
     }
 
-    /* Positioning each bubble */
-    .bubble:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .bubble:nth-child(2) { top: 20%; left: 25%; animation-delay: 1s; }
-    .bubble:nth-child(3) { top: 30%; left: 45%; animation-delay: 2s; }
-    .bubble:nth-child(4) { top: 40%; left: 65%; animation-delay: 3s; }
-    .bubble:nth-child(5) { top: 60%; left: 15%; animation-delay: 4s; }
-    .bubble:nth-child(6) { top: 70%; left: 35%; animation-delay: 5s; }
-    .bubble:nth-child(7) { top: 75%; left: 75%; animation-delay: 6s; }
+    @keyframes float2 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-30px, 40px) rotate(-15deg); }
+      100% { transform: translate(40px, -80px) rotate(15deg); }
+    }
 
+    @keyframes float3 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-50px, -30px) rotate(15deg); }
+      100% { transform: translate(50px, -90px) rotate(-15deg); }
+    }
+
+    @keyframes float4 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(40px, -40px) rotate(-20deg); }
+      100% { transform: translate(-40px, -80px) rotate(20deg); }
+    }
+
+    @keyframes float5 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(-20px, -50px) rotate(10deg); }
+      100% { transform: translate(20px, -90px) rotate(-10deg); }
+    }
+
+    @keyframes float6 {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(50px, -70px) rotate(8deg); }
+      100% { transform: translate(-50px, -120px) rotate(-8deg); }
+    }
   </style>
 </head>
 <body>
 
-  <div class="bubble-container">
-    <a href="certifications.html" class="bubble">Certifications</a>
-    <a href="internships.html" class="bubble">Internships</a>
-    <a href="skills.html" class="bubble">Skills</a>
-    <a href="projects.html" class="bubble">Projects</a>
-    <a href="resume.html" class="bubble">Resume</a>
-    <a href="contact.html" class="bubble">Contact</a>
-    <a href="interests.html" class="bubble">Interests</a>
-  </div>
+  <a href="certifications.html" class="bubble"><span>Certifications</span></a>
+  <a href="internships.html" class="bubble"><span>Internships</span></a>
+  <a href="skills.html" class="bubble"><span>Skills</span></a>
+  <a href="projects.html" class="bubble"><span>Projects</span></a>
+  <a href="resume.html" class="bubble"><span>Resume</span></a>
+  <a href="contact.html" class="bubble"><span>Contact</span></a>
+  <a href="interests.html" class="bubble"><span>Interests</span></a>
 
 </body>
 </html>
