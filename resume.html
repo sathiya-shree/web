@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Resume Button</title>
+  <title>Resume Viewer</title>
   <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -11,9 +11,11 @@
       height: 100vh;
       justify-content: center;
       align-items: center;
-      background: #e0f0ff;
-      color: #222;
+      background: #222;
+      color: #eee;
       font-family: "Dosis", sans-serif;
+      margin: 0;
+      position: relative;
     }
 
     .brk-btn {
@@ -26,6 +28,7 @@
       padding: 0.5em 1em;
       font-size: 1.2em;
       cursor: pointer;
+      z-index: 2;
       transition: all 0.3s ease;
     }
 
@@ -34,7 +37,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #e0f0ff;
+      background: #222;
       height: 0.3em;
       right: 20%;
       top: -0.21em;
@@ -47,7 +50,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #e0f0ff;
+      background: #222;
       height: 0.3em;
       left: 20%;
       bottom: -0.25em;
@@ -62,11 +65,47 @@
     .brk-btn:hover::after {
       left: 80%;
     }
+
+    #pdf-viewer {
+      display: none;
+      position: absolute;
+      top: 100px;
+      width: 90%;
+      height: 90%;
+      border: none;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
 
-  <button class="brk-btn">Hover to View My Resume</button>
+  <button class="brk-btn" id="resumeBtn">Hover to View My Resume</button>
+  <iframe id="pdf-viewer" src="resume.shree.pdf" type="application/pdf"></iframe>
+
+  <script>
+    const btn = document.getElementById("resumeBtn");
+    const viewer = document.getElementById("pdf-viewer");
+
+    // When hovering over the button, show the PDF
+    btn.addEventListener("mouseenter", () => {
+      viewer.style.display = "block";
+    });
+
+    // Clicking anywhere outside the button will hide the PDF
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target)) {
+        viewer.style.display = "none";
+      }
+    });
+
+    // Ensure that the PDF is shown when you hover
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (viewer.style.display !== "block") {
+        viewer.style.display = "block";
+      }
+    });
+  </script>
 
 </body>
 </html>
