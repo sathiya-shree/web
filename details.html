@@ -15,7 +15,6 @@
 
     .bubble {
       position: absolute;
-      bottom: -150px;
       background: radial-gradient(circle, #3892c6, #267b99);
       border-radius: 50%;
       width: 150px;
@@ -50,51 +49,50 @@
       letter-spacing: 1px;
     }
 
-    /* Random initial positions and individual animations */
-    .bubble:nth-child(1) { left: 10%; animation: float1 20s infinite ease-in-out; }
-    .bubble:nth-child(2) { left: 25%; animation: float2 22s infinite ease-in-out; }
-    .bubble:nth-child(3) { left: 40%; animation: float3 18s infinite ease-in-out; }
-    .bubble:nth-child(4) { left: 55%; animation: float4 24s infinite ease-in-out; }
-    .bubble:nth-child(5) { left: 70%; animation: float5 21s infinite ease-in-out; }
-    .bubble:nth-child(6) { left: 85%; animation: float6 19s infinite ease-in-out; }
+    /* Random initial positions */
+    .bubble:nth-child(1) { left: 10%; top: 30%; animation: float1 25s infinite ease-in-out; }
+    .bubble:nth-child(2) { left: 25%; top: 50%; animation: float2 20s infinite ease-in-out; }
+    .bubble:nth-child(3) { left: 40%; top: 10%; animation: float3 22s infinite ease-in-out; }
+    .bubble:nth-child(4) { left: 55%; top: 60%; animation: float4 23s infinite ease-in-out; }
+    .bubble:nth-child(5) { left: 70%; top: 35%; animation: float5 18s infinite ease-in-out; }
+    .bubble:nth-child(6) { left: 85%; top: 75%; animation: float6 21s infinite ease-in-out; }
 
-    /* Keyframe animations with different float directions */
+    /* Keyframe animations with random float directions */
     @keyframes float1 {
       0% { transform: translate(0, 0); opacity: 1; }
-      50% { transform: translate(-30px, -60vh) rotate(10deg); }
-      100% { transform: translate(30px, -120vh) rotate(-10deg); opacity: 0; }
+      50% { transform: translate(30px, -50px) rotate(20deg); }
+      100% { transform: translate(-30px, -100px) rotate(-10deg); opacity: 0; }
     }
 
     @keyframes float2 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(20px, -50vh) rotate(-15deg); }
-      100% { transform: translate(-40px, -120vh) rotate(15deg); opacity: 0; }
+      0% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(-30px, 40px) rotate(-15deg); }
+      100% { transform: translate(40px, -100px) rotate(15deg); opacity: 0; }
     }
 
     @keyframes float3 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-40px, -65vh) rotate(20deg); }
-      100% { transform: translate(40px, -120vh) rotate(-20deg); opacity: 0; }
+      0% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(-50px, -30px) rotate(15deg); }
+      100% { transform: translate(50px, -90px) rotate(-15deg); opacity: 0; }
     }
 
     @keyframes float4 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(25px, -70vh) rotate(8deg); }
-      100% { transform: translate(-25px, -120vh) rotate(-8deg); opacity: 0; }
+      0% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(40px, -40px) rotate(-20deg); }
+      100% { transform: translate(-40px, -80px) rotate(20deg); opacity: 0; }
     }
 
     @keyframes float5 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-20px, -60vh) rotate(-5deg); }
-      100% { transform: translate(20px, -120vh) rotate(5deg); opacity: 0; }
+      0% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(-20px, -50px) rotate(10deg); }
+      100% { transform: translate(20px, -90px) rotate(-10deg); opacity: 0; }
     }
 
     @keyframes float6 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -55vh) rotate(12deg); }
-      100% { transform: translate(-30px, -120vh) rotate(-12deg); opacity: 0; }
+      0% { transform: translate(0, 0); opacity: 1; }
+      50% { transform: translate(50px, -70px) rotate(8deg); }
+      100% { transform: translate(-50px, -120px) rotate(-8deg); opacity: 0; }
     }
-
   </style>
 </head>
 <body>
