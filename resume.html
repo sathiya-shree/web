@@ -6,8 +6,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
     * {
-      padding: 0;
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
@@ -16,38 +16,34 @@
     body {
       height: 100vh;
       width: 100vw;
-      background-color: #e0f0ff; /* Light Blue */
+      background-color: #e0f0ff; /* Light blue background */
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .resume-link {
-      z-index: 10;
       padding: 20px 40px;
-      font-size: 1.2em;
-      background-color: #ffffff;
+      background-color: #fff;
       color: #005288;
-      border: none;
+      font-size: 1.2em;
       border-radius: 10px;
       box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
       cursor: default;
-      transition: all 0.3s ease;
-      text-align: center;
+      z-index: 10;
     }
 
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(224, 240, 255, 0.9); /* Light Blue Overlay */
+      background-color: rgba(224, 240, 255, 0.9); /* Light blue transparent overlay */
       justify-content: center;
       align-items: center;
-      transition: opacity 0.3s ease;
+      z-index: 999;
     }
 
     .modal.show {
@@ -55,19 +51,17 @@
     }
 
     .modal-content {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
       width: 85%;
       height: 85%;
-      overflow: auto;
-      position: relative;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     }
 
     embed {
       width: 100%;
-      height: 90%;
+      height: 100%;
       border: none;
     }
   </style>
@@ -86,23 +80,24 @@
     const resumeBtn = document.getElementById("resume-btn");
     const modal = document.getElementById("resume-modal");
 
-    // Show modal when hovering on text
-    resumeBtn.addEventListener("mouseenter", () => {
+    // Show modal when mouse enters either the button or modal
+    function showModal() {
       modal.classList.add("show");
-    });
+    }
 
-    // Hide modal when mouse leaves both text and modal
-    resumeBtn.addEventListener("mouseleave", () => {
+    // Hide modal when mouse leaves both
+    function hideModal() {
       setTimeout(() => {
-        if (!modal.matches(':hover')) {
+        if (!resumeBtn.matches(":hover") && !modal.matches(":hover")) {
           modal.classList.remove("show");
         }
-      }, 200);
-    });
+      }, 100);
+    }
 
-    modal.addEventListener("mouseleave", () => {
-      modal.classList.remove("show");
-    });
+    resumeBtn.addEventListener("mouseenter", showModal);
+    resumeBtn.addEventListener("mouseleave", hideModal);
+    modal.addEventListener("mouseenter", showModal);
+    modal.addEventListener("mouseleave", hideModal);
   </script>
 
 </body>
