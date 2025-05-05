@@ -10,114 +10,65 @@
       overflow: hidden;
       background: #d7e9f5;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      cursor: url('cursor.png'), auto;
+    }
+
+    .bubble-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
     }
 
     .bubble {
       position: absolute;
-      background: radial-gradient(circle, #3892c6, #267b99);
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
+      background: radial-gradient(circle, #3892c6, #267b99);
+      box-shadow: 0 0 20px rgba(56, 146, 198, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-weight: 600;
+      font-weight: bold;
+      text-decoration: none;
       text-align: center;
-      cursor: pointer;
-      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.4), 0 0 50px rgba(56, 146, 198, 0.8);
-      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease, filter 0.3s ease;
-      animation: floatBubble 20s infinite ease-in-out;
-    }
-
-    .bubble span {
-      z-index: 1;
-      opacity: 1 !important;
-      transition: all 0.4s ease;
+      animation: float 20s ease-in-out infinite;
+      transition: transform 0.3s ease;
     }
 
     .bubble:hover {
-      transform: scale(1.08);
-      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.5), 0 0 80px rgba(56, 146, 198, 1);
-      background: radial-gradient(circle, #267b99, #3892c6);
-      filter: brightness(1.2);
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(56, 146, 198, 1), inset 0 0 15px rgba(255, 255, 255, 0.5);
     }
 
-    .bubble:hover span {
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-      letter-spacing: 1px;
+    @keyframes float {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
     }
 
-    /* Adjusted random initial positions and animations */
-    .bubble:nth-child(1) { left: 5%; top: 10%; animation: float1 25s infinite ease-in-out; }
-    .bubble:nth-child(2) { left: 20%; top: 25%; animation: float2 20s infinite ease-in-out; }
-    .bubble:nth-child(3) { left: 35%; top: 15%; animation: float3 22s infinite ease-in-out; }
-    .bubble:nth-child(4) { left: 50%; top: 50%; animation: float4 23s infinite ease-in-out; }
-    .bubble:nth-child(5) { left: 65%; top: 25%; animation: float5 18s infinite ease-in-out; }
-    .bubble:nth-child(6) { left: 80%; top: 70%; animation: float6 21s infinite ease-in-out; }
-    .bubble:nth-child(7) { left: 60%; top: 80%; animation: float7 20s infinite ease-in-out; }
-    .bubble:nth-child(8) { left: 10%; top: 70%; animation: float8 24s infinite ease-in-out; }
+    /* Positioning each bubble */
+    .bubble:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .bubble:nth-child(2) { top: 20%; left: 25%; animation-delay: 1s; }
+    .bubble:nth-child(3) { top: 30%; left: 45%; animation-delay: 2s; }
+    .bubble:nth-child(4) { top: 40%; left: 65%; animation-delay: 3s; }
+    .bubble:nth-child(5) { top: 60%; left: 15%; animation-delay: 4s; }
+    .bubble:nth-child(6) { top: 70%; left: 35%; animation-delay: 5s; }
+    .bubble:nth-child(7) { top: 75%; left: 75%; animation-delay: 6s; }
 
-    /* Keyframe animations with random float directions */
-    @keyframes float1 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(30px, -50px) rotate(20deg); }
-      100% { transform: translate(-30px, -100px) rotate(-10deg); }
-    }
-
-    @keyframes float2 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-30px, 40px) rotate(-15deg); }
-      100% { transform: translate(40px, -100px) rotate(15deg); }
-    }
-
-    @keyframes float3 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-50px, -30px) rotate(15deg); }
-      100% { transform: translate(50px, -90px) rotate(-15deg); }
-    }
-
-    @keyframes float4 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(40px, -40px) rotate(-20deg); }
-      100% { transform: translate(-40px, -80px) rotate(20deg); }
-    }
-
-    @keyframes float5 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-20px, -50px) rotate(10deg); }
-      100% { transform: translate(20px, -90px) rotate(-10deg); }
-    }
-
-    @keyframes float6 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(50px, -70px) rotate(8deg); }
-      100% { transform: translate(-50px, -120px) rotate(-8deg); }
-    }
-
-    @keyframes float7 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(40px, -60px) rotate(12deg); }
-      100% { transform: translate(-40px, -110px) rotate(-12deg); }
-    }
-
-    @keyframes float8 {
-      0% { transform: translate(0, 0); }
-      50% { transform: translate(-40px, 50px) rotate(-25deg); }
-      100% { transform: translate(50px, -110px) rotate(25deg); }
-    }
   </style>
 </head>
 <body>
 
-  <a href="certifications.html"><div class="bubble"><span>Certifications</span></div></a>
-  <a href="internships.html"><div class="bubble"><span>Internships</span></div></a>
-  <a href="skills.html"><div class="bubble"><span>Skills</span></div></a>
-  <a href="projects.html"><div class="bubble"><span>Projects</span></div></a>
-  <a href="resume.html"><div class="bubble"><span>Resume</span></div></a>
-  <a href="contact.html"><div class="bubble"><span>Contact</span></div></a>
-  <a href="interests.html"><div class="bubble"><span>Interests</span></div></a>
+  <div class="bubble-container">
+    <a href="certifications.html" class="bubble">Certifications</a>
+    <a href="internships.html" class="bubble">Internships</a>
+    <a href="skills.html" class="bubble">Skills</a>
+    <a href="projects.html" class="bubble">Projects</a>
+    <a href="resume.html" class="bubble">Resume</a>
+    <a href="contact.html" class="bubble">Contact</a>
+    <a href="interests.html" class="bubble">Interests</a>
+  </div>
 
 </body>
 </html>
