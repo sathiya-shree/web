@@ -37,24 +37,12 @@
       perspective: 1200px;
       background-color: #b1d4e6; /* Different shade of light blue for card */
       border-radius: 10px; /* Optional: added rounded corners */
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
     }
 
     .card:hover {
-      .cover {
-        transform: rotateX(0deg) rotateY(-180deg);
-        &:before {
-          transform: translateZ(30px);
-        }
-        &:after {
-          background-color: black;
-        }
-        h1 {
-          transform: translateZ(100px);
-        }
-        .price {
-          transform: translateZ(60px);
-        }
-      }
+      transform: rotateY(180deg); /* Flip the card on hover */
     }
 
     .cover {
@@ -66,33 +54,9 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-
-      &:before {
-        content: '';
-        position: absolute;
-        border: 5px solid rgba(255, 255, 255, .5);
-        box-shadow: 0 0 12px rgba(0, 0, 0, .3);
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        z-index: 2;
-        transition: ease all $transition-time;
-        transform-style: preserve-3d;
-        transform: translateZ(0px);
-      }
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        z-index: 2;
-        transition: ease all 1.3s;
-        background: rgba(0, 0, 0, .4);
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &.item-a {
         background-image: url('https://images.unsplash.com/photo-1519382079550-8e3c43d7b05f');
@@ -108,26 +72,14 @@
 
       h1 {
         font-weight: 600;
-        position: absolute;
-        bottom: 55px;
-        left: 50px;
         color: white;
-        transform-style: preserve-3d;
-        transition: ease all $transition-time;
-        z-index: 3;
         font-size: 3em;
         transform: translateZ(0px);
       }
 
       .price {
         font-weight: 200;
-        position: absolute;
-        top: 55px;
-        right: 50px;
         color: white;
-        transform-style: preserve-3d;
-        transition: ease all $transition-time;
-        z-index: 4;
         font-size: 2em;
         transform: translateZ(0px);
       }
@@ -135,24 +87,24 @@
 
     .card-back {
       position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
       width: 100%;
-      background: #0b0f08;
-      transform-style: preserve-3d;
-      transition: ease all $transition-time;
-      transform: translateZ(-1px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+      background-color: #0b0f08;
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
       font-size: 1.2em;
       line-height: 1.6;
+      transform: rotateY(180deg); /* Hide the back until flip */
+    }
 
-      /* Description styles */
-      p {
-        margin: 0;
-      }
+    .card .card-back p {
+      margin: 0;
+      text-align: center;
     }
   </style>
 </head>
@@ -164,9 +116,9 @@
         <div class="cover item-a">
           <h1>Portfolio Website</h1>
           <span class="price">2025</span>
-          <div class="card-back">
-            <p>This project involves the development of a personal portfolio website that showcases skills, experience, and projects.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>This project involves the development of a personal portfolio website that showcases skills, experience, and projects.</p>
         </div>
       </div>
 
@@ -175,9 +127,9 @@
         <div class="cover item-b">
           <h1>Logistics Automation</h1>
           <span class="price">2024</span>
-          <div class="card-back">
-            <p>This project automates logistics processes, pairing goods with transporters, calculating costs, and generating shipment details.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>This project automates logistics processes, pairing goods with transporters, calculating costs, and generating shipment details.</p>
         </div>
       </div>
 
@@ -186,9 +138,9 @@
         <div class="cover item-c">
           <h1>Book Review Blog</h1>
           <span class="price">2023</span>
-          <div class="card-back">
-            <p>This project features a blog where I write and share reviews of the books I read, with a special focus on literary fiction.</p>
-          </div>
+        </div>
+        <div class="card-back">
+          <p>This project features a blog where I write and share reviews of the books I read, with a special focus on literary fiction.</p>
         </div>
       </div>
     </div>
