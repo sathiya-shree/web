@@ -5,6 +5,7 @@
   <title>Hover to View Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
   <style>
+    /* Global styles for margin, padding, box-sizing, and text transformation */
     * {
       margin: 0;
       padding: 0;
@@ -13,38 +14,45 @@
       text-transform: uppercase;
     }
 
+    /* Styling for body to center the content */
     body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #e0f0ff;
+      background-color: #e0f0ff; /* Light background color */
     }
 
+    /* Styling for the resume link button */
     .resume-link {
-      padding: 20px 40px;
-      background-color: white;
-      color: #005288;
-      font-size: 1.2em;
-      border-radius: 10px;
-      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      padding: 20px 40px; /* Padding for the button */
+      background-color: white; /* White background */
+      color: #005288; /* Text color */
+      font-size: 1.2em; /* Font size */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+      cursor: pointer; /* Pointer cursor to indicate it's clickable */
+      transition: transform 0.3s ease; /* Smooth scaling effect on hover */
     }
 
+    /* Hover effect to scale the button slightly */
     .resume-link:hover {
-      transform: scale(1.05);
+      transform: scale(1.05); /* Increase size slightly */
     }
   </style>
 </head>
 <body>
 
+  <!-- Resume link that triggers the opening of the resume on hover -->
   <div class="resume-link" id="resume-link">Hover to View My Resume</div>
 
   <script>
+    // Get the resume link element
     const button = document.getElementById("resume-link");
 
+    // Event listener for mouse enter on the button
     button.addEventListener("mouseenter", () => {
+      // Open the resume in a new tab when hovered
       window.open("resume shree.pdf", "_blank");
     });
   </script>
