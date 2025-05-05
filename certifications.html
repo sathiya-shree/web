@@ -3,181 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Certifications</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>Skills</title>
   <style>
-    /* General Styles */
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #a8d3f0;
-      color: black;
-      overflow: auto;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #ffffee 0%, #ffffee 35%, #b7e8eb 100%);
+      overflow: hidden;
+    }
+
+    body.fade-in {
+      animation: fadeIn 2s ease-in;
       position: relative;
     }
 
-    /* Accessibility: reduced motion preference */
-    @media (prefers-reduced-motion: reduce) {
-      .floating-element {
-        animation: none !important;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* Floating Bubbles */
-    .floating-elements {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .floating-element {
+    .content {
+      width: 90%;
+      max-width: 600px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      animation: slideFade 2s ease-out;
       position: absolute;
-      background-color: #ffffff;
-      border-radius: 50%;
-      opacity: 0.4;
-      animation: float 18s infinite ease-in-out;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 10%; /* Lifts the box above the wave */
+      z-index: 2;
     }
 
-    @keyframes float {
-      0% {
-        transform: translate(0, 0);
+    @keyframes slideFade {
+      from {
+        opacity: 0;
+        transform: translate(-50%, 30px);
       }
-      50% {
-        transform: translate(60px, -60px);
-      }
-      100% {
-        transform: translate(0, 0);
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
       }
     }
 
-    .hidden {
-      display: none;
-    }
-
-    /* Container */
-    .certifications-container {
-      padding: 1rem; /* Reduced padding for upper positioning */
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* Toggle Button */
-    .toggle-button {
-      background-color: #0ea5e9;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-bottom: 1rem; /* Reduced bottom margin to pull heading closer */
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .toggle-button:hover {
-      background-color: #0284c7;
-    }
-
-    /* Card Style */
-    .certification {
-      background-color: #ffffff;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .certification:hover {
-      transform: scale(1.05);
-    }
-
-    .certification h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
-      color: #0ea5e9;
-      margin-bottom: 1rem;
-    }
-
-    .certification p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333333;
-      margin-bottom: 1.5rem;
-    }
-
-    .certification a {
-      color: #0ea5e9;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-
-    .certification a:hover {
-      text-decoration: underline;
-    }
-
-    /* Certifications Heading */
     h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem; /* Increased font size */
-      color: white;
-      margin-top: -1rem; /* Lifted the heading */
-      margin-bottom: 0.5rem; /* Reduced bottom margin */
+      color: #004d66;
+      text-align: center;
+      font-size: 28px;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 25px;
+    }
+
+    li {
+      padding: 8px 0;
+      color: #003344;
+      font-size: 18px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    li:hover {
+      transform: translateX(5px);
+      color: #007799;
+    }
+
+    .ocean { 
+      height: 5%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: #015871;
+      z-index: 1;
+    }
+
+    .wave {
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+      position: absolute;
+      top: -198px;
+      width: 6400px;
+      height: 198px;
+      animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .wave:nth-of-type(2) {
+      top: -175px;
+      animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, 
+                 swell 7s ease -1.25s infinite;
+      opacity: 1;
+    }
+
+    @keyframes wave {
+      0% { margin-left: 0; }
+      100% { margin-left: -1600px; }
+    }
+
+    @keyframes swell {
+      0%, 100% { transform: translate3d(0,-25px,0); }
+      50% { transform: translate3d(0,5px,0); }
     }
   </style>
 </head>
-<body>
-  <!-- Toggle Button -->
-  <div class="certifications-container">
-    <button class="toggle-button" onclick="toggleBubbles()">Toggle Clean View</button>
+<body class="fade-in">
+
+  <div class="content">
+    <h2>PROGRAMMING SKILLS</h2>
+    <ul>
+      <li>Java</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>C++</li>
+      <li>MySQL</li>
+    </ul>
+
+    <h2>OTHER SKILLS</h2>
+    <ul>
+      <li>Creative writing</li>
+      <li>Time management</li>
+      <li>Social media Management</li>
+    </ul>
   </div>
 
-  <!-- Floating Bubbles -->
-  <div class="floating-elements" id="bubbleContainer">
-    <div class="floating-element" style="width: 20px; height: 20px; top: 10%; left: 10%;"></div>
-    <div class="floating-element" style="width: 25px; height: 25px; top: 25%; left: 40%;"></div>
-    <div class="floating-element" style="width: 18px; height: 18px; top: 50%; left: 70%;"></div>
-    <div class="floating-element" style="width: 22px; height: 22px; top: 75%; left: 20%;"></div>
+  <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
   </div>
-
-  <!-- Certifications -->
-  <div class="certifications-container">
-    <h2>Certifications</h2>
-
-    <div class="certification">
-      <h3>Web Development Fundamentals</h3>
-      <p>Built multiple web projects using HTML, CSS, and JavaScript to understand core web development principles.</p>
-      <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
-    </div>
-
-    <div class="certification">
-      <h3>Cyber Security Fundamentals</h3>
-      <p>Studied essential cybersecurity topics such as network defense, encryption strategies, and ethical hacking basics.</p>
-      <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
-    </div>
-
-    <div class="certification">
-      <h3>Data Mining & Machine Learning</h3>
-      <p>Applied data mining techniques and machine learning models to analyze patterns and make predictions.</p>
-      <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
-    </div>
-
-    <div class="certification">
-      <h3>Introduction to IoT</h3>
-      <p>Integrated sensors and embedded devices to explore how Internet of Things platforms function in real time.</p>
-      <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
-    </div>
-  </div>
-
-  <script>
-    function toggleBubbles() {
-      const container = document.getElementById('bubbleContainer');
-      container.classList.toggle('hidden');
-    }
-  </script>
 </body>
 </html>
