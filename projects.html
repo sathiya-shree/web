@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project Showcase</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Oswald', sans-serif;
-      background-color: #cce4f7; /* Light blue background */
+      background-color: #cce4f7;
       margin: 0;
       padding: 0;
     }
@@ -49,15 +49,15 @@
       width: 30%;
       perspective: 1000px;
       min-width: 280px;
+      height: 400px;
     }
 
     .card-inner {
-      position: relative;
       width: 100%;
-      height: 400px;
-      transition: transform 0.8s;
+      height: 100%;
+      position: relative;
+      transition: transform 0.8s ease;
       transform-style: preserve-3d;
-      border-radius: 12px;
     }
 
     .card:hover .card-inner {
@@ -71,18 +71,22 @@
       height: 100%;
       border-radius: 12px;
       backface-visibility: hidden;
+      top: 0;
+      left: 0;
       overflow: hidden;
-      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
     .card-front {
       background-color: #7ab9d8;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 20px;
       background-size: cover;
       background-position: center;
+      color: white;
+      flex-direction: column;
       position: relative;
     }
 
@@ -94,24 +98,25 @@
     }
 
     .card-front h1 {
-      position: relative;
       font-size: 1.8rem;
-      z-index: 2;
+      z-index: 1;
       margin: 0;
       text-align: center;
+      position: relative;
     }
 
     .card-back {
       background-color: #005f99;
       transform: rotateY(180deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
-      font-size: 1.1rem;
-      line-height: 1.6;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.8;
       text-align: center;
+    }
+
+    .card-back p {
+      margin: 0;
     }
 
     @media screen and (max-width: 768px) {
