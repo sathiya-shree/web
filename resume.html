@@ -30,7 +30,8 @@
       border-radius: 10px;
       box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
       cursor: default;
-      z-index: 10;
+      position: relative;
+      z-index: 2;
     }
 
     .modal {
@@ -40,10 +41,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(224, 240, 255, 0.9); /* Light blue transparent overlay */
+      background-color: rgba(224, 240, 255, 0.9); /* Transparent light blue overlay */
       justify-content: center;
       align-items: center;
-      z-index: 999;
+      z-index: 1;
     }
 
     .modal.show {
@@ -80,24 +81,26 @@
     const resumeBtn = document.getElementById("resume-btn");
     const modal = document.getElementById("resume-modal");
 
-    // Show modal when mouse enters either the button or modal
-    function showModal() {
+    // Show modal only while hovering
+    resumeBtn.addEventListener("mouseenter", () => {
       modal.classList.add("show");
-    }
+    });
 
-    // Hide modal when mouse leaves both
-    function hideModal() {
+    // Hide modal on click anywhere else
+    document.addEventListener("click", (e) => {
+      if (!modal.contains(e.target) && !resumeBtn.contains(e.target)) {
+        modal.classList.remove("show");
+      }
+    });
+
+    // Prevent modal from staying open after hover ends
+    resumeBtn.addEventListener("mouseleave", () => {
       setTimeout(() => {
-        if (!resumeBtn.matches(":hover") && !modal.matches(":hover")) {
+        if (!modal.matches(":hover")) {
           modal.classList.remove("show");
         }
       }, 100);
-    }
-
-    resumeBtn.addEventListener("mouseenter", showModal);
-    resumeBtn.addEventListener("mouseleave", hideModal);
-    modal.addEventListener("mouseenter", showModal);
-    modal.addEventListener("mouseleave", hideModal);
+    });
   </script>
 
 </body>
