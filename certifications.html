@@ -10,11 +10,17 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #a8d3f0; /* Background blue */
+      background-color: #a8d3f0;
       color: black;
       overflow: auto;
       position: relative;
-      cursor: url('https://example.com/custom-cursor.png'), auto; /* Replace with your custom cursor URL */
+    }
+
+    /* Accessibility: reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .floating-element {
+        animation: none !important;
+      }
     }
 
     /* Floating Bubbles */
@@ -32,8 +38,8 @@
       position: absolute;
       background-color: #ffffff;
       border-radius: 50%;
-      opacity: 0.6;
-      animation: float 12s infinite ease-in-out;
+      opacity: 0.4;
+      animation: float 18s infinite ease-in-out;
     }
 
     @keyframes float {
@@ -41,11 +47,15 @@
         transform: translate(0, 0);
       }
       50% {
-        transform: translate(80px, -80px);
+        transform: translate(60px, -60px);
       }
       100% {
         transform: translate(0, 0);
       }
+    }
+
+    .hidden {
+      display: none;
     }
 
     /* Container */
@@ -54,6 +64,22 @@
       max-width: 1000px;
       margin: 0 auto;
       text-align: center;
+    }
+
+    /* Toggle Button */
+    .toggle-button {
+      background-color: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .toggle-button:hover {
+      background-color: #0284c7;
     }
 
     /* Card Style */
@@ -97,23 +123,22 @@
     h2 {
       font-family: 'Montserrat', sans-serif;
       color: white;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
+  <!-- Toggle Button -->
+  <div class="certifications-container">
+    <button class="toggle-button" onclick="toggleBubbles()">Toggle Clean View</button>
+  </div>
+
   <!-- Floating Bubbles -->
-  <div class="floating-elements">
-    <div class="floating-element" style="width: 30px; height: 30px; animation-duration: 12s; top: 10%; left: 5%;"></div>
-    <div class="floating-element" style="width: 50px; height: 50px; animation-duration: 14s; top: 20%; left: 30%;"></div>
-    <div class="floating-element" style="width: 25px; height: 25px; animation-duration: 10s; top: 30%; left: 60%;"></div>
-    <div class="floating-element" style="width: 40px; height: 40px; animation-duration: 16s; top: 40%; left: 80%;"></div>
-    <div class="floating-element" style="width: 35px; height: 35px; animation-duration: 11s; top: 50%; left: 15%;"></div>
-    <div class="floating-element" style="width: 30px; height: 30px; animation-duration: 13s; top: 60%; left: 45%;"></div>
-    <div class="floating-element" style="width: 45px; height: 45px; animation-duration: 17s; top: 70%; left: 70%;"></div>
-    <div class="floating-element" style="width: 20px; height: 20px; animation-duration: 15s; top: 80%; left: 90%;"></div>
-    <div class="floating-element" style="width: 28px; height: 28px; animation-duration: 12s; top: 90%; left: 35%;"></div>
-    <div class="floating-element" style="width: 38px; height: 38px; animation-duration: 18s; top: 95%; left: 50%;"></div>
+  <div class="floating-elements" id="bubbleContainer">
+    <div class="floating-element" style="width: 20px; height: 20px; top: 10%; left: 10%;"></div>
+    <div class="floating-element" style="width: 25px; height: 25px; top: 25%; left: 40%;"></div>
+    <div class="floating-element" style="width: 18px; height: 18px; top: 50%; left: 70%;"></div>
+    <div class="floating-element" style="width: 22px; height: 22px; top: 75%; left: 20%;"></div>
   </div>
 
   <!-- Certifications -->
@@ -122,28 +147,34 @@
 
     <div class="certification">
       <h3>Web Development Fundamentals</h3>
-      <p>Learned the essentials of web development including HTML, CSS, and JavaScript, completing multiple projects along the way.</p>
+      <p>Built multiple web projects using HTML, CSS, and JavaScript to understand core web development principles.</p>
       <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
     </div>
 
     <div class="certification">
       <h3>Cyber Security Fundamentals</h3>
-      <p>Covered key concepts in cyber security including network security, encryption, and ethical hacking techniques.</p>
+      <p>Studied essential cybersecurity topics such as network defense, encryption strategies, and ethical hacking basics.</p>
       <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
     </div>
 
     <div class="certification">
       <h3>Data Mining & Machine Learning</h3>
-      <p>Explored the foundations of data mining and machine learning, gaining practical knowledge in predictive modeling and data analysis.</p>
+      <p>Applied data mining techniques and machine learning models to analyze patterns and make predictions.</p>
       <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
     </div>
 
     <div class="certification">
       <h3>Introduction to IoT</h3>
-      <p>Gained insight into IoT technologies, including sensors, networks, and platforms, with hands-on experience in device integration.</p>
+      <p>Integrated sensors and embedded devices to explore how Internet of Things platforms function in real time.</p>
       <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
     </div>
-
   </div>
+
+  <script>
+    function toggleBubbles() {
+      const container = document.getElementById('bubbleContainer');
+      container.classList.toggle('hidden');
+    }
+  </script>
 </body>
 </html>
