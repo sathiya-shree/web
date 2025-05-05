@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Resume & Trivia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <title>View My Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
     * {
       padding: 0;
@@ -20,77 +20,26 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpath fill='%23171717' d='M486 705.8c-109.3-21.8-223.4-32.2-335.3-19.4C99.5 692.1 49 703 0 719.8V800h843.8c-115.9-33.2-230.8-68.1-347.6-92.2C492.8 707.1 489.4 706.5 486 705.8z'/%3E%3Cpath fill='%231c1c1c' d='M1600 0H0v719.8c49-16.8 99.5-27.8 150.7-33.5c111.9-12.7 226-2.4 335.3 19.4c3.4 0.7 6.8 1.4 10.2 2c116.8 24 231.7 59 347.6 92.2H1600V0z'/%3E%3C/g%3E%3C/svg%3E");
       background-size: cover;
       overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 5;
     }
 
-    .triangle {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      transition: all 1s ease;
-    }
-
-    .left {
-      background-color: #001f3f;
-      clip-path: polygon(0 0, 50% 0, 0 100%);
-      animation: slideLeft 1s ease forwards;
-    }
-
-    .right {
-      background-color: #005288;
-      clip-path: polygon(100% 0, 50% 0, 100% 100%);
-      animation: slideRight 1s ease forwards;
-    }
-
-    @keyframes slideLeft {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(0); }
-    }
-
-    @keyframes slideRight {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(0); }
-    }
-
-    .slide-out-left {
-      transform: translateX(-100%);
-    }
-
-    .slide-out-right {
-      transform: translateX(100%);
-    }
-
-    button {
+    .resume-link {
       z-index: 10;
-      padding: 15px 30px;
-      font-size: 1.1em;
+      padding: 20px 40px;
+      font-size: 1.2em;
       background-color: #ffffff;
       color: #005288;
       border: none;
-      border-radius: 8px;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: all 0.3s ease;
+      text-align: center;
     }
 
-    button:hover {
+    .resume-link:hover {
       background-color: #005288;
       color: #ffffff;
     }
@@ -143,47 +92,11 @@
       height: 90%;
       border: none;
     }
-
-    .reveal {
-      z-index: 10;
-      text-align: center;
-      margin-top: 20px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      transition: all 0.5s ease;
-      cursor: pointer;
-    }
-
-    .reveal:hover h3 {
-      color: #4f9edc;
-    }
-
-    .reveal img {
-      width: 200px;
-      margin-bottom: 15px;
-    }
-
-    .reveal h2, .reveal h1, .reveal h3, .reveal p {
-      color: #fff;
-      margin: 5px 0;
-    }
-
-    .reveal .footer {
-      font-size: 0.8em;
-      opacity: 0.6;
-    }
-
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="triangle left" id="left-triangle"></div>
-    <div class="triangle right" id="right-triangle"></div>
-    <button id="view-resume-btn">Click to View My Resume</button>
-  </header>
+  <div class="resume-link" id="resume-btn">Click to View My Resume</div>
 
   <div id="resume-modal" class="modal">
     <div class="modal-content">
@@ -192,41 +105,22 @@
     </div>
   </div>
 
-  <div class="reveal">
-    <img alt="Answer" class="pic" src="https://i.imgur.com/RFxr4Qc.png">
-    <h2>What was the first</h2>
-    <h1>National Park?</h1>
-    <h3>Yellowstone</h3>
-    <p class="footer">(hover to reveal)</p>
-  </div>
-
   <script>
-    const viewBtn = document.getElementById("view-resume-btn");
-    const leftTri = document.getElementById("left-triangle");
-    const rightTri = document.getElementById("right-triangle");
+    const resumeBtn = document.getElementById("resume-btn");
     const modal = document.getElementById("resume-modal");
     const closeBtn = document.getElementById("close-resume-btn");
 
-    viewBtn.addEventListener("click", () => {
-      leftTri.classList.add("slide-out-left");
-      rightTri.classList.add("slide-out-right");
-
-      setTimeout(() => {
-        modal.classList.add("show");
-      }, 800);
+    resumeBtn.addEventListener("click", () => {
+      modal.classList.add("show");
     });
 
     closeBtn.addEventListener("click", () => {
       modal.classList.remove("show");
-      leftTri.classList.remove("slide-out-left");
-      rightTri.classList.remove("slide-out-right");
     });
 
     window.addEventListener("click", function (event) {
       if (event.target === modal) {
         modal.classList.remove("show");
-        leftTri.classList.remove("slide-out-left");
-        rightTri.classList.remove("slide-out-right");
       }
     });
   </script>
