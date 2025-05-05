@@ -60,7 +60,7 @@
 
     /* Container */
     .certifications-container {
-      padding: 1rem; /* Reduced padding for upper positioning */
+      padding: 1rem;
       max-width: 1000px;
       margin: 0 auto;
       text-align: center;
@@ -72,7 +72,7 @@
       color: white;
       border: none;
       padding: 0.5rem 1rem;
-      margin-bottom: 1rem; /* Reduced bottom margin to pull heading closer */
+      margin-bottom: 1rem;
       font-size: 1rem;
       border-radius: 5px;
       cursor: pointer;
@@ -80,6 +80,23 @@
 
     .toggle-button:hover {
       background-color: #0284c7;
+    }
+
+    /* Custom Button */
+    .custom-button {
+      background-color: #f59e0b;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+      background-color: #e27e1f;
     }
 
     /* Card Style */
@@ -123,10 +140,10 @@
     /* Certifications Heading */
     h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 3rem; /* Increased font size */
+      font-size: 3rem;
       color: white;
-      margin-top: -1rem; /* Lifted the heading */
-      margin-bottom: 0.5rem; /* Reduced bottom margin */
+      margin-top: -1rem;
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
@@ -171,6 +188,11 @@
       <p>Integrated sensors and embedded devices to explore how Internet of Things platforms function in real time.</p>
       <a href="https://example.com/certification-link" target="_blank">View Certificate</a>
     </div>
+  </div>
+
+  <!-- Custom Button Below Certifications -->
+  <div class="certifications-container">
+    <button class="custom-button" onclick="window.location.href='https://your-link.com'">Go to My Portfolio</button>
   </div>
 
   <script>
