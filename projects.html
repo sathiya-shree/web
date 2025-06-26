@@ -39,13 +39,11 @@
       margin-top: 10px;
     }
 
-    .row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
+     .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+  }
     .card {
       background-color: #ffffff;
       width: 30%;
