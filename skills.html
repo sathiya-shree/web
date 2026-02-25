@@ -3,156 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skills</title>
+  <title>Skills | Sathiya Shree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
   <style>
-    /* Global styles for full height, font family, background, and preventing scrolling */
-    html, body {
-      height: 100%;
+    :root {
+      --bg: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent: #0ea5e9;
+      --accent-alt: #818cf8;
+    }
+
+    body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(ellipse at center, #ffffee 0%, #ffffee 35%, #b7e8eb 100%);
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(129, 140, 248, 0.1) 0px, transparent 50%);
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
-    /* Fade-in animation for the body */
-    body.fade-in {
-      animation: fadeIn 2s ease-in;
-      position: relative;
-      cursor: url('icons8-circle-24.png'), auto;
-    }
-
-    /* Keyframes for fade-in effect */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Styling for the content box that holds the skills lists */
-    .content {
+    .container {
       width: 90%;
-      max-width: 600px;
-      padding: 30px;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      animation: slideFade 2s ease-out;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 6%; /* Higher than before */
+      max-width: 800px;
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      border-radius: 32px;
+      padding: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       z-index: 2;
+      animation: appear 0.8s ease-out;
     }
 
-    /* Slide and fade animation for the content */
-    @keyframes slideFade {
-      from {
-        opacity: 0;
-        transform: translate(-50%, 30px);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-      }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Heading styles for skill sections */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
     h2 {
-      color: #004d66;
-      text-align: center;
-      font-size: 30px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
     }
 
-    /* Styling for the unordered lists (skills) */
-    ul {
-      list-style-type: square;
-      padding-left: 25px;
+    .skill-item {
+      margin-bottom: 1.5rem;
     }
 
-    /* Styling for each list item */
-    li {
-      padding: 8px 0;
-      color: #003344;
-      font-size: 18px;
-      transition: transform 0.3s ease, color 0.3s ease;
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
     }
 
-    /* Hover effect for list items */
-    li:hover {
-      transform: translateX(5px);
-      color: #007799;
+    .skill-name {
+      font-weight: 600;
+      font-size: 1rem;
     }
 
-    /* Ocean styling at the bottom of the page */
-    .ocean { 
-      height: 5%;
-      width: 100%;
+    .skill-percent {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    /* Progress Bar Base */
+    .bar-bg {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Progress Bar Fill */
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--accent), var(--accent-alt));
+      border-radius: 10px;
+      width: 0; /* Initial width for animation */
+      transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1);
+    }
+
+    /* Background Wave Decor */
+    .wave-decor {
       position: absolute;
       bottom: 0;
-      left: 0;
-      background: #015871;
+      width: 100%;
+      height: 150px;
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg') repeat-x;
+      opacity: 0.05;
+      filter: invert(1);
       z-index: 1;
     }
 
-    /* Waves animation */
-    .wave {
-      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
-      position: absolute;
-      top: -198px;
-      width: 6400px;
-      height: 198px;
-      animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-      transform: translate3d(0, 0, 0);
-    }
-
-    /* Second wave with different timing */
-    .wave:nth-of-type(2) {
-      top: -175px;
-      animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, 
-                 swell 7s ease -1.25s infinite;
-      opacity: 1;
-    }
-
-    /* Keyframes for wave movement */
-    @keyframes wave {
-      0% { margin-left: 0; }
-      100% { margin-left: -1600px; }
-    }
-
-    /* Keyframes for wave swell effect */
-    @keyframes swell {
-      0%, 100% { transform: translate3d(0,-25px,0); }
-      50% { transform: translate3d(0,5px,0); }
+    @media (max-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .container { padding: 2rem; }
+      body { overflow-y: auto; }
     }
   </style>
 </head>
-<body class="fade-in">
+<body>
 
-  <div class="content">
-    <!-- Skill section headers and lists -->
-    <h2>Programming Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>Java</li>
-      <li>MySQL</li>
-    </ul>
+  <div class="wave-decor"></div>
 
-    <h2>Other Skills</h2>
-    <ul>
-      <li>Creative Writing</li>
-      <li>Time Management</li>
-      <li>Attention to Detail</li>
-      <li>Social Media Management</li>
-    </ul>
+  <div class="container">
+    <div class="header-nav">
+      <h1>Expertise</h1>
+      <a href="details.html" class="back-link">← Menu</a>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h2>Technical</h2>
+        
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">Python</span><span class="skill-percent">90%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="90%"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">HTML / CSS</span><span class="skill-percent">95%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="95%"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-percent">85%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="85%"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">MySQL</span><span class="skill-percent">80%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h2>Professional</h2>
+        
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">Creative Writing</span><span class="skill-percent">95%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="95%" style="background: var(--accent-alt)"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">Time Management</span><span class="skill-percent">90%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="90%" style="background: var(--accent-alt)"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">Social Media Mgmt</span><span class="skill-percent">85%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="85%" style="background: var(--accent-alt)"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><span class="skill-name">Attention to Detail</span><span class="skill-percent">100%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-percent="100%" style="background: var(--accent-alt)"></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Ocean animation at the bottom of the page -->
-  <div class="ocean">
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>
+  <script>
+    // Trigger progress bar animation on load
+    window.onload = () => {
+      const bars = document.querySelectorAll('.bar-fill');
+      bars.forEach(bar => {
+        const percentage = bar.getAttribute('data-percent');
+        bar.style.width = percentage;
+      });
+    };
+  </script>
 </body>
 </html>
