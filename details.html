@@ -3,65 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Professional Portfolio Links</title>
+  <title>Portfolio | Explore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --bg: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent-blue: #0ea5e9;
+      --accent-purple: #818cf8;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #eef3f8, #dbe7f2);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+      font-family: 'Outfit', sans-serif;
+      color: white;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      cursor: url('icons8-circle-24.png'), pointer; 
     }
 
+    h1 {
+      margin-bottom: 2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Bento Grid Layout */
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 180px);
+      gap: 20px;
       width: 90%;
       max-width: 1000px;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
     .card {
-      background-color: #ffffff;
-      color: #2c3e50;
-      padding: 40px 20px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      font-weight: 600;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
       text-decoration: none;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
     }
 
+    /* Hover Effects */
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px) scale(1.02);
+      border-color: var(--accent-blue);
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
     .card span {
-      display: block;
-      font-size: 18px;
-      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      z-index: 2;
     }
+
+    /* Assigning different sizes for the "Bento" look */
+    .projects { grid-column: span 2; grid-row: span 1; background: linear-gradient(45deg, rgba(14, 165, 233, 0.1), transparent); }
+    .skills { grid-column: span 1; grid-row: span 2; }
+    .resume { grid-column: span 1; grid-row: span 1; }
+    .certifications { grid-column: span 2; }
+    .contact { grid-column: span 1; }
+
+    /* Decorative icon placeholder */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* Responsive for Tablets/Phones */
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .projects, .skills, .certifications, .resume, .contact {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { grid-template-columns: 1fr; }
+    }
+
+    .back-link {
+      margin-top: 30px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .back-link:hover { color: var(--accent-blue); }
+
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <a href="certifications.html" class="card"><span>Certifications</span></a>
-    <a href="projects.html" class="card"><span>Projects</span></a>
-    <a href="skills.html" class="card"><span>Skills</span></a>
-    <a href="internships.html" class="card"><span>Internships</span></a>
-    <a href="resume.html" class="card"><span>Resume</span></a>
-    <a href="interests.html" class="card"><span>Interests</span></a>
-    <a href="contact.html" class="card"><span>Contact</span></a>
+  <h1>Explore My World</h1>
 
+  <div class="container">
+    <a href="projects.html" class="card projects">
+      <span>🚀 Projects</span>
+    </a>
+    <a href="skills.html" class="card skills">
+      <span>🛠️ Skills</span>
+    </a>
+    <a href="certifications.html" class="card certifications">
+      <span>📜 Certifications</span>
+    </a>
+    <a href="resume.html" class="card resume">
+      <span>📄 Resume</span>
+    </a>
+    <a href="internships.html" class="card">
+      <span>💼 Internships</span>
+    </a>
+    <a href="interests.html" class="card">
+      <span>🎨 Interests</span>
+    </a>
+    <a href="contact.html" class="card contact">
+      <span>📧 Contact</span>
+    </a>
   </div>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
 
 </body>
 </html>
