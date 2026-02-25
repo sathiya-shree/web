@@ -3,189 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Certifications</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>Certifications | Sathiya Shree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* General Styles */
+    :root {
+      --bg: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent: #0ea5e9;
+      --text: #f1f5f9;
+      --text-dim: #94a3b8;
+    }
+
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #a8d3f0;
-      color: black;
-      overflow: auto;
-      position: relative;
-      cursor: url('icons8-circle-24.png'), auto; /* Custom cursor */
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* Accessibility: reduced motion preference */
-    @media (prefers-reduced-motion: reduce) {
-      .floating-element {
-        animation: none !important;
-      }
-    }
-
-    /* Floating Bubbles */
-    .floating-elements {
+    /* Floating Background Elements */
+    .orb {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+      filter: blur(150px);
+      opacity: 0.1;
       z-index: -1;
-    }
-
-    .floating-element {
-      position: absolute;
-      background-color: #ffffff;
       border-radius: 50%;
-      opacity: 0.4;
-      animation: float 18s infinite ease-in-out;
+      animation: drift 20s infinite alternate;
     }
 
-    @keyframes float {
-      0% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(60px, -60px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
+    @keyframes drift {
+      from { transform: translate(-10%, -10%); }
+      to { transform: translate(20%, 20%); }
     }
 
-    .hidden {
-      display: none;
-    }
-
-    /* Container */
-    .certifications-container {
-      padding: 1rem; /* Reduced padding for upper positioning */
-      max-width: 1000px;
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
-      text-align: center;
+      padding: 4rem 2rem;
     }
 
-    /* Toggle Button */
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    /* Control Panel */
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
     .toggle-button {
-      background-color: #0ea5e9;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-bottom: 1rem; /* Reduced bottom margin to pull heading closer */
-      font-size: 1rem;
-      border-radius: 5px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-dim);
+      padding: 10px 20px;
+      border-radius: 50px;
       cursor: pointer;
+      font-family: inherit;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
     }
 
     .toggle-button:hover {
-      background-color: #0284c7;
+      border-color: var(--accent);
+      color: white;
     }
 
-    /* Card Style */
+    /* Grid Layout */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Certification Card */
     .certification {
-      background-color: #ffffff;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
       padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
 
     .certification:hover {
+      transform: translateY(-10px);
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cert-img-wrapper {
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .certification img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .certification:hover img {
       transform: scale(1.05);
     }
 
     .certification h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
-      color: #0ea5e9;
-      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 0.75rem 0;
     }
 
     .certification p {
-      font-size: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
       line-height: 1.6;
-      color: #333333;
       margin-bottom: 1.5rem;
+      flex-grow: 1;
     }
 
-    .certification a {
-      color: #0ea5e9;
-      font-size: 1rem;
+    .cert-link {
+      color: var(--accent);
       text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .certification a:hover {
-      text-decoration: underline;
-    }
+    .cert-link:hover { text-decoration: underline; }
 
-    /* Certifications Heading */
-    h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem; /* Increased font size */
-      color: white;
-      margin-top: -1rem; /* Lifted the heading */
-      margin-bottom: 0.5rem; /* Reduced bottom margin */
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      h2 { font-size: 2rem; }
+      .container { padding: 2rem 1rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Toggle Button -->
-  <div class="certifications-container">
-    <button class="toggle-button" onclick="toggleBubbles()">Toggle Clean View</button>
+
+  <div class="orb"></div>
+
+  <div class="container">
+    <header>
+      <h2>Certifications</h2>
+    </header>
+
+    <div class="controls">
+      <button class="toggle-button" onclick="window.location.href='details.html'">← Back to Menu</button>
+      <button class="toggle-button" onclick="toggleAtmosphere()">Toggle Atmosphere</button>
+    </div>
+
+    <div class="cert-grid">
+      <div class="certification">
+        <div class="cert-img-wrapper">
+          <img src="GuviCertification - 99449FLJ7I787og1n9.png" alt="Python">
+        </div>
+        <h3>Python Advanced</h3>
+        <p>Mastered data structures, functions, and logic building within the Guvi ecosystem.</p>
+        <a href="https://www.guvi.in/share-certificate/99449FLJ7I787og1n9" target="_blank" class="cert-link">Verify Credential ↗</a>
+      </div>
+
+      <div class="certification">
+        <div class="cert-img-wrapper">
+          <img src="python foundation.jpg" alt="Python Foundation">
+        </div>
+        <h3>Python Foundation</h3>
+        <p>Core programming concepts, including control flow, lists, and file handling.</p>
+      </div>
+
+      <div class="certification">
+        <div class="cert-img-wrapper">
+          <img src="Natural Language Generation with Python.jpg" alt="NLG Python">
+        </div>
+        <h3>Natural Language Generation</h3>
+        <p>Explored human-like text generation using advanced Python libraries and deep learning.</p>
+      </div>
+
+      <div class="certification">
+        <div class="cert-img-wrapper">
+          <img src="HTML for Programmers.jpg" alt="HTML">
+        </div>
+        <h3>HTML for Programmers</h3>
+        <p>Advanced semantic structure and accessibility for modern web applications.</p>
+      </div>
+
+      <div class="certification">
+        <div class="cert-img-wrapper">
+          <img src="Machine Learning with Python Foundations.jpg" alt="ML Foundations">
+        </div>
+        <h3>ML with Python</h3>
+        <p>Foundational machine learning workflows and scikit-learn model implementation.</p>
+      </div>
+    </div>
   </div>
-
-  <!-- Floating Bubbles -->
-  <div class="floating-elements" id="bubbleContainer">
-    <div class="floating-element" style="width: 20px; height: 20px; top: 10%; left: 10%;"></div>
-    <div class="floating-element" style="width: 25px; height: 25px; top: 25%; left: 40%;"></div>
-    <div class="floating-element" style="width: 18px; height: 18px; top: 50%; left: 70%;"></div>
-    <div class="floating-element" style="width: 22px; height: 22px; top: 75%; left: 20%;"></div>
-  </div>
-
- <!-- Certifications -->
-<div class="certifications-container">
-  <h2>Certifications</h2>
-
-  <div class="certification">
-    <h3>Python</h3>
-    <img src="GuviCertification - 99449FLJ7I787og1n9.png" alt="Python" style="width:100%; max-width:400px; border-radius: 8px; margin-bottom: 1rem;">
-    <p>Gained a solid foundation in Python programming including data types, loops, functions, and basic data structures.</p>
-    <a href="https://www.guvi.in/share-certificate/99449FLJ7I787og1n9" target="_blank">View Certificate</a>
-  </div>
-
-  <div class="certification">
-    <h3>Python Foundation Certification</h3>
-     <img src="python foundation.jpg" alt="Python Foundation Certificate" style="width:100%; max-width:400px; border-radius: 8px; margin-bottom: 1rem;">
-    <p>Learned core Python programming concepts, including control flow, lists, dictionaries, and file handling.</p>
-  </div>
-
-  <div class="certification">
-    <h3>Natural Language Generation with Python</h3>
-    <img src="Natural Language Generation with Python.jpg" alt="Natural Language Generation Certificate" style="width:100%; max-width:400px; border-radius: 8px; margin-bottom: 1rem;">
-    <p>Explored the fundamentals of generating human-like text using Python libraries and deep learning models.</p>
-  </div>
-
-  <div class="certification">
-    <h3>HTML for Programmers</h3>
-    <img src="HTML for Programmers.jpg" alt="HTML for Programmers Certificate" style="width:100%; max-width:400px; border-radius: 8px; margin-bottom: 1rem;">
-    <p>Studied HTML structure, elements, attributes, and forms, focusing on semantic and accessible web design.</p>
-  </div>
-
-  <div class="certification">
-    <h3>Machine Learning with Python: Foundations</h3>
-    <img src="Machine Learning with Python Foundations.jpg" alt="Machine Learning with Python Certificate" style="width:100%; max-width:400px; border-radius: 8px; margin-bottom: 1rem;">
-    <p>Introduced to machine learning workflows and built foundational models using Python libraries like scikit-learn.</p>
-  </div>
-</div>
-
 
   <script>
-    function toggleBubbles() {
-      const container = document.getElementById('bubbleContainer');
-      container.classList.toggle('hidden');
+    function toggleAtmosphere() {
+      document.querySelector('.orb').classList.toggle('hidden');
     }
   </script>
 </body>
