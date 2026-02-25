@@ -3,159 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Internships</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>Experience | Sathiya Shree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
+    :root {
+      --bg: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent: #0ea5e9;
+      --accent-glow: rgba(14, 165, 233, 0.3);
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right top, #f0fdf4, #dbeafe);
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.05), transparent),
+        radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.05), transparent);
+      color: #f1f5f9;
       min-height: 100vh;
-      color: #1f2937;
-      cursor: url('icons8-circle-24.png'), auto;
-    }
-
-    main {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 3rem 2rem;
     }
 
-    section#internships {
-      width: 100%;
-      max-width: 1200px;
+    .container {
+      width: 90%;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
     }
 
     h3 {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 600;
-      color: #0f172a;
-      margin-bottom: 2rem;
-      position: relative;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .internship-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1rem;
+    .back-btn {
+      text-decoration: none;
+      color: #94a3b8;
+      border: 1px solid var(--glass-border);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      transition: 0.3s;
     }
 
-    .internship-container::-webkit-scrollbar {
-      height: 8px;
+    .back-btn:hover {
+      border-color: var(--accent);
+      color: white;
     }
 
-    .internship-container::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 8px;
-    }
-
+    /* Internship Card Design */
     .intern-card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(16px);
-      border-radius: 20px;
-      padding: 2rem;
-      min-width: 340px;
-      max-width: 340px;
-      scroll-snap-align: start;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 3rem;
       position: relative;
+      transition: all 0.5s ease;
       overflow: hidden;
     }
 
+    /* Subtle glow on hover */
     .intern-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border-color: rgba(14, 165, 233, 0.5);
+      box-shadow: 0 0 40px var(--accent-glow);
+      transform: translateY(-5px);
     }
 
-    .intern-card h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.2rem;
-      color: #1e40af;
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
     }
 
-    .intern-card span.company {
-      font-weight: 500;
-      color: #475569;
-      font-size: 0.95rem;
+    .role-title h4 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #fff;
     }
 
-    .intern-card .duration {
+    .company-name {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .duration-badge {
+      background: rgba(14, 165, 233, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 50px;
       font-size: 0.85rem;
-      margin: 0.5rem 0;
-      color: #64748b;
+      font-weight: 600;
+      border: 1px solid rgba(14, 165, 233, 0.2);
     }
 
-    .skills {
+    .skills-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
+      gap: 10px;
+      margin: 2rem 0;
     }
 
-    .skills span {
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
+    .skill-tag {
+      font-size: 0.8rem;
+      padding: 5px 12px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: #94a3b8;
     }
 
     .intern-details {
-      font-size: 0.9rem;
-      color: #334155;
-      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 90%;
     }
 
-    .intern-card a {
+    .visit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #0ea5e9;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    .intern-card a:hover {
-      text-decoration: underline;
+    .visit-link:hover {
+      color: var(--accent);
+    }
+
+    .circle-decor {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      filter: blur(80px);
+      opacity: 0.2;
+    }
+
+    @media (max-width: 600px) {
+      .role-header { flex-direction: column; gap: 1rem; }
+      .intern-card { padding: 2rem; }
+      h3 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <main>
-    <section id="internships">
-      <h3>Internships</h3>
-      <div class="internship-container">
+  <div class="container">
+    <div class="header-nav">
+      <h3>Experience</h3>
+      <a href="details.html" class="back-btn">← Back</a>
+    </div>
 
-        <!-- Internship 1 -->
-        <div class="intern-card">
-          <h4>Frontend Developer</h4>
-          <span class="company">Internet Society Chennai Chapter</span>
-          <div class="duration">4 Months</div>
-          <div class="skills">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Django</span>
-          </div>
-          <p class="intern-details">Designed and developed responsive interfaces, improved UX and implemented automated email communication system for student outreach. </p>
-          <a href="https://www.internetsociety.org/" target="_blank">Learn more</a>
-        </div>
-
+    <div class="intern-card">
+      <div class="circle-decor"></div>
       
-
+      <div class="role-header">
+        <div class="role-title">
+          <h4>Frontend Developer</h4>
+          <span class="company-name">Internet Society Chennai Chapter</span>
+        </div>
+        <div class="duration-badge">4 Months Intern</div>
       </div>
-    </section>
-  </main>
+
+      <div class="skills-cluster">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">UI/UX</span>
+      </div>
+
+      <p class="intern-details">
+        Spearheaded the design of responsive user interfaces and optimized digital outreach. 
+        I implemented an automated email communication system that significantly streamlined student engagement processes and enhanced the overall user experience.
+      </p>
+
+      <a href="https://www.internetsociety.org/" target="_blank" class="visit-link">
+        Organization Website ↗
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>
