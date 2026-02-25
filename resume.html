@@ -2,60 +2,196 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hover to View Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume | Sathiya Shree</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* Global styles for margin, padding, box-sizing, and text transformation */
+    /* Unified Theme Variables */
+    :root {
+      --bg: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent-blue: #0ea5e9;
+      --accent-purple: #818cf8;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
     }
 
-    /* Styling for body to center the content */
     body {
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #e0f0ff;
-      cursor: url('icons8-circle-24.png'), auto;
+      background-color: var(--bg);
+      /* Consistent Background Gradient */
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 40%);
+      color: #f1f5f9;
+      overflow: hidden;
     }
 
-    /* Styling for the resume link button */
-    .resume-link {
-      padding: 20px 40px; /* Padding for the button */
-      background-color: white; /* White background */
-      color: #005288; /* Text color */
-      font-size: 1.2em; /* Font size */
-      border-radius: 10px; /* Rounded corners */
-      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
-      cursor: pointer; /* Pointer cursor to indicate it's clickable */
-      transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+    /* Consistent Navigation Button */
+    .back-nav {
+      position: absolute;
+      top: 30px;
+      left: 30px;
     }
 
-    /* Hover effect to scale the button slightly */
-    .resume-link:hover {
-      transform: scale(1.05); /* Increase size slightly */
+    .back-btn {
+      text-decoration: none;
+      color: #94a3b8;
+      border: 1px solid var(--glass-border);
+      padding: 10px 22px;
+      border-radius: 50px;
+      transition: 0.3s;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(10px);
+    }
+
+    .back-btn:hover {
+      border-color: var(--accent-blue);
+      color: white;
+      background: rgba(14, 165, 233, 0.1);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+    }
+
+    /* Central Glass Card */
+    .resume-card {
+      background: var(--glass);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      padding: 4rem 3rem;
+      border-radius: 40px;
+      text-align: center;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-circle {
+      width: 70px;
+      height: 70px;
+      background: rgba(14, 165, 233, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 1.5rem;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      color: var(--accent-blue);
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(to right, #ffffff, var(--accent-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    /* Shimmer Button */
+    .resume-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: 0.5s;
+    }
+
+    .resume-btn:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-blue);
+      background: rgba(14, 165, 233, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .resume-btn:hover::after {
+      left: 100%;
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Resume link that triggers the opening of the resume on hover -->
-  <div class="resume-link" id="resume-link">Hover to View My Resume</div>
+  <nav class="back-nav">
+    <a href="details.html" class="back-btn">← Back</a>
+  </nav>
+
+  <div class="resume-card">
+    <div class="icon-circle">📄</div>
+    <h2>Curriculum Vitae</h2>
+    <p>Get a detailed overview of my technical expertise, projects, and educational milestones.</p>
+    
+    <div class="resume-btn" id="view-resume">
+      View Resume
+    </div>
+
+    <p class="footer-note">Hover or Tap to open PDF</p>
+  </div>
 
   <script>
-    // Get the resume link element
-    const button = document.getElementById("resume-link");
+    const resumeButton = document.getElementById("view-resume");
+    const fileName = "resume shree.pdf";
 
-    // Event listener for mouse enter on the button
-    button.addEventListener("mouseenter", () => {
-      // Open the resume in a new tab when hovered
-      window.open("resume shree.pdf", "_blank");
-    });
+    const openPDF = () => {
+      window.open(fileName, "_blank");
+    };
+
+    // Responsive Interaction: Hover for Desktop, Click for Mobile
+    resumeButton.addEventListener("mouseenter", openPDF);
+    resumeButton.addEventListener("click", openPDF);
   </script>
 
 </body>
