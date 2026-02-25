@@ -3,323 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>Sathiya Shree | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Body Styling */
+    :root {
+      --primary: #0ea5e9;
+      --secondary: #6366f1;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Outfit', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-      color: #333;
-      position: relative; /* This allows absolute positioning for the stickers */
-      cursor: url('icons8-circle-24.png'), auto;
-    }
-    a, .btn {
-      cursor: url('icons8-circle-24.png'), auto; /* Custom cursor for links */
-    }
-    .btn:hover {
-      background-color: #0284c7;
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-    /* Container */
-    .container {
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 2rem;
+      background: var(--bg-gradient);
+      color: #f1f5f9;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* Header Styling */
-    header {
-      text-align: center;
-      padding: 2rem 0;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: #0f172a;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      color: #475569;
-    }
-
-    /* Section Styling */
-    section {
-      margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 15px;
-      background: #ffffffcc;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      position: relative;
-    }
-
-    /* Hover effect for sections */
-    section:hover {
-      background-color: #e2e8f0;
-      transform: translateY(-5px);
-    }
-
-    h2 {
-      color: #1e293b;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 5px;
-      display: inline-block;
-      position: relative;
-    }
-
-    /* Moving Line for Hover Effect */
-    h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #0ea5e9;
-      transition: width 0.3s ease-in-out;
-    }
-
-    /* Hover effect for section titles */
-    section:hover h2::after {
-      width: 100%;
-    }
-
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .contact-info {
-      font-size: 1.2rem;
-      color: #475569;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Social Links Styling */
-    .social-links a {
-      color: #0284c7;
-      text-decoration: none;
-      margin: 0 0.7rem;
-      font-weight: 600;
-    }
-
-    .social-links a:hover {
-      color: #0ea5e9;
-    }
-
-    /* Explore Button Styling */
-    .explore-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 3rem 0; /* Added margin for better spacing */
-    }
-
-    .btn {
-      background: #0ea5e9;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      cursor: pointer;
-    }
-
-    /* Hover Effect for Explore Button */
-    .btn:hover {
-      background-color: #0284c7;
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Stickers Design (placed directly on the page) */
-    .sticker {
-      position: absolute;
-      border-radius: 50%;
-      color: white;
-      width: 100px;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    /* Unique Sticker Effects */
-    .sticker:hover {
-      transform: rotate(20deg) scale(1.2);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Placing Stickers Around the Page (freely) */
-    .sticker-1 {
-      top: 5%;
-      left: 5%;
-      background-color: #0ea5e9; /* Blue */
-    }
-
-    .sticker-2 {
-      bottom: 10%;
-      right: 10%;
-      background-color: #f59e0b; /* Yellow */
-    }
-
-    .sticker-3 {
-      top: 20%;
-      left: 10%;
-      background-color: #10b981; /* Green */
-    }
-
-    /* React Sticker (Top-Right Corner) */
-    .sticker-4 {
-      top: 5%;  /* Position it near the top */
-      right: 5%; /* Position it near the right */
-      background-color: #ef4444; /* Red */
-    }
-
-    /* Node.js Sticker (Right Side) */
-    .sticker-5 {
-      top: 60%;  /* Adjust as needed to position it vertically */
-      right: 15%;  /* Keep it aligned to the right */
-      background-color: #9333ea; /* Purple */
-    }
-
-    /* Particles JS */
+    /* Particles Background */
     #particles-js {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Ensure it's behind the content */
+      z-index: 0;
     }
 
-    /* Responsive Adjustments */
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 10;
+    }
 
-      .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 1rem;
-      }
+    /* Header & Typography */
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
 
-      .container {
-        padding: 1rem;
-      }
+    header h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-      .sticker {
-        width: 80px;
-        height: 80px;
-        font-size: 0.9rem;
-      }
+    header p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Glass Cards */
+    section {
+      margin: 2.5rem 0;
+      padding: 2.5rem;
+      border-radius: 24px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    section:hover {
+      transform: translateY(-8px);
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #38bdf8;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+    }
+
+    /* Modern Button */
+    .explore-btn {
+      display: flex;
+      justify-content: center;
+      margin: 4rem 0;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5);
+    }
+
+    /* Floating Stickers */
+    .sticker {
+      position: fixed;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 1;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .sticker-1 { top: 15%; left: 5%; animation-delay: 0s; }
+    .sticker-2 { bottom: 15%; right: 5%; animation-delay: 1s; }
+    .sticker-3 { top: 40%; right: 8%; animation-delay: 2s; }
+    .sticker-4 { bottom: 20%; left: 10%; animation-delay: 3s; }
+
+    /* Contact Links */
+    .contact-info { margin-bottom: 2rem; }
+    .social-links a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 1rem;
+      transition: 0.3s;
+    }
+    .social-links a:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      .sticker { display: none; }
+      .container { padding: 2rem 1rem; }
     }
   </style>
 </head>
 <body>
+
+  <div id="particles-js"></div>
+
   <div class="container">
     <header>
-      <h1>Hi, I'm Sathiya shree</h1>
-      <p>Emerging Web Developer | Master's in IT</p>
+      <h1>Sathiya Shree</h1>
+      <p>Web Developer & IT Specialist</p>
     </header>
 
-    <section class="about">
+    <section>
       <h2>About Me</h2>
-      <p> Master’s student in Information Technology with skills in HTML, CSS, JavaScript, Python, and MySQL. 
-        Passionate about building clean, functional websites. Experienced in front-end development, academic projects, and creative writing. 
-        Focused on delivering intuitive, high-impact digital experiences through a blend of design and technology.
+      <p>
+        Master’s student in Information Technology based in Coimbatore. 
+        I specialize in bridging the gap between complex backend logic and 
+        intuitive frontend design. With a toolkit spanning <strong>Python, React, and MySQL</strong>, 
+        I build digital experiences that are as functional as they are beautiful.
       </p>
     </section>
 
-    <!-- Centered Explore Button -->
     <div class="explore-btn">
-      <a href="details.html" class="btn">Explore My Work</a>
+      <a href="details.html" class="btn">View My Projects</a>
     </div>
 
-    <section class="contact">
-      <h2>Contact</h2>
+    <section style="text-align: center;">
+      <h2>Let's Connect</h2>
       <div class="contact-info">
-        📍 Coimbatore, Tamil Nadu, India<br>
-        ✉️ sathiyashree03@gmail.com
+        <p>📍 Coimbatore, Tamil Nadu, India</p>
+        <p>✉️ sathiyashree03@gmail.com</p>
       </div>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/sathiya-shree-s-/" target="_blank">LinkedIn</a> |
+        <a href="https://www.linkedin.com/in/sathiya-shree-s-/" target="_blank">LinkedIn</a>
         <a href="https://github.com/sathiya-shree" target="_blank">GitHub</a>
       </div>
     </section>
   </div>
 
-  <!-- Stickers placed freely around the page -->
-  <div class="sticker sticker-1">HTML</div>
-  <div class="sticker sticker-2">CSS</div>
-  <div class="sticker sticker-3">JS</div>
-  <div class="sticker sticker-4">React</div>
-  <div class="sticker sticker-5">Node.js</div>
+  <div class="sticker sticker-1">Python</div>
+  <div class="sticker sticker-2">React.js</div>
+  <div class="sticker sticker-3">MySQL</div>
+  <div class="sticker sticker-4">JavaScript</div>
 
-  <!-- Particles JS -->
-  <div id="particles-js"></div>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
       "particles": {
-        "number": {
-          "value": 60,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#0284c7"
-        },
-        "shape": {
-          "type": "circle"
-        },
-        "opacity": {
-          "value": 0.3,
-          "random": true
-        },
-        "size": {
-          "value": 4,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#0284c7",
-          "opacity": 0.2,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 1.2
-        }
+        "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#0ea5e9" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.2 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#0ea5e9", "opacity": 0.1, "width": 1 },
+        "move": { "enable": true, "speed": 1 }
       },
       "interactivity": {
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          }
-        }
+        "events": { "onhover": { "enable": true, "mode": "grab" } }
       },
       "retina_detect": true
     });
